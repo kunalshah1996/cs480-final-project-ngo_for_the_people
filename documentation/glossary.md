@@ -2,19 +2,21 @@ Glossary
 
 Entities :- 
 
-Admin :
+Entity Name : Admin 
+Description :
 Admin manages the daily operations of the NGO such as creating an account for the employees,  registers donors and approves the cause. Admin can take incharge by logging in using the login credentials. 
 
-  Primary key :  admin_id
-  Other attributes : admin_name, admin_username , admin_password
+Primary key :  admin_id
+Other attributes : admin_name, admin_username , admin_password
 
 
-Employee :
+Entity Name : Employee 
 Synonym : Volunteer, Approver
+Description :
 Employees or volunteers help with fundraising, analyse the tasks and operations of the organisation, working on a campaign and supporting a cause. Volunteers also show their availability status for different dates.
 
-  Primary key : e_id
-  Other attributes : e_name, e_contact, e_address, e_designation, e_department, e_availability_status
+Primary key : e_id
+Other attributes : e_name, e_contact, e_address, e_designation, e_department, e_availability_status
 
 
 Campaign :
