@@ -16,4 +16,12 @@ A database management system for spreading awareness and to maximise funds by ma
 Along with donation, the database will also maintain a record of active volunteers(name, age, contact, address) of a particular region, making them accessible to different events as well and keep a track of all the funds. The organisation also will have campaigns for different causes and the database will have all the information related to the event.
 Different software systems can utilise this database to understand the poverty ratio in different regions, thereby to understand where resources are required the most. The datasets will be useful for data analysis and reporting. Understanding the improvement of a particular region will help understand the development rate. The database scope mainly focuses on the flow of funds to a sundry of receivers depending on the need and requirement.
 The platform helps to redirect funds to multiple sources and unlike generic systems, it does  not focus on one sector only. There are no such centralised systems which aid the need of maintaining current records and help maximize funds while maintaining transparency, thereby currently there are no solutions for the said problem. Education systems, hunger sustainability, transparent resource management are few of the many approaches achievable by the database system.
+# Screenshots
+
+CRUD for employee entity
+![WhatsApp Image 2021-10-28 at 11 32 50 PM](https://user-images.githubusercontent.com/62787126/139376361-fd1d39ff-72de-465f-a3b6-2dc757ba7580.jpeg)
+![WhatsApp Image 2021-10-28 at 11 32 50 PM-2](https://user-images.githubusercontent.com/62787126/139376348-f93d33df-411f-43ae-9f2a-7bb571f4e99a.jpeg)
+![WhatsApp Image 2021-10-28 at 11 32 50 PM-3](https://user-images.githubusercontent.com/62787126/139376352-51f0f3fe-86db-401f-ab3f-a050fef99c9e.jpeg)
+![WhatsApp Image 2021-10-28 at 11 32 50 PM-4](https://user-images.githubusercontent.com/62787126/139376358-19831c16-1050-42db-b291-24d8d2794b3e.jpeg)
+
 
