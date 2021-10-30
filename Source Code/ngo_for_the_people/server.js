@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./app/models");
+const Role=db.role;
 db.sequelize.sync();
 // simple route
 app.get("/", (req, res) => {
@@ -25,6 +26,9 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/employee.routes")(app);
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
