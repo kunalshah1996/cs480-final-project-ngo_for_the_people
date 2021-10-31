@@ -1,87 +1,53 @@
-const db = require("../models");
-const config = require("../config/auth.config");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const db = require("../models/index.js");
+
 const User = db.user;
-const Role = db.role;
 
-const Op = db.Sequelize.Op;
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+  try {
+    const existingUser = await User.findOne({ where: { email: email } });
 
-exports.signup = (req, res) => {
-  // Save User to Database
-  User.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
-  })
-    .then(user => {
-      if (req.body.roles) {
-        Role.findAll({
-          where: {
-            name: {
-              [Op.or]: req.body.roles
-            }
-          }
-        }).then(roles => {
-          user.setRoles(roles).then(() => {
-            res.send({ message: "User registered successfully!" });
-          });
-        });
-      } else {
-        // user role = 1
-        user.setRoles([1]).then(() => {
-          res.send({ message: "User registered successfully!" });
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
+    if (!existingUser) return res.status(404).json({ message: "User does not exist." });
+
+    const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
+
+    if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials." });
+
+    const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, "SECRET_KEY", {
+      expiresIn: "1h",
     });
+
+    res.status(200).json({ result: existingUser, token });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong." });
+  }
 };
 
-exports.signin = (req, res) => {
-  User.findOne({
-    where: {
-      username: req.body.username
-    }
-  })
-    .then(user => {
-      if (!user) {
-        return res.status(404).send({ message: "User Not found." });
-      }
+exports.register = async (req, res) => {
+  const { email, password, username} = req.body;
 
-      var passwordIsValid = bcrypt.compareSync(
-        req.body.password,
-        user.password
-      );
+  try {
+    const existingUser = await User.findOne({ where: { email: email } });
 
-      if (!passwordIsValid) {
-        return res.status(401).send({
-          accessToken: null,
-          message: "Invalid Password!"
-        });
-      }
+    if (existingUser) return res.status(409).json({ message: "User already exists." });
 
-      var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
-      });
+    const hashedPassword = await bcrypt.hash(password, 12);
 
-      var authorities = [];
-      user.getRoles().then(roles => {
-        for (let i = 0; i < roles.length; i++) {
-          authorities.push("ROLE_" + roles[i].name.toUpperCase());
-        }
-        res.status(200).send({
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          roles: authorities,
-          accessToken: token
-        });
-      });
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
+    const result = await User.create({
+      username,
+      email,
+      password: hashedPassword
     });
+
+    const token = jwt.sign({ email: result.email, id: result._id }, "SECRET_KEY", {
+      expiresIn: "1h",
+    });
+
+    res.status(200).json({ result, token });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong." });
+  }
 };

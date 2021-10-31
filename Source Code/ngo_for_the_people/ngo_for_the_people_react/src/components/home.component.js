@@ -5,3 +5,4 @@ export default function Home(){
     <h1>Welcome to NGO for the Poeple</h1>
   );
 }
+
