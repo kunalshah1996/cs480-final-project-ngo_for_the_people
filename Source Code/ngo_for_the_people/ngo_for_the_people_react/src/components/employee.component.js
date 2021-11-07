@@ -31,6 +31,9 @@ export default class Employee extends Component {
 
   componentDidMount() {
     this.getEmployee(this.props.match.params.id);
+    if(!sessionStorage.getItem("login")) {
+      window.location = "/login"
+    }
   }
 
 //   onChangeEmployee_id(e) {

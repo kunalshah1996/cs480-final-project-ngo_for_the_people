@@ -5,12 +5,13 @@ const db = require("../models/index.js");
 const User = db.user;
 
 exports.login = async (req, res) => {
+  console.log("req body" + req.body)
   const { email, password } = req.body;
 
   try {
     const existingUser = await User.findOne({ where: { email: email } });
 
-    if (!existingUser) return res.status(404).json({ message: "User does not exist." });
+    if (!existingUser) return res.status(404).send({ message: "User does not exist." });
 
     const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
 
@@ -22,7 +23,7 @@ exports.login = async (req, res) => {
 
     res.status(200).json({ result: existingUser, token });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong." });
+    res.status(500).json({ error:error.message, message: "Something went wrong." });
   }
 };
 

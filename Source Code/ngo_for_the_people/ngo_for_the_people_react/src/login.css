@@ -3,3 +3,18 @@
     flex-direction: column;
     align-items: center;
 }
+div.form-group {
+    align-items: center;
+    max-width: 500px;
+}
+
+div.submit-form {
+    align-items: center;
+    margin-left: 250px;
+    margin-top: 50px;
+}
+
+h1.login{
+    margin-left: 420px;
+}
+
