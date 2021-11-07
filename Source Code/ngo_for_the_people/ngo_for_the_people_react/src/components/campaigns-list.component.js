@@ -1,47 +1,47 @@
 import React, { Component } from "react";
-import EmployeeDataService from "../services/employee.service";
+import CampaignDataService from "../services/campaign.service";
 import { Link } from "react-router-dom";
-import '../employee.css';
-// export default EmployeesList;
+import '../campaign.css';
+// export default CampaignList;
 
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchEmployee_id = this.onChangeSearchEmployee_id.bind(this);
-    this.retrieveEmployees = this.retrieveEmployees.bind(this);
+    this.onChangeSearchCampaign_id = this.onChangeSearchCampaign_id.bind(this);
+    this.retrieveCampaigns = this.retrieveCampaigns.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveEmployee = this.setActiveEmployee.bind(this);
-    this.removeAllEmployees = this.removeAllEmployees.bind(this);
-    this.searchEmployee_id = this.searchEmployee_id.bind(this);
+    this.setActiveCampaign = this.setActiveCampaign.bind(this);
+    this.removeAllCampaigns = this.removeAllCampaigns.bind(this);
+    this.searchCampaign_id = this.searchCampaign_id.bind(this);
 
     this.state = {
-      employees: [],
-      currentEmployee: null,
+      campaignss: [],
+      currentCampaign: null,
       currentIndex: -1,
-      searchEmployee: ""
+      searchCampaign: ""
     };
   }
 
   componentDidMount() {
-    this.retrieveEmployees();
+    this.retrieveCampaigns();
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
     }
   }
 
-  onChangeSearchEmployee_id(e) {
-    const searchEmployee_id = e.target.value;
+  onChangeSearchCampaign_id(e) {
+    const searchCampaign_id = e.target.value;
 
     this.setState({
-      searchEmployee_id: searchEmployee_id
+      searchCampaign_id: searchCampaign_id
     });
   }
 
-  retrieveEmployees() {
-    EmployeeDataService.getAll()
+  retrieveCampaigns() {
+    CampaignDataService.getAll()
       .then(response => {
         this.setState({
-          employees: response.data
+          campaigns: response.data
         });
         console.log(response.data);
       })
@@ -51,22 +51,22 @@ export default class extends Component {
   }
 
   refreshList() {
-    this.retrieveEmployees();
+    this.retrieveCampaigns();
     this.setState({
-      currentEmployee: null,
+      currentCampaign: null,
       currentIndex: -1
     });
   }
 
-  setActiveEmployee(employee, index) {
+  setActiveCampaign(campaign, index) {
     this.setState({
-      currentEmployee: employee,
+      currentCampaign: campaign,
       currentIndex: index
     });
   }
 
-  removeAllEmployees() {
-    EmployeeDataService.deleteAll()
+  removeAllCampaigns() {
+    CampaignDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -76,11 +76,11 @@ export default class extends Component {
       });
   }
 
-  searchEmployee_id() {
-    EmployeeDataService.findById(this.state.searchEmployee_id)
+  searchCampaign_id() {
+    CampaignDataService.findById(this.state.searchCampaign_id)
       .then(response => {
         this.setState({
-          employees: response.data
+          campaigns: response.data
         });
         console.log(response.data);
       })
@@ -88,12 +88,12 @@ export default class extends Component {
         console.log(e);
       });
   }
-  addEmployee() {
-    window.location="/addemployee"
+  addCampaign() {
+    window.location="/addcampaign"
   }
 
   render() {
-    const { searchEmployee_id, employees, currentEmployee, currentIndex } = this.state;
+    const { searchCampaign_id, campaigns, currentCampaign, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -102,15 +102,15 @@ export default class extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by employee_id"
-              value={searchEmployee_id}
-              onChange={this.onChangeSearchEmployee_id}
+              placeholder="Search by campaign_id"
+              value={searchCampaign_id}
+              onChange={this.onChangeSearchCampaign_id}
             />
             <div className="input-group-append">
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.searchEmployee_id}
+                onClick={this.searchCampaign_id}
               >
                 Search
               </button>
@@ -120,7 +120,7 @@ export default class extends Component {
                 className="btn btn-outline-secondary"
                 id="add_btn"
                 type="button"
-                onClick={this.addEmployee}
+                onClick={this.addCampaign}
               >
               Add
               </button>
@@ -129,20 +129,20 @@ export default class extends Component {
           
         </div>
         <div className="col-md-6">
-          <h4>Employees List</h4>
+          <h4>Campaigns List</h4>
 
           <ul className="list-group">
-            {employees &&
-              employees.map((employee, index) => (
+            {campaigns &&
+              campaigns.map((campaign, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveEmployee(employee, index)}
+                  onClick={() => this.setActiveCampaign(campaign, index)}
                   key={index}
                 >
-                  {employee.employee_id}
+                  {campaign.campaign_id}
                 </li>
               ))}
           </ul>
@@ -155,54 +155,48 @@ export default class extends Component {
           </button> */}
         </div>
         <div className="col-md-6">
-          {currentEmployee ? (
+          {currentCampaign ? (
             <div>
-              <h4>Employee</h4>
+              <h4>Campaign</h4>
               <div>
                 <label>
                   <strong>Id:</strong>
                 </label>{" "}
-                {currentEmployee.employee_id}
+                {currentCampaign.campaign_id}
               </div>
               <div>
                 <label>
                   <strong>Name:</strong>
                 </label>{" "}
-                {currentEmployee.employee_name}
+                {currentCampaign.campaign_name}
               </div>
               <div>
                 <label>
-                  <strong>Contact:</strong>
+                  <strong>Details:</strong>
                 </label>{" "}
-                {currentEmployee.employee_contact}
+                {currentCampaign.campaign_details}
               </div>
               <div>
                 <label>
-                  <strong>Address:</strong>
+                  <strong>Location:</strong>
                 </label>{" "}
-                {currentEmployee.employee_address}
+                {currentCampaign.campaign_location}
               </div>
               <div>
                 <label>
-                  <strong>Designation:</strong>
+                  <strong>Employee id:</strong>
                 </label>{" "}
-                {currentEmployee.employee_designation}
+                {currentCampaign.campaign_employee_id}
               </div>
               <div>
                 <label>
-                  <strong>Department:</strong>
+                  <strong>Budget:</strong>
                 </label>{" "}
-                {currentEmployee.employee_department}
-              </div>
-              <div>
-                <label>
-                  <strong>Availability:</strong>
-                </label>{" "}
-                {currentEmployee.employee_availability}
+                {currentCampaign.campaign_budget}
               </div>
 
               <Link
-                to={"/employees/" + currentEmployee.employee_id}
+                to={"/campaigns/" + currentCampaign.campaign_id}
                 className="text text-primary"
               >
                 Edit
@@ -211,7 +205,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on an Employee</p>
+              <p>Please click on a Campaign</p>
             </div>
           )}
         </div>

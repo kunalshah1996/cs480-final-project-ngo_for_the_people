@@ -1,46 +1,23 @@
-// import React from 'react';
-// import '../login.css';
-// import LoginDataService from "../services/login.service";
-
-// export default function Login() {
-//   return(
-//     <div className="login-wrapper">
-//       <h1>Please Log In</h1>
-//     <form>
-//       <label>
-//         <p>Username</p>
-//         <input type="text" />
-//       </label>
-//       <label>
-//         <p>Password</p>
-//         <input type="password" />
-//       </label>
-//       <div>
-//         <button type="submit">Submit</button>
-//       </div> 
-//     </form>
-//     </div>
-//   )
-// }
+import '../login.css';
 import React, { Component } from "react";
 import LoginDataService from "../services/login.service";
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.login = this.login.bind(this);
 
     this.state = {
-      username:"",
+      email:"",
       password:"",
     };
   }
 
-  onChangeUsername(e) {
+  onChangeEmail(e) {
     this.setState({
-      username: e.target.value
+      email: e.target.value
     });
   }
 
@@ -52,26 +29,32 @@ export default class Login extends Component {
 
 
   login() {
+    console.log("entered login function in componenet");
     var data = {
-      username: this.state.username,
+      email: this.state.email,
       password: this.state.password,
     };
 
-    LoginDataService.create(data)
+    LoginDataService.login(data)
       .then(response => {
         this.setState({
-          username: response.data.username,
+          email: response.data.email,
           password: response.data.password,
         });
+        sessionStorage.setItem("login", true)
+        window.location = "/"
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        console.log(`Err: ${e.message}`);
+        sessionStorage.setItem("login", false)
       });
   }
 
   render() {
     return (
+      <div className="main">
+        <h1 className="login">LOGIN</h1>
         <div className="submit-form">
           {this.state.submitted ? (
             <div>
@@ -82,21 +65,22 @@ export default class Login extends Component {
             </div>
           ) : (
             <div>
-              <div className="form-group">
-                <label htmlFor="title">Username</label>
+              <div className="form-group" >
+                <label htmlFor="email">Email</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="username"
+                  id="email"
                   required
-                  value={this.state.username}
-                  onChange={this.onChangeUsername}
-                  name="username"
+                  value={this.state.email}
+                  onChange={this.onChangeEmail}
+                  name="email"
+                  
                 />
               </div>
   
               <div className="form-group">
-                <label htmlFor="description">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   className="form-control"
@@ -109,10 +93,11 @@ export default class Login extends Component {
               </div>
   
               <button onClick={this.login} className="mt-3 btn btn-success">
-                login
+                Login
               </button>
             </div>
           )}
+        </div>
         </div>
       );
   }

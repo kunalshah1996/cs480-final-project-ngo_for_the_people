@@ -1,8 +1,10 @@
 import http from "../http-common";
 
 class LoginDataService {
-    Login() {
-      return http.get("/users/login");
+    login(data) {
+      console.log("entered login data service")
+      console.log(data)
+      return http.post("users/login", data);
     }
 }
 

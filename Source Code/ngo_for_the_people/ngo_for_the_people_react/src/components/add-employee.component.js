@@ -27,6 +27,12 @@ export default class AddTutorial extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if(!sessionStorage.getItem("login")) {
+      window.location = "/login"
+    }
+  }
+
   onChangeEmployee_id(e) {
     this.setState({
       employee_id: e.target.value
@@ -223,6 +229,7 @@ export default class AddTutorial extends Component {
             </div>
           )}
         </div>
+          
       );
   }
 }
