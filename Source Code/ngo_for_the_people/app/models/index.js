@@ -28,5 +28,6 @@ db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.campaign = require("../models/campaign.model.js")(sequelize, Sequelize);
 db.receiver = require("../models/receiver.model.js")(sequelize, Sequelize);
 db.item = require("../models/item.model.js")(sequelize, Sequelize);
+db.donor = require("../models/donor.model.js")(sequelize, Sequelize);
 
 module.exports = db;

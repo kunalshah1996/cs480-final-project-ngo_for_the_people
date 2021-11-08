@@ -17,6 +17,9 @@ import Receiver from "./components/receiver.component";
 import AddItem from "./components/add-item.component";
 import ItemsList from "./components/items-list.component";
 import Item from "./components/item.component";
+import AddDonor from "./components/add-donor.component";
+import DonorsList from "./components/donors-list.component";
+import Donor from "./components/donor.component";
 
 class App extends Component {
   render() {
@@ -53,6 +56,11 @@ class App extends Component {
                 Items
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/donors"} className="nav-link">
+                Donor
+              </Link>
+            </li>
             <li>
             </li>
           </div>
@@ -74,6 +82,9 @@ class App extends Component {
             <Route exact path="/items" component={ItemsList} />
             <Route exact path="/additem" component={AddItem} />
             <Route path="/items/:id" component={Item} />
+            <Route exact path="/donors" component={DonorsList} />
+            <Route exact path="/adddonor" component={AddDonor} />
+            <Route path="/donors/:id" component={Donor} />
           </Switch>
         </div>
       </div>
