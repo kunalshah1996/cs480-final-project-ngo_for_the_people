@@ -26,7 +26,7 @@ class EducationDataService {
   }
 
   findById(id) {
-    return http.get(`/educations?education_id=${id}`);
+    return http.get(`/educations?cause_id=${id}`);
   }
 }
 
