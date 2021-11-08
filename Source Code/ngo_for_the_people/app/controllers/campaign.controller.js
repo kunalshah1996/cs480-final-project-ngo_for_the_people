@@ -40,7 +40,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     const campaign__id = req.query.campaign__id;
     var condition = campaign__id ? { campaign__id: { [Op.like]: `%${campaign__id}%` } } : null;
-    console.log(`condition`, condition)
+    console.log(`condition of findall`, condition)
     Campaign.findAll({ where: condition })
       .then(data => {
         res.send(data);

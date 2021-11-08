@@ -1,5 +1,5 @@
 const db = require("../models");
-const Cause = db.causes;
+const Cause = db.cause;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new cause

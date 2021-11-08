@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CampaignDataService from "../services/campaign.service";
 
-export default class AddTutorial extends Component {
+export default class AddCampaign extends Component {
   constructor(props) {
     super(props);
     this.onChangeCampaign_id = this.onChangeCampaign_id.bind(this);
@@ -22,7 +22,6 @@ export default class AddTutorial extends Component {
       campaign_location:"",
       campaign_employee_id:"",
       campaign_budget:"",
-      //campaign_availability:"",
       submitted: false
     };
   }
