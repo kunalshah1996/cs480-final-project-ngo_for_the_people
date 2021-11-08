@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CampaignDataService from "../services/campaign.service";
 import { Link } from "react-router-dom";
 import '../campaign.css';
-// export default CampaignList;
+//export default CampaignList;
 
 export default class extends Component {
   constructor(props) {

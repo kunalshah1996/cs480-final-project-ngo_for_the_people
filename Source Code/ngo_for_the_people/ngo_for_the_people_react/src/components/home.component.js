@@ -1,8 +1,21 @@
-import React from 'react';
 
-export default function Home(){
-  return(
-    <h1>Welcome to NGO for the Poeple</h1>
-  );
-}
+import React, { Component } from "react";
 
+export default class Home extends Component {
+ 
+  componentDidMount() {
+    this.getEmployee(this.props.match.params.id);
+    if(!sessionStorage.getItem("login")) {
+      window.location = "/login"
+    }
+  }
+
+
+  render() {
+
+    return (
+        <h1>Welcome to NGO for the Poeple</h1>
+    );
+  }
+
+  }
