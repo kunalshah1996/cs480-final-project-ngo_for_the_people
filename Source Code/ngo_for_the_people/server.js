@@ -1,4 +1,3 @@
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -31,6 +30,8 @@ app.get("/", (req, res) => {
 require("./app/routes/employee.routes")(app);
 require('./app/routes/auth.routes')(app);
 require("./app/routes/campaign.routes")(app);
+require("./app/routes/receiver.routes")(app);
+require("./app/routes/item.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

@@ -10,6 +10,7 @@ export default class AddTutorial extends Component {
     this.onChangeCampaign_location = this.onChangeCampaign_location.bind(this);
     this.onChangeCampaign_employee_id = this.onChangeCampaign_employee_id.bind(this);
     this.onChangeCampaign_budget = this.onChangeCampaign_budget.bind(this);
+    //this.onChangeCampaign_availability = this.onChangeCampaign_availability.bind(this);
     this.saveCampaign = this.saveCampaign.bind(this);
     this.newCampaign = this.newCampaign.bind(this);
 
@@ -21,7 +22,7 @@ export default class AddTutorial extends Component {
       campaign_location:"",
       campaign_employee_id:"",
       campaign_budget:"",
-      campaign_availability:"",
+      //campaign_availability:"",
       submitted: false
     };
   }
@@ -68,11 +69,11 @@ export default class AddTutorial extends Component {
     });
   }
 
-  onChangeCampaign_availability(e) {
-    this.setState({
-      campaign_availability: e.target.value
-    });
-  }
+  // onChangeCampaign_availability(e) {
+  //   this.setState({
+  //     campaign_availability: e.target.value
+  //   });
+  // }
 
   saveCampaign() {
     var data = {
@@ -82,7 +83,7 @@ export default class AddTutorial extends Component {
       campaign_location: this.state.campaign_location,
       campaign_employee_id: this.state.campaign_employee_id,
       campaign_budget: this.state.campaign_budget,
-      campaign_availability: this.state.campaign_availability
+      //campaign_availability: this.state.campaign_availability
     };
 
     CampaignDataService.create(data)
@@ -95,7 +96,7 @@ export default class AddTutorial extends Component {
           campaign_location: response.data.campaign_location,
           campaign_employee_id: response.data.campaign_employee_id,
           campaign_budget: response.data.campaign_budget,
-          campaign_availability: response.data.campaign_availability,
+          //campaign_availability: response.data.campaign_availability,
           submitted: true
         });
         console.log(response.data);
@@ -114,7 +115,7 @@ export default class AddTutorial extends Component {
       campaign_location:"",
       campaign_employee_id:"",
       campaign_budget:"",
-      campaign_availability:"",
+      //campaign_availability:"",
       submitted: false
     });
   }
