@@ -23,7 +23,12 @@ import Donor from "./components/donor.component";
 import AddCause from "./components/add-cause.component";
 import CausesList from "./components/causes-list.component";
 import Cause from "./components/cause.component";
-
+import AddEducation from "./components/add-education.component";
+import EducationList from "./components/educations-list.component";
+import Education from "./components/education.component";
+import addHealth from "./components/add-health.component";
+import HealthList from "./components/health-list.component";
+import Health from "./components/health.component";
 class App extends Component {
   render() {
     return (
@@ -69,6 +74,16 @@ class App extends Component {
                 Cause
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/educations"} className="nav-link">
+                Education
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/healths"} className="nav-link">
+                Health
+              </Link>
+            </li>
             <li>
             </li>
           </div>
@@ -96,6 +111,12 @@ class App extends Component {
             <Route exact path="/causes" component={CausesList} />
             <Route exact path="/addcause" component={AddCause} />
             <Route path="/causes/:id" component={Cause} />
+            <Route exact path="/educations" component={EducationList} />
+            <Route exact path="/addeducation" component={AddEducation} />
+            <Route path="/educations/:id" component={Education} />
+            <Route exact path="/healths" component={HealthList} />
+            <Route exact path="/addhealth" component={addHealth} />
+            <Route path="/healths/:id" component={Health} />
           </Switch>
         </div>
       </div>
