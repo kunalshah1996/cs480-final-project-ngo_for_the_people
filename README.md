@@ -49,3 +49,10 @@ CRUD for Education Entity :
 <img width="1105" alt="Screen Shot 2021-11-08 at 4 28 36 PM" src="https://user-images.githubusercontent.com/62541502/140828902-f399ecd3-9f2c-4130-bb0d-d48b341f0ad0.png">
 <img width="1010" alt="Screen Shot 2021-11-08 at 4 28 50 PM" src="https://user-images.githubusercontent.com/62541502/140828912-309cd087-a7e2-4e33-b2c1-e0cb148395ad.png">
 <img width="1051" alt="Screen Shot 2021-11-08 at 4 28 59 PM" src="https://user-images.githubusercontent.com/62541502/140828972-b1c0ef9b-efe8-4710-8652-6521b9036c4b.png">
+
+CRUD for Cause Entity :
+<img width="1123" alt="Screen Shot 2021-11-08 at 4 29 06 PM" src="https://user-images.githubusercontent.com/62541502/140829059-1ebb87bc-3b89-4213-9745-4951f41ebc11.png">
+
+<img width="1196" alt="Screen Shot 2021-11-08 at 4 29 12 PM" src="https://user-images.githubusercontent.com/62541502/140829116-e4465cf0-2ca9-4f98-b1be-d82e5b8f17b7.png">
+<img width="984" alt="Screen Shot 2021-11-08 at 4 29 35 PM" src="https://user-images.githubusercontent.com/62541502/140829124-40068072-faac-40d7-9c00-78cf18840aa9.png">
+<img width="975" alt="Screen Shot 2021-11-08 at 4 29 52 PM" src="https://user-images.githubusercontent.com/62541502/140829141-f556c680-b45d-4448-aca8-f48261417b14.png">
