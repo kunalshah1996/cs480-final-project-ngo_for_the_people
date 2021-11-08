@@ -18,30 +18,34 @@ Different software systems can utilise this database to understand the poverty r
 The platform helps to redirect funds to multiple sources and unlike generic systems, it does  not focus on one sector only. There are no such centralised systems which aid the need of maintaining current records and help maximize funds while maintaining transparency, thereby currently there are no solutions for the said problem. Education systems, hunger sustainability, transparent resource management are few of the many approaches achievable by the database system.
 # Screenshots
 
-CRUD for employee entity
+CRUD for employee entity :
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM](https://user-images.githubusercontent.com/62787126/139376361-fd1d39ff-72de-465f-a3b6-2dc757ba7580.jpeg)
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM-2](https://user-images.githubusercontent.com/62787126/139376348-f93d33df-411f-43ae-9f2a-7bb571f4e99a.jpeg)
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM-3](https://user-images.githubusercontent.com/62787126/139376352-51f0f3fe-86db-401f-ab3f-a050fef99c9e.jpeg)
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM-4](https://user-images.githubusercontent.com/62787126/139376358-19831c16-1050-42db-b291-24d8d2794b3e.jpeg)
 
-CRUD for receiver entity
+CRUD for receiver entity :
 ![Receiver3](https://user-images.githubusercontent.com/26734952/140722599-6726682d-9305-4807-a62f-576e92926431.PNG)
 ![Receiver4](https://user-images.githubusercontent.com/26734952/140722601-5eaf30ed-ccd3-4bc5-808c-e6b8b94460c1.PNG)
 ![Receiver1](https://user-images.githubusercontent.com/26734952/140722602-b9ffa258-bf72-474a-aa0d-3874ff347e9f.PNG)
 ![receiver2](https://user-images.githubusercontent.com/26734952/140722605-2f73719f-f95c-416c-aff2-521a6913a85f.PNG)
 
 
-CRUD for item entity
+CRUD for item entity :
 ![item1](https://user-images.githubusercontent.com/26734952/140722577-fbbd432a-0a77-4b71-843b-01774bd2bbd1.PNG)
 ![item2](https://user-images.githubusercontent.com/26734952/140722579-daead4ce-1107-4f17-b99d-c4978fdcddec.PNG)
 ![item3](https://user-images.githubusercontent.com/26734952/140722581-3b8a1e5c-f380-4ed9-987d-a12e61ccdc23.PNG)
 ![item4](https://user-images.githubusercontent.com/26734952/140722582-2603298c-4a8f-4d8f-8c53-e0943c580e4f.PNG)
 
-CRUD for Health Entity
+CRUD for Health Entity :
 
 <img width="1023" alt="Screen Shot 2021-11-08 at 4 27 41 PM" src="https://user-images.githubusercontent.com/62541502/140828707-9de26ff6-8a43-4ff3-843a-44853a3f95c6.png">
 <img width="1096" alt="Screen Shot 2021-11-08 at 4 27 56 PM" src="https://user-images.githubusercontent.com/62541502/140828758-bbee9d7a-bf78-4a0b-a52d-5a8125148978.png">
 <img width="982" alt="Screen Shot 2021-11-08 at 4 28 05 PM" src="https://user-images.githubusercontent.com/62541502/140828766-6e3f884c-08db-4b00-9b0f-00e64fb208d6.png">
-
 <img width="1023" alt="Screen Shot 2021-11-08 at 4 28 19 PM" src="https://user-images.githubusercontent.com/62541502/140828772-898d3429-9e56-4bd9-b736-db6cc752ba74.png">
 
+CRUD for Education Entity :
+<img width="955" alt="Screen Shot 2021-11-08 at 4 28 28 PM" src="https://user-images.githubusercontent.com/62541502/140828884-e60b1e96-b814-4d07-aa43-b66424e052da.png">
+<img width="1105" alt="Screen Shot 2021-11-08 at 4 28 36 PM" src="https://user-images.githubusercontent.com/62541502/140828902-f399ecd3-9f2c-4130-bb0d-d48b341f0ad0.png">
+<img width="1010" alt="Screen Shot 2021-11-08 at 4 28 50 PM" src="https://user-images.githubusercontent.com/62541502/140828912-309cd087-a7e2-4e33-b2c1-e0cb148395ad.png">
+<img width="1051" alt="Screen Shot 2021-11-08 at 4 28 59 PM" src="https://user-images.githubusercontent.com/62541502/140828972-b1c0ef9b-efe8-4710-8652-6521b9036c4b.png">
