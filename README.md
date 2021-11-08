@@ -24,4 +24,16 @@ CRUD for employee entity
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM-3](https://user-images.githubusercontent.com/62787126/139376352-51f0f3fe-86db-401f-ab3f-a050fef99c9e.jpeg)
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM-4](https://user-images.githubusercontent.com/62787126/139376358-19831c16-1050-42db-b291-24d8d2794b3e.jpeg)
 
+CRUD for receiver entity
+![Receiver3](https://user-images.githubusercontent.com/26734952/140722599-6726682d-9305-4807-a62f-576e92926431.PNG)
+![Receiver4](https://user-images.githubusercontent.com/26734952/140722601-5eaf30ed-ccd3-4bc5-808c-e6b8b94460c1.PNG)
+![Receiver1](https://user-images.githubusercontent.com/26734952/140722602-b9ffa258-bf72-474a-aa0d-3874ff347e9f.PNG)
+![receiver2](https://user-images.githubusercontent.com/26734952/140722605-2f73719f-f95c-416c-aff2-521a6913a85f.PNG)
+
+
+CRUD for item entity
+![item1](https://user-images.githubusercontent.com/26734952/140722577-fbbd432a-0a77-4b71-843b-01774bd2bbd1.PNG)
+![item2](https://user-images.githubusercontent.com/26734952/140722579-daead4ce-1107-4f17-b99d-c4978fdcddec.PNG)
+![item3](https://user-images.githubusercontent.com/26734952/140722581-3b8a1e5c-f380-4ed9-987d-a12e61ccdc23.PNG)
+![item4](https://user-images.githubusercontent.com/26734952/140722582-2603298c-4a8f-4d8f-8c53-e0943c580e4f.PNG)
 
