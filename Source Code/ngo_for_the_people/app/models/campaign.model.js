@@ -1,4 +1,5 @@
-//const Employee=require("./employee.model");
+
+const Employee = require("./employee.model");
 module.exports = (sequelize, Sequelize) => {
     const Campaign = sequelize.define("campaign", {
       campaign_id: {

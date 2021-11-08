@@ -11,6 +11,12 @@ import Login from "./components/Login.component"
 import AddCampaign from "./components/add-campaign.component";
 import CampaignsList from "./components/campaigns-list.component";
 import Campaign from "./components/campaign.component";
+import AddReceiver from "./components/add-receiver.component";
+import ReceiversList from "./components/receivers-list.component";
+import Receiver from "./components/receiver.component";
+import AddItem from "./components/add-item.component";
+import ItemsList from "./components/items-list.component";
+import Item from "./components/item.component";
 
 class App extends Component {
   render() {
@@ -37,8 +43,17 @@ class App extends Component {
                 Campaigns
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/receivers"} className="nav-link">
+                Receivers
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/items"} className="nav-link">
+                Items
+              </Link>
+            </li>
             <li>
-            
             </li>
           </div>
         </nav>
@@ -53,6 +68,12 @@ class App extends Component {
             <Route exact path="/campaigns" component={CampaignsList} />
             <Route exact path="/addcampaign" component={AddCampaign} />
             <Route path="/campaigns/:id" component={Campaign} />
+            <Route exact path="/receivers" component={ReceiversList} />
+            <Route exact path="/addreceiver" component={AddReceiver} />
+            <Route path="/receivers/:id" component={Receiver} />
+            <Route exact path="/items" component={ItemsList} />
+            <Route exact path="/additem" component={AddItem} />
+            <Route path="/items/:id" component={Item} />
           </Switch>
         </div>
       </div>

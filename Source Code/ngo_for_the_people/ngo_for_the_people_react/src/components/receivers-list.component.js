@@ -1,47 +1,47 @@
 import React, { Component } from "react";
-import CampaignDataService from "../services/campaign.service";
+import ReceiverDataService from "../services/receiver.service";
 import { Link } from "react-router-dom";
-import '../campaign.css';
-//export default CampaignList;
+import '../receiver.css';
+// export default ReceiverList;
 
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchCampaign_id = this.onChangeSearchCampaign_id.bind(this);
-    this.retrieveCampaigns = this.retrieveCampaigns.bind(this);
+    this.onChangeSearchReceiver_id = this.onChangeSearchReceiver_id.bind(this);
+    this.retrieveReceivers = this.retrieveReceivers.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveCampaign = this.setActiveCampaign.bind(this);
-    this.removeAllCampaigns = this.removeAllCampaigns.bind(this);
-    this.searchCampaign_id = this.searchCampaign_id.bind(this);
+    this.setActiveReceiver = this.setActiveReceiver.bind(this);
+    this.removeAllReceivers = this.removeAllReceivers.bind(this);
+    this.searchReceiver_id = this.searchReceiver_id.bind(this);
 
     this.state = {
-      campaigns: [],
-      currentCampaign: null,
+      receivers: [],
+      currentReceiver: null,
       currentIndex: -1,
-      searchCampaign: ""
+      searchReceiver: ""
     };
   }
 
   componentDidMount() {
-    this.retrieveCampaigns();
+    this.retrieveReceivers();
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
     }
   }
 
-  onChangeSearchCampaign_id(e) {
-    const searchCampaign_id = e.target.value;
+  onChangeSearchReceiver_id(e) {
+    const searchReceiver_id = e.target.value;
 
     this.setState({
-      searchCampaign_id: searchCampaign_id
+      searchReceiver_id: searchReceiver_id
     });
   }
 
-  retrieveCampaigns() {
-    CampaignDataService.getAll()
+  retrieveReceivers() {
+    ReceiverDataService.getAll()
       .then(response => {
         this.setState({
-          campaigns: response.data
+          receivers: response.data
         });
         console.log(response.data);
       })
@@ -51,22 +51,22 @@ export default class extends Component {
   }
 
   refreshList() {
-    this.retrieveCampaigns();
+    this.retrieveReceivers();
     this.setState({
-      currentCampaign: null,
+      currentReceiver: null,
       currentIndex: -1
     });
   }
 
-  setActiveCampaign(campaign, index) {
+  setActiveReceiver(receiver, index) {
     this.setState({
-      currentCampaign: campaign,
+      currentReceiver: receiver,
       currentIndex: index
     });
   }
 
-  removeAllCampaigns() {
-    CampaignDataService.deleteAll()
+  removeAllReceivers() {
+    ReceiverDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -76,11 +76,11 @@ export default class extends Component {
       });
   }
 
-  searchCampaign_id() {
-    CampaignDataService.findById(this.state.searchCampaign_id)
+  searchReceiver_id() {
+    ReceiverDataService.findById(this.state.searchReceiver_id)
       .then(response => {
         this.setState({
-          campaigns: response.data
+          receivers: response.data
         });
         console.log(response.data);
       })
@@ -88,12 +88,12 @@ export default class extends Component {
         console.log(e);
       });
   }
-  addCampaign() {
-    window.location="/addcampaign"
+  addReceiver() {
+    window.location="/addreceiver"
   }
 
   render() {
-    const { searchCampaign_id, campaigns, currentCampaign, currentIndex } = this.state;
+    const { searchReceiver_id, receivers, currentReceiver, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -102,15 +102,15 @@ export default class extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by campaign_id"
-              value={searchCampaign_id}
-              onChange={this.onChangeSearchCampaign_id}
+              placeholder="Search by receiver_id"
+              value={searchReceiver_id}
+              onChange={this.onChangeSearchReceiver_id}
             />
             <div className="input-group-append">
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.searchCampaign_id}
+                onClick={this.searchReceiver_id}
               >
                 Search
               </button>
@@ -120,7 +120,7 @@ export default class extends Component {
                 className="btn btn-outline-secondary"
                 id="add_btn"
                 type="button"
-                onClick={this.addCampaign}
+                onClick={this.addReceiver}
               >
               Add
               </button>
@@ -129,20 +129,20 @@ export default class extends Component {
           
         </div>
         <div className="col-md-6">
-          <h4>Campaigns List</h4>
+          <h4>Receivers List</h4>
 
           <ul className="list-group">
-            {campaigns &&
-              campaigns.map((campaign, index) => (
+            {receivers &&
+              receivers.map((receiver, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveCampaign(campaign, index)}
+                  onClick={() => this.setActiveReceiver(receiver, index)}
                   key={index}
                 >
-                  {campaign.campaign_id}
+                  {receiver.receiver_id}
                 </li>
               ))}
           </ul>
@@ -155,48 +155,60 @@ export default class extends Component {
           </button> */}
         </div>
         <div className="col-md-6">
-          {currentCampaign ? (
+          {currentReceiver ? (
             <div>
-              <h4>Campaign</h4>
+              <h4>Receiver</h4>
               <div>
                 <label>
                   <strong>Id:</strong>
                 </label>{" "}
-                {currentCampaign.campaign_id}
+                {currentReceiver.receiver_id}
+              </div>
+              <div>
+                <label>
+                  <strong>Cause Id:</strong>
+                </label>{" "}
+                {currentReceiver.receiver_cause_id}
+              </div>
+              <div>
+                <label>
+                  <strong>SSN:</strong>
+                </label>{" "}
+                {currentReceiver.receiver_ssn}
               </div>
               <div>
                 <label>
                   <strong>Name:</strong>
                 </label>{" "}
-                {currentCampaign.campaign_name}
+                {currentReceiver.receiver_name}
               </div>
               <div>
                 <label>
-                  <strong>Details:</strong>
+                  <strong>Contact:</strong>
                 </label>{" "}
-                {currentCampaign.campaign_details}
+                {currentReceiver.receiver_contact}
+              </div>
+              <div>
+                <label>
+                  <strong>Income:</strong>
+                </label>{" "}
+                {currentReceiver.receiver_income}
+              </div>
+              <div>
+                <label>
+                  <strong>Family:</strong>
+                </label>{" "}
+                {currentReceiver.receiver_family}
               </div>
               <div>
                 <label>
                   <strong>Location:</strong>
                 </label>{" "}
-                {currentCampaign.campaign_location}
-              </div>
-              <div>
-                <label>
-                  <strong>Employee id:</strong>
-                </label>{" "}
-                {currentCampaign.campaign_employee_id}
-              </div>
-              <div>
-                <label>
-                  <strong>Budget:</strong>
-                </label>{" "}
-                {currentCampaign.campaign_budget}
+                {currentReceiver.receiver_location}
               </div>
 
               <Link
-                to={"/campaigns/" + currentCampaign.campaign_id}
+                to={"/receivers/" + currentReceiver.receiver_id}
                 className="text text-primary"
               >
                 Edit
@@ -205,7 +217,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Campaign</p>
+              <p>Please click on a Receiver</p>
             </div>
           )}
         </div>
