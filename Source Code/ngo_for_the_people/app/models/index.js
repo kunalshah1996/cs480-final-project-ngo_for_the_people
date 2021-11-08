@@ -32,4 +32,6 @@ db.donor = require("../models/donor.model.js")(sequelize, Sequelize);
 db.cause = require("../models/cause.model.js")(sequelize, Sequelize);
 db.education = require("../models/education.model.js")(sequelize, Sequelize);
 db.health = require("../models/health.model.js")(sequelize, Sequelize);
+db.donation = require("../models/donation.model.js")(sequelize, Sequelize);
+
 module.exports = db;
