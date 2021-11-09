@@ -1,47 +1,46 @@
 import React, { Component } from "react";
-import ReceiverDataService from "../services/receiver.service";
+import DonationsDataService from "../services/donation.service";
 import { Link } from "react-router-dom";
-import '../receiver.css';
-// export default ReceiverList;
+import '../donation.css';
 
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchCause_id = this.onChangeSearchCause_id.bind(this);
-    this.retrieveReceivers = this.retrieveReceivers.bind(this);
+    this.onChangeSearchDonation_id = this.onChangeSearchDonation_id.bind(this);
+    this.retrieveDonations = this.retrieveDonations.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveReceiver = this.setActiveReceiver.bind(this);
-    this.removeAllReceivers = this.removeAllReceivers.bind(this);
-    this.searchCause_id = this.searchCause_id.bind(this);
+    this.setActiveDonation = this.setActiveDonation.bind(this);
+    this.removeAllDonations= this.removeAllDonations.bind(this);
+    this.searchDonation_id = this.searchDonation_id.bind(this);
 
     this.state = {
-      receivers: [],
-      currentReceiver: null,
+      donations: [],
+      currentDonation: null,
       currentIndex: -1,
-      searchReceiver: ""
+      searchDonation: ""
     };
   }
 
   componentDidMount() {
-    this.retrieveReceivers();
+    this.retrieveDonations();
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
     }
   }
 
-  onChangeSearchCause_id(e) {
-    const searchCause_id = e.target.value;
+  onChangeSearchDonation_id(e) {
+    const searchDonation_id = e.target.value;
 
     this.setState({
-      searchCause_id: searchCause_id
+      searchDonation_id : searchDonation_id
     });
   }
 
-  retrieveReceivers() {
-    ReceiverDataService.getAll()
+  retrieveDonations() {
+    DonationsDataService.getAll()
       .then(response => {
         this.setState({
-          receivers: response.data
+          donations: response.data
         });
         console.log(response.data);
       })
@@ -51,22 +50,22 @@ export default class extends Component {
   }
 
   refreshList() {
-    this.retrieveReceivers();
+    this.retrieveDonations();
     this.setState({
-      currentReceiver: null,
+      currentDonation: null,
       currentIndex: -1
     });
   }
 
-  setActiveReceiver(receiver, index) {
+  setActiveDonation(donation, index) {
     this.setState({
-      currentReceiver: receiver,
+      currentDonation: donation,
       currentIndex: index
     });
   }
 
-  removeAllReceivers() {
-    ReceiverDataService.deleteAll()
+  removeAllDonations() {
+    DonationsDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -76,11 +75,11 @@ export default class extends Component {
       });
   }
 
-  searchCause_id() {
-    ReceiverDataService.findById(this.state.searchCause_id)
+  searchDonation_id() {
+    DonationsDataService.findById(this.state.searchDonation_id)
       .then(response => {
         this.setState({
-          receivers: response.data
+          donations: response.data
         });
         console.log(response.data);
       })
@@ -88,12 +87,12 @@ export default class extends Component {
         console.log(e);
       });
   }
-  addReceiver() {
-    window.location="/addreceiver"
+  addDonation() {
+    window.location="/adddonation"
   }
 
   render() {
-    const { searchCause_id , receivers, currentReceiver, currentIndex } = this.state;
+    const { searchDonation_id, donations, currentDonation, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -102,15 +101,15 @@ export default class extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by cause_id"
-              value={searchCause_id}
-              onChange={this.onChangeSearchCause_id}
+              placeholder="Search by donation_id"
+              value={searchDonation_id}
+              onChange={this.onChangeSearchDonation_id}
             />
             <div className="input-group-append">
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.searchCause_id}
+                onClick={this.searchDonation_id}
               >
                 Search
               </button>
@@ -120,7 +119,7 @@ export default class extends Component {
                 className="btn btn-outline-secondary"
                 id="add_btn"
                 type="button"
-                onClick={this.addReceiver}
+                onClick={this.addDonation}
               >
               Add
               </button>
@@ -129,20 +128,20 @@ export default class extends Component {
           
         </div>
         <div className="col-md-6">
-          <h4>Receivers List</h4>
+          <h4>Donations List</h4>
 
           <ul className="list-group">
-            {receivers &&
-              receivers.map((receiver, index) => (
+            {donations &&
+              donations.map((donation, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveReceiver(receiver, index)}
+                  onClick={() => this.setActiveDonation(donation, index)}
                   key={index}
                 >
-                  {receiver.cause_id}
+                  {donation.donation_id}
                 </li>
               ))}
           </ul>
@@ -155,54 +154,37 @@ export default class extends Component {
           </button> */}
         </div>
         <div className="col-md-6">
-          {currentReceiver ? (
+          {currentDonation ? (
             <div>
-              <h4>Receiver</h4>
+              <h4>Donation</h4>
               <div>
                 <label>
-                  <strong>Cause Id:</strong>
+                  <strong>ID:</strong>
                 </label>{" "}
-                {currentReceiver.cause_id}
+                {currentDonation.donation_id}
               </div>
               <div>
                 <label>
-                  <strong>SSN:</strong>
+                  <strong>Donor ID:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_ssn}
+                {currentDonation.donation_donor_id}
+              </div>
+
+              <div>
+                <label>
+                  <strong>Type:</strong>
+                </label>{" "}
+                {currentDonation.donation_type}
               </div>
               <div>
                 <label>
-                  <strong>Name:</strong>
+                  <strong>Status:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_name}
-              </div>
-              <div>
-                <label>
-                  <strong>Contact:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_contact}
-              </div>
-              <div>
-                <label>
-                  <strong>Income:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_income}
-              </div>
-              <div>
-                <label>
-                  <strong>Family:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_family}
-              </div>
-              <div>
-                <label>
-                  <strong>Location:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_location}
+                {currentDonation.donation_status}
               </div>
 
               <Link
-                to={"/receivers/" + currentReceiver.cause_id}
+                to={"/donations/" + currentDonation.donation_id}
                 className="text text-primary"
               >
                 Edit
@@ -211,7 +193,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Receiver</p>
+              <p>Please click on a Donation</p>
             </div>
           )}
         </div>

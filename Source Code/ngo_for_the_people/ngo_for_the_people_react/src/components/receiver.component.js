@@ -4,8 +4,7 @@ import ReceiverDataService from "../services/receiver.service";
 export default class Receiver extends Component {
   constructor(props) {
     super(props);
-    this.onChangeReceiver_id = this.onChangeReceiver_id.bind(this);
-    this.onChangeReceiver_cause_id = this.onChangeReceiver_cause_id.bind(this);
+    this.onChangeCause_id = this.onChangeCause_id.bind(this);
     this.onChangeReceiver_ssn = this.onChangeReceiver_ssn.bind(this);
     this.onChangeReceiver_name = this.onChangeReceiver_name.bind(this);
     this.onChangeReceiver_contact = this.onChangeReceiver_contact.bind(this);
@@ -18,8 +17,7 @@ export default class Receiver extends Component {
 
     this.state = {
       currentReceiver: {
-        receiver_id: "",
-        receiver_cause_id: "",
+        cause_id: "",
         receiver_ssn: "",
         receiver_name: "",
         receiver_contact: "",
@@ -38,24 +36,14 @@ export default class Receiver extends Component {
     }
   }
 
-  onChangeReceiver_id(e) {
-    const receiver_id = e.target.value;
 
-    this.setState(prevState => ({
-        currentReceiver: {
-          ...prevState.currentReceiver,
-          receiver_id: receiver_id
-        }
-    }));
-  }
-
-  onChangeReceiver_cause_id(e) {
-    const receiver_cause_id = e.target.value;
+  onChangeCause_id(e) {
+    const cause_id = e.target.value;
     
     this.setState(prevState => ({
       currentReceiver: {
         ...prevState.currentReceiver,
-        receiver_cause_id: receiver_cause_id
+        cause_id: cause_id
       }
     }));
   }
@@ -141,7 +129,7 @@ export default class Receiver extends Component {
 
   updateReceiver() {
     ReceiverDataService.update(
-      this.state.currentReceiver.receiver_id,
+      this.state.currentReceiver.cause_id,
       this.state.currentReceiver
     )
       .then(response => {
@@ -156,8 +144,8 @@ export default class Receiver extends Component {
   }
 
   deleteReceiver() {    
-      console.log(this.state.currentReceiver.receiver_id)
-    ReceiverDataService.delete(this.state.currentReceiver.receiver_id)
+      console.log(this.state.currentReceiver.cause_id)
+    ReceiverDataService.delete(this.state.currentReceiver.cause_id)
       .then(response => {
         console.log(response.data);
         this.props.history.push('/receivers')
@@ -177,23 +165,13 @@ export default class Receiver extends Component {
             <h4>Receiver</h4>
             <form>
               <div className="form-group">
-                <label htmlFor="receiver_id">ID</label>
+                <label htmlFor="cause_id">Cause ID</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="receiver_id"
-                  value={currentReceiver.receiver_id}
-                  onChange={this.onChangeReceiver_id}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="receiver_cause_id">Receiver Cause ID</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="receiver_cause_id"
-                  value={currentReceiver.receiver_cause_id}
-                  onChange={this.onChangeReceiver_cause_id}
+                  id="cause_id"
+                  value={currentReceiver.cause_id}
+                  onChange={this.onChangeCause_id}
                 />
               </div>
               <div className="form-group">

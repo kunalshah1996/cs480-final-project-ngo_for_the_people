@@ -17,6 +17,24 @@ import Receiver from "./components/receiver.component";
 import AddItem from "./components/add-item.component";
 import ItemsList from "./components/items-list.component";
 import Item from "./components/item.component";
+import AddDonor from "./components/add-donor.component";
+import DonorsList from "./components/donors-list.component";
+import Donor from "./components/donor.component";
+import AddCause from "./components/add-cause.component";
+import CausesList from "./components/causes-list.component";
+import Cause from "./components/cause.component";
+import AddEducation from "./components/add-education.component";
+import EducationList from "./components/educations-list.component";
+import Education from "./components/education.component";
+import addHealth from "./components/add-health.component";
+import HealthList from "./components/health-list.component";
+import Health from "./components/health.component";
+import AddDonation from "./components/add-donation.component";
+import Donation from "./components/donation.component";
+import DonationsList from "./components/donation-list.component";
+import Fund from "./components/fund.component";
+import AddFund from "./components/add-fund.component";
+import FundsList from "./components/fund-list.component";
 
 class App extends Component {
   render() {
@@ -53,6 +71,36 @@ class App extends Component {
                 Items
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/donors"} className="nav-link">
+                Donor
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/causes"} className="nav-link">
+                Cause
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/educations"} className="nav-link">
+                Education
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/healths"} className="nav-link">
+                Health
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/donations"} className="nav-link">
+                Donation
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/funds"} className="nav-link">
+                Fund
+              </Link>
+            </li>
             <li>
             </li>
           </div>
@@ -74,6 +122,24 @@ class App extends Component {
             <Route exact path="/items" component={ItemsList} />
             <Route exact path="/additem" component={AddItem} />
             <Route path="/items/:id" component={Item} />
+            <Route exact path="/donors" component={DonorsList} />
+            <Route exact path="/adddonor" component={AddDonor} />
+            <Route path="/donors/:id" component={Donor} />
+            <Route exact path="/causes" component={CausesList} />
+            <Route exact path="/addcause" component={AddCause} />
+            <Route path="/causes/:id" component={Cause} />
+            <Route exact path="/educations" component={EducationList} />
+            <Route exact path="/addeducation" component={AddEducation} />
+            <Route path="/educations/:id" component={Education} />
+            <Route exact path="/healths" component={HealthList} />
+            <Route exact path="/addhealth" component={addHealth} />
+            <Route path="/healths/:id" component={Health} />
+            <Route exact path="/donations" component={DonationsList} />
+            <Route exact path="/adddonation" component={AddDonation} />
+            <Route path="/donations/:id" component={Donation} />
+            <Route exact path="/funds" component={FundsList} />
+            <Route exact path="/addfund" component={AddFund} />
+            <Route path="/funds/:id" component={Fund} />
           </Switch>
         </div>
       </div>

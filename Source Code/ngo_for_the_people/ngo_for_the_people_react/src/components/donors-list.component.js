@@ -1,47 +1,46 @@
 import React, { Component } from "react";
-import ReceiverDataService from "../services/receiver.service";
+import DonorDataService from "../services/donor.service";
 import { Link } from "react-router-dom";
-import '../receiver.css';
-// export default ReceiverList;
+import '../donor.css';
 
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchCause_id = this.onChangeSearchCause_id.bind(this);
-    this.retrieveReceivers = this.retrieveReceivers.bind(this);
+    this.onChangeSearchDonor_id = this.onChangeSearchDonor_id.bind(this);
+    this.retrieveDonors = this.retrieveDonors.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveReceiver = this.setActiveReceiver.bind(this);
-    this.removeAllReceivers = this.removeAllReceivers.bind(this);
-    this.searchCause_id = this.searchCause_id.bind(this);
+    this.setActiveDonor = this.setActiveDonor.bind(this);
+    this.removeAllDonors= this.removeAllDonors.bind(this);
+    this.searchDonor_id = this.searchDonor_id.bind(this);
 
     this.state = {
-      receivers: [],
-      currentReceiver: null,
+      donors: [],
+      currentDonor: null,
       currentIndex: -1,
-      searchReceiver: ""
+      searchDonor: ""
     };
   }
 
   componentDidMount() {
-    this.retrieveReceivers();
+    this.retrieveDonors();
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
     }
   }
 
-  onChangeSearchCause_id(e) {
-    const searchCause_id = e.target.value;
+  onChangeSearchDonor_id(e) {
+    const searchDonor_id = e.target.value;
 
     this.setState({
-      searchCause_id: searchCause_id
+      searchDonor_id: searchDonor_id
     });
   }
 
-  retrieveReceivers() {
-    ReceiverDataService.getAll()
+  retrieveDonors() {
+    DonorDataService.getAll()
       .then(response => {
         this.setState({
-          receivers: response.data
+          donors: response.data
         });
         console.log(response.data);
       })
@@ -51,22 +50,22 @@ export default class extends Component {
   }
 
   refreshList() {
-    this.retrieveReceivers();
+    this.retrieveDonors();
     this.setState({
-      currentReceiver: null,
+      currentDonor: null,
       currentIndex: -1
     });
   }
 
-  setActiveReceiver(receiver, index) {
+  setActiveDonor(donor, index) {
     this.setState({
-      currentReceiver: receiver,
+      currentDonor: donor,
       currentIndex: index
     });
   }
 
-  removeAllReceivers() {
-    ReceiverDataService.deleteAll()
+  removeAllDonors() {
+    DonorDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -76,11 +75,11 @@ export default class extends Component {
       });
   }
 
-  searchCause_id() {
-    ReceiverDataService.findById(this.state.searchCause_id)
+  searchDonor_id() {
+    DonorDataService.findById(this.state.searchDonor_id)
       .then(response => {
         this.setState({
-          receivers: response.data
+          donors: response.data
         });
         console.log(response.data);
       })
@@ -88,12 +87,12 @@ export default class extends Component {
         console.log(e);
       });
   }
-  addReceiver() {
-    window.location="/addreceiver"
+  addDonor() {
+    window.location="/adddonor"
   }
 
   render() {
-    const { searchCause_id , receivers, currentReceiver, currentIndex } = this.state;
+    const { searchDonor_id, donors, currentDonor, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -102,15 +101,15 @@ export default class extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by cause_id"
-              value={searchCause_id}
-              onChange={this.onChangeSearchCause_id}
+              placeholder="Search by donor_id"
+              value={searchDonor_id}
+              onChange={this.onChangeSearchDonor_id}
             />
             <div className="input-group-append">
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.searchCause_id}
+                onClick={this.searchDonor_id}
               >
                 Search
               </button>
@@ -120,7 +119,7 @@ export default class extends Component {
                 className="btn btn-outline-secondary"
                 id="add_btn"
                 type="button"
-                onClick={this.addReceiver}
+                onClick={this.addDonor}
               >
               Add
               </button>
@@ -129,20 +128,20 @@ export default class extends Component {
           
         </div>
         <div className="col-md-6">
-          <h4>Receivers List</h4>
+          <h4>Donors List</h4>
 
           <ul className="list-group">
-            {receivers &&
-              receivers.map((receiver, index) => (
+            {donors &&
+              donors.map((donor, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveReceiver(receiver, index)}
+                  onClick={() => this.setActiveDonor(donor, index)}
                   key={index}
                 >
-                  {receiver.cause_id}
+                  {donor.donor_id}
                 </li>
               ))}
           </ul>
@@ -155,54 +154,37 @@ export default class extends Component {
           </button> */}
         </div>
         <div className="col-md-6">
-          {currentReceiver ? (
+          {currentDonor ? (
             <div>
-              <h4>Receiver</h4>
+              <h4>Donor</h4>
               <div>
                 <label>
-                  <strong>Cause Id:</strong>
+                  <strong>ID:</strong>
                 </label>{" "}
-                {currentReceiver.cause_id}
+                {currentDonor.donor_id}
               </div>
               <div>
                 <label>
                   <strong>SSN:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_ssn}
+                {currentDonor.donor_ssn}
               </div>
+
               <div>
                 <label>
                   <strong>Name:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_name}
+                {currentDonor.donor_name}
               </div>
               <div>
                 <label>
                   <strong>Contact:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_contact}
-              </div>
-              <div>
-                <label>
-                  <strong>Income:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_income}
-              </div>
-              <div>
-                <label>
-                  <strong>Family:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_family}
-              </div>
-              <div>
-                <label>
-                  <strong>Location:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_location}
+                {currentDonor.donor_contact}
               </div>
 
               <Link
-                to={"/receivers/" + currentReceiver.cause_id}
+                to={"/donors/" + currentDonor.donor_id}
                 className="text text-primary"
               >
                 Edit
@@ -211,7 +193,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Receiver</p>
+              <p>Please click on a Donor</p>
             </div>
           )}
         </div>

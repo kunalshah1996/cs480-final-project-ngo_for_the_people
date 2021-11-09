@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-import ReceiverDataService from "../services/receiver.service";
+import EducationDataService from "../services/education.service";
 import { Link } from "react-router-dom";
-import '../receiver.css';
-// export default ReceiverList;
+
+// export default EmployeesList;
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.onChangeSearchCause_id = this.onChangeSearchCause_id.bind(this);
-    this.retrieveReceivers = this.retrieveReceivers.bind(this);
+    this.retrieveEducations = this.retrieveEducations.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveReceiver = this.setActiveReceiver.bind(this);
-    this.removeAllReceivers = this.removeAllReceivers.bind(this);
+    this.setActiveEducation = this.setActiveEducation.bind(this);
+    this.removeAllEducations = this.removeAllEducations.bind(this);
     this.searchCause_id = this.searchCause_id.bind(this);
 
     this.state = {
-      receivers: [],
-      currentReceiver: null,
+      educations: [],
+      currentEducation: null,
       currentIndex: -1,
-      searchReceiver: ""
+      searchEducation: ""
     };
   }
 
   componentDidMount() {
-    this.retrieveReceivers();
+    this.retrieveEducations();
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
     }
@@ -37,11 +37,11 @@ export default class extends Component {
     });
   }
 
-  retrieveReceivers() {
-    ReceiverDataService.getAll()
+  retrieveEducations() {
+    EducationDataService.getAll()
       .then(response => {
         this.setState({
-          receivers: response.data
+          educations: response.data
         });
         console.log(response.data);
       })
@@ -51,22 +51,22 @@ export default class extends Component {
   }
 
   refreshList() {
-    this.retrieveReceivers();
+    this.retrieveEducations();
     this.setState({
-      currentReceiver: null,
+      currentEducation: null,
       currentIndex: -1
     });
   }
 
-  setActiveReceiver(receiver, index) {
+  setActiveEducation(education, index) {
     this.setState({
-      currentReceiver: receiver,
+      currentEducation: education,
       currentIndex: index
     });
   }
 
-  removeAllReceivers() {
-    ReceiverDataService.deleteAll()
+  removeAllEducations() {
+    EducationDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -77,10 +77,10 @@ export default class extends Component {
   }
 
   searchCause_id() {
-    ReceiverDataService.findById(this.state.searchCause_id)
+    EducationDataService.findById(this.state.searchCause_id)
       .then(response => {
         this.setState({
-          receivers: response.data
+          employees: response.data
         });
         console.log(response.data);
       })
@@ -88,12 +88,12 @@ export default class extends Component {
         console.log(e);
       });
   }
-  addReceiver() {
-    window.location="/addreceiver"
+  addEducation() {
+    window.location="/addeducation"
   }
 
   render() {
-    const { searchCause_id , receivers, currentReceiver, currentIndex } = this.state;
+    const { searchCause_id, educations, currentEducation, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -120,7 +120,7 @@ export default class extends Component {
                 className="btn btn-outline-secondary"
                 id="add_btn"
                 type="button"
-                onClick={this.addReceiver}
+                onClick={this.addEducation}
               >
               Add
               </button>
@@ -129,20 +129,20 @@ export default class extends Component {
           
         </div>
         <div className="col-md-6">
-          <h4>Receivers List</h4>
+          <h4>Education Causes List</h4>
 
           <ul className="list-group">
-            {receivers &&
-              receivers.map((receiver, index) => (
+            {educations &&
+              educations.map((education, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveReceiver(receiver, index)}
+                  onClick={() => this.setActiveEducation(education, index)}
                   key={index}
                 >
-                  {receiver.cause_id}
+                  {education.cause_id}
                 </li>
               ))}
           </ul>
@@ -155,54 +155,49 @@ export default class extends Component {
           </button> */}
         </div>
         <div className="col-md-6">
-          {currentReceiver ? (
+          {currentEducation ? (
             <div>
-              <h4>Receiver</h4>
+              <h4>Education</h4>
               <div>
                 <label>
-                  <strong>Cause Id:</strong>
+                  <strong>Id:</strong>
                 </label>{" "}
-                {currentReceiver.cause_id}
+                {currentEducation.cause_id}
               </div>
               <div>
                 <label>
-                  <strong>SSN:</strong>
+                  <strong>Institution Name:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_ssn}
+                {currentEducation.institution_name}
               </div>
               <div>
                 <label>
-                  <strong>Name:</strong>
+                  <strong>Need Type :</strong>
                 </label>{" "}
-                {currentReceiver.receiver_name}
+                {currentEducation.need_type}
               </div>
               <div>
                 <label>
-                  <strong>Contact:</strong>
+                  <strong>Need Quantity</strong>
                 </label>{" "}
-                {currentReceiver.receiver_contact}
+                {currentEducation.need_quantity}
               </div>
               <div>
                 <label>
-                  <strong>Income:</strong>
+                  <strong>Name (point of contact)</strong>
                 </label>{" "}
-                {currentReceiver.receiver_income}
+                {currentEducation.poc_name}
               </div>
               <div>
                 <label>
-                  <strong>Family:</strong>
+                  <strong>contact (point of contact)</strong>
                 </label>{" "}
-                {currentReceiver.receiver_family}
+                {currentEducation.poc_contact}
               </div>
-              <div>
-                <label>
-                  <strong>Location:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_location}
-              </div>
+             
 
               <Link
-                to={"/receivers/" + currentReceiver.cause_id}
+                to={"/educations/" + currentEducation.cause_id}
                 className="text text-primary"
               >
                 Edit
@@ -211,7 +206,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Receiver</p>
+              <p>Please click on a Cause</p>
             </div>
           )}
         </div>

@@ -1,8 +1,8 @@
 const db = require("../models");
-const Receiver = db.receiver;
+const Cause = db.cause;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Receiver
+// Create and Save a new cause
 exports.create = (req, res) => {
     if (!req.body.cause_id) {
         res.status(400).send({
@@ -11,114 +11,112 @@ exports.create = (req, res) => {
         return;
       }
     
-      // Create a Receiver
-      const receiver = {
+      
+      const cause = {
         cause_id: req.body.cause_id,
-        receiver_ssn: req.body.receiver_ssn,
-        receiver_name: req.body.receiver_name,
-        receiver_contact: req.body.receiver_contact,
-        receiver_income: req.body.receiver_income,
-        receiver_family: req.body.receiver_family,
-        receiver_location: req.body.receiver_location
+        cause_type: req.body.cause_type,
+        cause_status: req.body.cause_status,
+        approver_id: req.body.approver_id,
+       
       };
     
-      // Save Receiver in the database
-      Receiver.create(receiver)
+      // Save cause in the database
+      Cause.create(cause)
         .then(data => {
           res.send(data);
         })
         .catch(err => {
           res.status(500).send({
             message:
-              err.message || "Some error occurred while creating receiver."
+              err.message || "Some error occurred while creating a cause."
           });
         });
 };
 
-// Retrieve all Receiver from the database.
+// Retrieve all causes from the database.
 exports.findAll = (req, res) => {
     const cause_id = req.query.cause_id;
     var condition = cause_id ? { cause_id: { [Op.like]: `%${cause_id}%` } } : null;
     console.log(`condition`, condition)
-    Receiver.findAll({ where: condition })
+    Cause.findAll({ where: condition })
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving receivers."
+            err.message || "Some error occurred while retrieving a cause"
         });
       });
   };
 
-// Find a single receiver with an id
+// Find a single cause with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Receiver.findByPk(id)
+    Cause.findByPk(id)
       .then(data => {
         if (data) {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Cannot find Receiver with id=${id}.`
+            message: `Cannot find cause with id=${id}.`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Receiver with id=" + id
+          message: "Error retrieving cause with id=" + id
         });
       });
   };
 
-// Update an Receiver by the id in the request
+// Update a cause by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
   
-    Receiver.update(req.body, {
+    Cause.update(req.body, {
       where: { cause_id: id }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Receiver was updated successfully."
+            message: "Cause was updated successfully."
           });
         } else {
           res.send({
-            message: `Cannot update Receiver with id=${id}. Maybe receiver was not found or req.body is empty!`
+            message: `Cannot update Tutorial with id=${id}. Maybe the cause was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating receiver with id=" + id
+          message: "Error updating Tutorial with id=" + id
         });
       });
   };
 
-// Delete an Receiver with the specified id in the request
+// Delete a cause with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
   
-    Receiver.destroy({
+    Cause.destroy({
       where: { cause_id: id }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Receiver was deleted successfully!"
+            message: "Cause was deleted successfully!"
           });
         } else {
           res.send({
-            message: `Cannot delete Receiver with id=${id}. Maybe Receiver was not found!`
+            message: `Cannot delete Cause with id=${id}. Maybe Cause was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Receiver with id=" + id
+          message: "Could not delete Cause with id=" + id
         });
       });
   };

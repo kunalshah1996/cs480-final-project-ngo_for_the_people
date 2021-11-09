@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-import ReceiverDataService from "../services/receiver.service";
+import CauseDataService from "../services/cause.service";
 import { Link } from "react-router-dom";
-import '../receiver.css';
-// export default ReceiverList;
+
+// export default EmployeesList;
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.onChangeSearchCause_id = this.onChangeSearchCause_id.bind(this);
-    this.retrieveReceivers = this.retrieveReceivers.bind(this);
+    this.retrieveCauses = this.retrieveCauses.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveReceiver = this.setActiveReceiver.bind(this);
-    this.removeAllReceivers = this.removeAllReceivers.bind(this);
+    this.setActiveCause = this.setActiveCause.bind(this);
+    this.removeAllCauses = this.removeAllCauses.bind(this);
     this.searchCause_id = this.searchCause_id.bind(this);
 
     this.state = {
-      receivers: [],
-      currentReceiver: null,
+      causes: [],
+      currentCause: null,
       currentIndex: -1,
-      searchReceiver: ""
+      searchCause: ""
     };
   }
 
   componentDidMount() {
-    this.retrieveReceivers();
+    this.retrieveCauses();
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
     }
@@ -37,11 +37,11 @@ export default class extends Component {
     });
   }
 
-  retrieveReceivers() {
-    ReceiverDataService.getAll()
+  retrieveCauses() {
+    CauseDataService.getAll()
       .then(response => {
         this.setState({
-          receivers: response.data
+          causes : response.data
         });
         console.log(response.data);
       })
@@ -51,22 +51,22 @@ export default class extends Component {
   }
 
   refreshList() {
-    this.retrieveReceivers();
+    this.retrieveCauses();
     this.setState({
-      currentReceiver: null,
+      currentCause: null,
       currentIndex: -1
     });
   }
 
-  setActiveReceiver(receiver, index) {
+  setActiveCause(cause, index) {
     this.setState({
-      currentReceiver: receiver,
+      currentCause: cause,
       currentIndex: index
     });
   }
 
-  removeAllReceivers() {
-    ReceiverDataService.deleteAll()
+  removeAllCauses() {
+    CauseDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -77,10 +77,10 @@ export default class extends Component {
   }
 
   searchCause_id() {
-    ReceiverDataService.findById(this.state.searchCause_id)
+    CauseDataService.findById(this.state.searchCause_id)
       .then(response => {
         this.setState({
-          receivers: response.data
+          causes: response.data
         });
         console.log(response.data);
       })
@@ -88,12 +88,12 @@ export default class extends Component {
         console.log(e);
       });
   }
-  addReceiver() {
-    window.location="/addreceiver"
+  addCause() {
+    window.location="/addcause"
   }
 
   render() {
-    const { searchCause_id , receivers, currentReceiver, currentIndex } = this.state;
+    const { searchCause_id, causes, currentCause, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -120,7 +120,7 @@ export default class extends Component {
                 className="btn btn-outline-secondary"
                 id="add_btn"
                 type="button"
-                onClick={this.addReceiver}
+                onClick={this.addCause}
               >
               Add
               </button>
@@ -129,20 +129,20 @@ export default class extends Component {
           
         </div>
         <div className="col-md-6">
-          <h4>Receivers List</h4>
+          <h4>Causes List</h4>
 
           <ul className="list-group">
-            {receivers &&
-              receivers.map((receiver, index) => (
+            {causes &&
+              causes.map((cause, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveReceiver(receiver, index)}
+                  onClick={() => this.setActiveCause(cause, index)}
                   key={index}
                 >
-                  {receiver.cause_id}
+                  {cause.cause_id}
                 </li>
               ))}
           </ul>
@@ -155,54 +155,37 @@ export default class extends Component {
           </button> */}
         </div>
         <div className="col-md-6">
-          {currentReceiver ? (
+          {currentCause ? (
             <div>
-              <h4>Receiver</h4>
+              <h4>Cause</h4>
               <div>
                 <label>
-                  <strong>Cause Id:</strong>
+                  <strong>Id:</strong>
                 </label>{" "}
-                {currentReceiver.cause_id}
+                {currentCause.cause_id}
               </div>
               <div>
                 <label>
-                  <strong>SSN:</strong>
+                  <strong>Type</strong>
                 </label>{" "}
-                {currentReceiver.receiver_ssn}
+                {currentCause.cause_type}
               </div>
               <div>
                 <label>
-                  <strong>Name:</strong>
+                  <strong>Status:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_name}
+                {currentCause.cause_status}
               </div>
               <div>
                 <label>
-                  <strong>Contact:</strong>
+                  <strong>Approver:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_contact}
+                {currentCause.approver_id}
               </div>
-              <div>
-                <label>
-                  <strong>Income:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_income}
-              </div>
-              <div>
-                <label>
-                  <strong>Family:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_family}
-              </div>
-              <div>
-                <label>
-                  <strong>Location:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_location}
-              </div>
+              
 
               <Link
-                to={"/receivers/" + currentReceiver.cause_id}
+                to={"/causes/" + currentCause.cause_id}
                 className="text text-primary"
               >
                 Edit
@@ -211,7 +194,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Receiver</p>
+              <p>Please click on a Cause</p>
             </div>
           )}
         </div>

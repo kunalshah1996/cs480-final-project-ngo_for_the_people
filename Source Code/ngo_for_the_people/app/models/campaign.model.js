@@ -1,3 +1,4 @@
+
 const Employee = require("./employee.model");
 module.exports = (sequelize, Sequelize) => {
     const Campaign = sequelize.define("campaign", {
@@ -18,10 +19,10 @@ module.exports = (sequelize, Sequelize) => {
       },
       campaign_employee_id: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'employee', 
-          key: 'employee_id', 
-       }
+      //   references: {
+      //     model: 'employee', 
+      //     key: 'employee_id', 
+      //  }
       },
       campaign_budget: {
         type: Sequelize.INTEGER,

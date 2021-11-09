@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-import ReceiverDataService from "../services/receiver.service";
+import HealthDataService from "../services/health.service";
 import { Link } from "react-router-dom";
-import '../receiver.css';
-// export default ReceiverList;
+
+// export default EmployeesList;
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.onChangeSearchCause_id = this.onChangeSearchCause_id.bind(this);
-    this.retrieveReceivers = this.retrieveReceivers.bind(this);
+    this.retrieveHealths = this.retrieveHealths.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveReceiver = this.setActiveReceiver.bind(this);
-    this.removeAllReceivers = this.removeAllReceivers.bind(this);
+    this.setActiveHealth = this.setActiveHealth.bind(this);
+    this.removeAllHealths = this.removeAllHealths.bind(this);
     this.searchCause_id = this.searchCause_id.bind(this);
 
     this.state = {
-      receivers: [],
-      currentReceiver: null,
+      healths: [],
+      currentHealth: null,
       currentIndex: -1,
-      searchReceiver: ""
+      searchHealth: ""
     };
   }
 
   componentDidMount() {
-    this.retrieveReceivers();
+    this.retrieveHealths();
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
     }
@@ -37,11 +37,11 @@ export default class extends Component {
     });
   }
 
-  retrieveReceivers() {
-    ReceiverDataService.getAll()
+  retrieveHealths() {
+    HealthDataService.getAll()
       .then(response => {
         this.setState({
-          receivers: response.data
+          healths: response.data
         });
         console.log(response.data);
       })
@@ -51,22 +51,22 @@ export default class extends Component {
   }
 
   refreshList() {
-    this.retrieveReceivers();
+    this.retrieveHelaths();
     this.setState({
-      currentReceiver: null,
+      currentHealth: null,
       currentIndex: -1
     });
   }
 
-  setActiveReceiver(receiver, index) {
+  setActiveHealth(health, index) {
     this.setState({
-      currentReceiver: receiver,
+      currentHealth: health,
       currentIndex: index
     });
   }
 
-  removeAllReceivers() {
-    ReceiverDataService.deleteAll()
+  removeAllHealths() {
+    HealthDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -77,10 +77,10 @@ export default class extends Component {
   }
 
   searchCause_id() {
-    ReceiverDataService.findById(this.state.searchCause_id)
+    HealthDataService.findById(this.state.searchCause_id)
       .then(response => {
         this.setState({
-          receivers: response.data
+          employees: response.data
         });
         console.log(response.data);
       })
@@ -88,12 +88,12 @@ export default class extends Component {
         console.log(e);
       });
   }
-  addReceiver() {
-    window.location="/addreceiver"
+  addHealth() {
+    window.location="/addhealth"
   }
 
   render() {
-    const { searchCause_id , receivers, currentReceiver, currentIndex } = this.state;
+    const { searchCause_id, healths, currentHealth, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -120,7 +120,7 @@ export default class extends Component {
                 className="btn btn-outline-secondary"
                 id="add_btn"
                 type="button"
-                onClick={this.addReceiver}
+                onClick={this.addHealth}
               >
               Add
               </button>
@@ -129,20 +129,20 @@ export default class extends Component {
           
         </div>
         <div className="col-md-6">
-          <h4>Receivers List</h4>
+          <h4>Health Causes List</h4>
 
           <ul className="list-group">
-            {receivers &&
-              receivers.map((receiver, index) => (
+            {healths &&
+              healths.map((health, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveReceiver(receiver, index)}
+                  onClick={() => this.setActiveHealth(health, index)}
                   key={index}
                 >
-                  {receiver.cause_id}
+                  {health.cause_id}
                 </li>
               ))}
           </ul>
@@ -155,54 +155,49 @@ export default class extends Component {
           </button> */}
         </div>
         <div className="col-md-6">
-          {currentReceiver ? (
+          {currentHealth ? (
             <div>
-              <h4>Receiver</h4>
+              <h4>Health</h4>
               <div>
                 <label>
-                  <strong>Cause Id:</strong>
+                  <strong>Id:</strong>
                 </label>{" "}
-                {currentReceiver.cause_id}
+                {currentHealth.cause_id}
               </div>
               <div>
                 <label>
-                  <strong>SSN:</strong>
+                  <strong>Organisation Name:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_ssn}
+                {currentHealth.org_name}
               </div>
               <div>
                 <label>
-                  <strong>Name:</strong>
+                  <strong>Need Type :</strong>
                 </label>{" "}
-                {currentReceiver.receiver_name}
+                {currentHealth.need_type}
               </div>
               <div>
                 <label>
-                  <strong>Contact:</strong>
+                  <strong>Need Quantity</strong>
                 </label>{" "}
-                {currentReceiver.receiver_contact}
+                {currentHealth.need_quantity}
               </div>
               <div>
                 <label>
-                  <strong>Income:</strong>
+                  <strong>Name (point of contact)</strong>
                 </label>{" "}
-                {currentReceiver.receiver_income}
+                {currentHealth.poc_name}
               </div>
               <div>
                 <label>
-                  <strong>Family:</strong>
+                  <strong>contact (point of contact)</strong>
                 </label>{" "}
-                {currentReceiver.receiver_family}
+                {currentHealth.poc_contact}
               </div>
-              <div>
-                <label>
-                  <strong>Location:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_location}
-              </div>
+             
 
               <Link
-                to={"/receivers/" + currentReceiver.cause_id}
+                to={"/healths/" + currentHealth.cause_id}
                 className="text text-primary"
               >
                 Edit
@@ -211,7 +206,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Receiver</p>
+              <p>Please click on a Cause</p>
             </div>
           )}
         </div>

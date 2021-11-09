@@ -1,24 +1,26 @@
+//const { contains } = require("sequelize/types/lib/operators");
 const db = require("../models");
 const Campaign = db.campaign;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Campaign
 exports.create = (req, res) => {
-    if (!req.body.campaign_id) {
+    if (!req.body.campaign__id) {
         res.status(400).send({
           message: "Content can not be empty!"
         });
         return;
       }
     
-      // Create a Campaign
+      // Create an Campaign
       const campaign = {
-        campaign_id: req.body.campaign_id,
-        campaign_name: req.body.campaign_name,
-        campaign_details: req.body.campaign_details,
-        campaign_location: req.body.campaign_location,
-        campaign_employee_id: req.body.campaign_employee_id,
-        campaign_budget: req.body.campaign_budget
+        campaign__id: req.body.campaign__id,
+        campaign__name: req.body.campaign__name,
+        campaign__contact: req.body.campaign__contact,
+        campaign__address: req.body.campaign__address,
+        campaign__designation: req.body.campaign__designation,
+        campaign__department: req.body.campaign__department,
+        campaign__availability: req.body.campaign__availability
       };
     
       // Save Campaign in the database
@@ -34,11 +36,11 @@ exports.create = (req, res) => {
         });
 };
 
-// Retrieve all Campaign from the database.
+// Retrieve all Employees from the database.
 exports.findAll = (req, res) => {
-    const campaign_id = req.query.campaign_id;
-    var condition = campaign_id ? { campaign_id: { [Op.like]: `%${campaign_id}%` } } : null;
-    console.log(`condition`, condition)
+    const campaign__id = req.query.campaign__id;
+    var condition = campaign__id ? { campaign__id: { [Op.like]: `%${campaign__id}%` } } : null;
+    console.log(`condition of findall`, condition)
     Campaign.findAll({ where: condition })
       .then(data => {
         res.send(data);
@@ -46,7 +48,7 @@ exports.findAll = (req, res) => {
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving campaigns."
+            err.message || "Some error occurred while retrieving campaign_s."
         });
       });
   };
@@ -77,7 +79,7 @@ exports.update = (req, res) => {
     const id = req.params.id;
   
     Campaign.update(req.body, {
-      where: { campaign_id: id }
+      where: { campaign__id: id }
     })
       .then(num => {
         if (num == 1) {
@@ -86,13 +88,13 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Campaign with id=${id}. Maybe campaign was not found or req.body is empty!`
+            message: `Cannot update Tutorial with id=${id}. Maybe Campaign was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Campaign with id=" + id
+          message: "Error updating Tutorial with id=" + id
         });
       });
   };
@@ -102,7 +104,7 @@ exports.delete = (req, res) => {
     const id = req.params.id;
   
     Campaign.destroy({
-      where: { campaign_id: id }
+      where: { campaign__id: id }
     })
       .then(num => {
         if (num == 1) {
