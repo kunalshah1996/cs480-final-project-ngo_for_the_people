@@ -56,3 +56,10 @@ CRUD for Cause Entity :
 <img width="1196" alt="Screen Shot 2021-11-08 at 4 29 12 PM" src="https://user-images.githubusercontent.com/62541502/140829116-e4465cf0-2ca9-4f98-b1be-d82e5b8f17b7.png">
 <img width="984" alt="Screen Shot 2021-11-08 at 4 29 35 PM" src="https://user-images.githubusercontent.com/62541502/140829124-40068072-faac-40d7-9c00-78cf18840aa9.png">
 <img width="975" alt="Screen Shot 2021-11-08 at 4 29 52 PM" src="https://user-images.githubusercontent.com/62541502/140829141-f556c680-b45d-4448-aca8-f48261417b14.png">
+
+CRUD for Campaign Entity :
+<img width="1038" alt="Screen Shot 2021-11-08 at 6 18 24 PM" src="https://user-images.githubusercontent.com/62541502/140838903-a6f51d61-c0a4-4bbf-a04f-3bbed2ffda7f.png">
+<img width="954" alt="Screen Shot 2021-11-08 at 6 18 31 PM" src="https://user-images.githubusercontent.com/62541502/140838912-908ce678-6e01-4c0f-8ae4-773ce4652db4.png">
+<img width="928" alt="Screen Shot 2021-11-08 at 6 18 41 PM" src="https://user-images.githubusercontent.com/62541502/140838920-cce25ba8-a75f-496e-a3a8-5095dcd4a4b1.png">
+<img width="1021" alt="Screen Shot 2021-11-08 at 6 19 12 PM" src="https://user-images.githubusercontent.com/62541502/140838926-bd518647-c19e-40e7-b415-c38b864b6c49.png">
+
