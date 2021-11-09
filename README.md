@@ -76,4 +76,11 @@ CRUD for Donation Entity :
 <img width="1043" alt="Screen Shot 2021-11-08 at 7 56 36 PM" src="https://user-images.githubusercontent.com/62787126/140847747-dbfdedf0-4b23-4213-805d-f5da95fbd883.png">
 <img width="1083" alt="Screen Shot 2021-11-08 at 7 58 38 PM" src="https://user-images.githubusercontent.com/62787126/140847764-f7f02713-0105-4a34-a0fd-c3186ecb540c.png">
 
+CRUD for Fund Entity:
+<img width="1087" alt="Screen Shot 2021-11-08 at 8 03 42 PM" src="https://user-images.githubusercontent.com/62787126/140848211-372e14fa-41b4-4c8d-976a-9fe834406805.png">
+<img width="1047" alt="Screen Shot 2021-11-08 at 8 00 55 PM" src="https://user-images.githubusercontent.com/62787126/140848221-894189de-d40b-4fc3-a6ea-c07ce3b3caeb.png">
+<img width="1065" alt="Screen Shot 2021-11-08 at 8 03 20 PM" src="https://user-images.githubusercontent.com/62787126/140848245-65cbce5c-a590-4097-bca2-132947ae82fb.png">
+<img width="1055" alt="Screen Shot 2021-11-08 at 8 04 14 PM" src="https://user-images.githubusercontent.com/62787126/140848262-5ca5ed58-25e8-4fee-b8d2-cf81c40870c4.png">
+
+
 
