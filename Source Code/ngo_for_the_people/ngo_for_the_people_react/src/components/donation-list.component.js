@@ -32,7 +32,7 @@ export default class extends Component {
     const searchDonation_id = e.target.value;
 
     this.setState({
-      searchDonation_id: searchDonation_id
+      searchDonation_id : searchDonation_id
     });
   }
 

@@ -141,7 +141,7 @@ export default class Fund extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="fund_type">Fund Amount :</label>
+                <label htmlFor="fund_amount">Fund Amount :</label>
                 <input
                   type="text"
                   className="form-control"

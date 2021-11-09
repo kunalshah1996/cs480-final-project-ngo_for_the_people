@@ -41,7 +41,7 @@ export default class AddDonation extends Component {
     });
   }
 
-  onChangeDDonation_status(e) {
+  onChangeDonation_status(e) {
     this.setState({
         donation_status: e.target.value
     });
@@ -52,7 +52,7 @@ export default class AddDonation extends Component {
   
   saveDonation() {
     var data = {
-      donation_id: this.state.donation__id,
+      donation_id: this.state.donation_id,
       donation_donor_id: this.state.donation_donor_id,
       donation_type: this.state.donation_type,
       donation_status: this.state.donation_status
@@ -61,9 +61,9 @@ export default class AddDonation extends Component {
     DonationDataService.create(data)
       .then(response => {
         this.setState({
-          donation_id: response.data.donation__id,
+          donation_id: response.data.donation_id,
           donation_donor_id: response.data.donation_donor_id,
-          donation_type: response.datadonation_type,
+          donation_type: response.data.donation_type,
           donation_status: response.data.donation_status,
           submitted: true
         });
@@ -127,8 +127,8 @@ export default class AddDonation extends Component {
                   className="form-control"
                   id="donation_type"
                   required
-                  value={this.state.donation_typee}
-                  onChange={this.onChangeDonation_typee}
+                  value={this.state.donation_type}
+                  onChange={this.onChangeDonation_type}
                   name="donation_type"
                 />
               </div>

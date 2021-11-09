@@ -41,7 +41,7 @@ export default class AddFund extends Component {
     });
   }
 
-  onChangeDFund_status(e) {
+  onChangeFund_status(e) {
     this.setState({
         fund_status: e.target.value
     });
