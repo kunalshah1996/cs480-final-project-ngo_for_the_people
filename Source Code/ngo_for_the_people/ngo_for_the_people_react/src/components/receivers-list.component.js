@@ -7,12 +7,12 @@ import '../receiver.css';
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchReceiver_id = this.onChangeSearchReceiver_id.bind(this);
+    this.onChangeSearchCause_id = this.onChangeSearchCause_id.bind(this);
     this.retrieveReceivers = this.retrieveReceivers.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveReceiver = this.setActiveReceiver.bind(this);
     this.removeAllReceivers = this.removeAllReceivers.bind(this);
-    this.searchReceiver_id = this.searchReceiver_id.bind(this);
+    this.searchCause_id = this.searchCause_id.bind(this);
 
     this.state = {
       receivers: [],
@@ -29,11 +29,11 @@ export default class extends Component {
     }
   }
 
-  onChangeSearchReceiver_id(e) {
-    const searchReceiver_id = e.target.value;
+  onChangeSearchCause_id(e) {
+    const searchCause_id = e.target.value;
 
     this.setState({
-      searchReceiver_id: searchReceiver_id
+      searchCause_id: searchCause_id
     });
   }
 
@@ -76,8 +76,8 @@ export default class extends Component {
       });
   }
 
-  searchReceiver_id() {
-    ReceiverDataService.findById(this.state.searchReceiver_id)
+  searchCause_id() {
+    ReceiverDataService.findById(this.state.searchCause_id)
       .then(response => {
         this.setState({
           receivers: response.data
@@ -93,7 +93,7 @@ export default class extends Component {
   }
 
   render() {
-    const { searchReceiver_id, receivers, currentReceiver, currentIndex } = this.state;
+    const { searchCause_id , receivers, currentReceiver, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -102,15 +102,15 @@ export default class extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by receiver_id"
-              value={searchReceiver_id}
-              onChange={this.onChangeSearchReceiver_id}
+              placeholder="Search by cause_id"
+              value={searchCause_id}
+              onChange={this.onChangeSearchCause_id}
             />
             <div className="input-group-append">
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.searchReceiver_id}
+                onClick={this.searchCause_id}
               >
                 Search
               </button>
@@ -142,7 +142,7 @@ export default class extends Component {
                   onClick={() => this.setActiveReceiver(receiver, index)}
                   key={index}
                 >
-                  {receiver.receiver_id}
+                  {receiver.cause_id}
                 </li>
               ))}
           </ul>
@@ -160,15 +160,9 @@ export default class extends Component {
               <h4>Receiver</h4>
               <div>
                 <label>
-                  <strong>Id:</strong>
-                </label>{" "}
-                {currentReceiver.receiver_id}
-              </div>
-              <div>
-                <label>
                   <strong>Cause Id:</strong>
                 </label>{" "}
-                {currentReceiver.receiver_cause_id}
+                {currentReceiver.cause_id}
               </div>
               <div>
                 <label>
@@ -208,7 +202,7 @@ export default class extends Component {
               </div>
 
               <Link
-                to={"/receivers/" + currentReceiver.receiver_id}
+                to={"/receivers/" + currentReceiver.cause_id}
                 className="text text-primary"
               >
                 Edit

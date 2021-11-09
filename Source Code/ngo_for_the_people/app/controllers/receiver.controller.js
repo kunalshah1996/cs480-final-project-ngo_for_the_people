@@ -4,7 +4,7 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Receiver
 exports.create = (req, res) => {
-    if (!req.body.receiver_id) {
+    if (!req.body.cause_id) {
         res.status(400).send({
           message: "Content can not be empty!"
         });
@@ -13,8 +13,7 @@ exports.create = (req, res) => {
     
       // Create a Receiver
       const receiver = {
-        receiver_id: req.body.receiver_id,
-        receiver_cause_id: req.body.receiver_cause_id,
+        cause_id: req.body.cause_id,
         receiver_ssn: req.body.receiver_ssn,
         receiver_name: req.body.receiver_name,
         receiver_contact: req.body.receiver_contact,
@@ -38,8 +37,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Receiver from the database.
 exports.findAll = (req, res) => {
-    const receiver_id = req.query.receiver_id;
-    var condition = receiver_id ? { receiver_id: { [Op.like]: `%${receiver_id}%` } } : null;
+    const cause_id = req.query.cause_id;
+    var condition = cause_id ? { cause_id: { [Op.like]: `%${cause_id}%` } } : null;
     console.log(`condition`, condition)
     Receiver.findAll({ where: condition })
       .then(data => {
@@ -79,7 +78,7 @@ exports.update = (req, res) => {
     const id = req.params.id;
   
     Receiver.update(req.body, {
-      where: { receiver_id: id }
+      where: { cause_id: id }
     })
       .then(num => {
         if (num == 1) {
@@ -104,7 +103,7 @@ exports.delete = (req, res) => {
     const id = req.params.id;
   
     Receiver.destroy({
-      where: { receiver_id: id }
+      where: { cause_id: id }
     })
       .then(num => {
         if (num == 1) {

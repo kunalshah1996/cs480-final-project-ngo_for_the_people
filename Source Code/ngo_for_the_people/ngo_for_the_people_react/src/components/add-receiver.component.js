@@ -4,8 +4,7 @@ import ReceiverDataService from "../services/receiver.service";
 export default class AddTutorial extends Component {
   constructor(props) {
     super(props);
-    this.onChangeReceiver_id = this.onChangeReceiver_id.bind(this);
-    this.onChangeReceiver_cause_id = this.onChangeReceiver_cause_id.bind(this);
+    this.onChangeCause_id = this.onChangeCause_id.bind(this);
     this.onChangeReceiver_ssn = this.onChangeReceiver_ssn.bind(this);
     this.onChangeReceiver_name = this.onChangeReceiver_name.bind(this);
     this.onChangeReceiver_contact = this.onChangeReceiver_contact.bind(this);
@@ -17,8 +16,7 @@ export default class AddTutorial extends Component {
 
     this.state = {
       id: null,
-      receiver_id:"",
-      receiver_cause_id:"",
+      cause_id:"",
       receiver_ssn: "",
       receiver_name:"",
       receiver_contact:"",
@@ -35,15 +33,10 @@ export default class AddTutorial extends Component {
     }
   }
 
-  onChangeReceiver_id(e) {
-    this.setState({
-      receiver_id: e.target.value
-    });
-  }
 
-  onChangeReceiver_cause_id(e) {
+  onChangeCause_id(e) {
     this.setState({
-      receiver_cause_id: e.target.value
+      cause_id: e.target.value
     });
   }
 
@@ -86,8 +79,7 @@ export default class AddTutorial extends Component {
 
   saveReceiver() {
     var data = {
-      receiver_id: this.state.receiver_id,
-      receiver_cause_id: this.state.receiver_cause_id,
+      cause_id: this.state.cause_id,
       receiver_ssn: this.state.receiver_ssn,
       receiver_name: this.state.receiver_name,
       receiver_contact: this.state.receiver_contact,
@@ -100,8 +92,7 @@ export default class AddTutorial extends Component {
       .then(response => {
         this.setState({
           id: response.data.id,
-          receiver_id: response.data.receiver_id,
-          receiver_cause_id: response.data.receiver_cause_id,
+          cause_id: response.data.cause_id,
           receiver_ssn: response.data.receiver_ssn,
           receiver_name: response.data.receiver_name,
           receiver_contact: response.data.receiver_contact,
@@ -120,8 +111,7 @@ export default class AddTutorial extends Component {
   newReceiver() {
     this.setState({
       id: null,
-      receiver_id: "",
-      receiver_cause_id: "",
+      cause_id: "",
       receiver_ssn: "",
       receiver_name:"",
       receiver_contact:"",
@@ -144,29 +134,17 @@ export default class AddTutorial extends Component {
             </div>
           ) : (
             <div>
-              <div className="form-group">
-                <label htmlFor="title">Receiver ID</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="receiver_id"
-                  required
-                  value={this.state.receiver_id}
-                  onChange={this.onChangeReceiver_id}
-                  name="receiver_id"
-                />
-              </div>
   
               <div className="form-group">
-                <label htmlFor="description">Receiver Cause ID</label>
+                <label htmlFor="description">Cause ID</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="receiver_cause_id"
+                  id="cause_id"
                   required
-                  value={this.state.receiver_cause_id}
-                  onChange={this.onChangeReceiver_cause_id}
-                  name="receiver_cause_id"
+                  value={this.state.cause_id}
+                  onChange={this.onChangeCause_id}
+                  name="cause_id"
                 />
               </div>
 
