@@ -64,8 +64,16 @@ CRUD for Campaign Entity :
 <img width="1021" alt="Screen Shot 2021-11-08 at 6 19 12 PM" src="https://user-images.githubusercontent.com/62541502/140838926-bd518647-c19e-40e7-b415-c38b864b6c49.png">
 
 
-CRUD for Donor Entity
+CRUD for Donor Entity :
 <img width="1049" alt="Screen Shot 2021-11-08 at 7 47 30 PM" src="https://user-images.githubusercontent.com/62787126/140847087-359f9d68-41f2-4e38-bc2e-bb773f6fb962.png">
 <img width="1141" alt="Screen Shot 2021-11-08 at 7 48 31 PM" src="https://user-images.githubusercontent.com/62787126/140847150-1803592d-ce4b-4f14-833d-770785f9ebad.png">
 <img width="1058" alt="Screen Shot 2021-11-08 at 7 49 32 PM" src="https://user-images.githubusercontent.com/62787126/140847256-863cf70f-9ced-4b9b-85ef-5bc2de6e88b9.png">
 <img width="1074" alt="Screen Shot 2021-11-08 at 7 50 29 PM" src="https://user-images.githubusercontent.com/62787126/140847288-306fa9b4-0ba6-476d-b9c0-2fe14e89cfd6.png">
+
+CRUD for Donation Entity :
+<img width="1058" alt="Screen Shot 2021-11-08 at 7 55 44 PM" src="https://user-images.githubusercontent.com/62787126/140847723-de85a503-05af-427c-b6b6-b9385c67b77e.png">
+<img width="1052" alt="Screen Shot 2021-11-08 at 7 56 53 PM" src="https://user-images.githubusercontent.com/62787126/140847739-073a5208-8934-476f-94bf-6a28bc35717d.png">
+<img width="1043" alt="Screen Shot 2021-11-08 at 7 56 36 PM" src="https://user-images.githubusercontent.com/62787126/140847747-dbfdedf0-4b23-4213-805d-f5da95fbd883.png">
+<img width="1083" alt="Screen Shot 2021-11-08 at 7 58 38 PM" src="https://user-images.githubusercontent.com/62787126/140847764-f7f02713-0105-4a34-a0fd-c3186ecb540c.png">
+
+
