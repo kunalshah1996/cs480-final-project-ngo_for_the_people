@@ -63,8 +63,8 @@ export default class AddDonation extends Component {
         this.setState({
           donation_id: response.data.donation__id,
           donation_donor_id: response.data.donation_donor_id,
-          donation_name: response.datadonation_type,
-          donation_contact: response.data.donation_status,
+          donation_type: response.datadonation_type,
+          donation_status: response.data.donation_status,
           submitted: true
         });
         console.log(response.data);

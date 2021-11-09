@@ -1,6 +1,6 @@
 import http from "../http-common";
 
-class DonationDataService {
+class DonationsDataService {
   getAll() {
     return http.get("/donations");
   }
@@ -30,4 +30,4 @@ class DonationDataService {
   }
 }
 
-export default new DonationDataService();
+export default new DonationsDataService();

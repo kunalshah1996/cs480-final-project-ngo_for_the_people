@@ -37,6 +37,8 @@ require("./app/routes/cause.routes")(app);
 require("./app/routes/education.routes")(app);
 require("./app/routes/health.routes")(app);
 require("./app/routes/donation.routes")(app);
+require("./app/routes/fund.routes")(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
