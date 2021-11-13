@@ -1,0 +1,6 @@
+donation_id,donation_donor_id,donation_type,donation_status
+10,10,Fund,Received
+12,12,Fund,Received
+13,13,Clothes,Received
+14,14,Books,Received
+15,15,Food,Not_Received
