@@ -1,4 +1,3 @@
-DROP TABLE users;
 DROP TABLE health;
 DROP TABLE education;
 DROP TABLE receiver;
@@ -9,13 +8,7 @@ DROP TABLE item;
 DROP TABLE fund;
 DROP TABLE donation;
 DROP TABLE donor;
-CREATE TABLE users( id int  AUTO_INCREMENT,username varchar(255),email varchar(255) ,password varchar(255), PRIMARY KEY (id));
 create index users_index on users(username);
-INSERT INTO users (`id`,`username`,`email`,`password`) VALUES (1,'Kunal Shah','kshah220@uic.edu','12345');
-INSERT INTO users (`id`,`username`,`email`,`password`) VALUES (2,'Samruddhi Kalsekar','skalse2@uic.edu','12345');
-INSERT INTO users (`id`,`username`,`email`,`password`) VALUES (3,'Anjani Sruti Doradla','adorad4@uic.edu','12345');
-INSERT INTO users (`id`,`username`,`email`,`password`) VALUES (4,'Nikita Thakur','nthaku3@uic.edu','12345');
-INSERT INTO users (`id`,`username`,`email`,`password`) VALUES (5,'Diana Diaz','dmdh@uic.edu','12345');
 create table employee(employee_id int , employee_name VARCHAR(40) NOT NULL, employee_contact int NOT NULL, employee_address VARCHAR(80), employee_designation VARCHAR(40), employee_department VARCHAR(40), employee_availability VARCHAR(40), employee_doj DATE, PRIMARY KEY(employee_id));
 create index employee_index on employee(employee_name);
 INSERT INTO employee (`employee_id`,`employee_name`,`employee_contact`,`employee_address`,`employee_designation`,`employee_department`,`employee_availability`,`employee_doj`) VALUES (211,'Chrisitna George',235467890,'3122 Taylor Street, Chicago,IL','Administrative Manager','Administration','unavailable','2017-02-27');

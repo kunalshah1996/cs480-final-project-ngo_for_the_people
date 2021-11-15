@@ -1,4 +1,3 @@
-DROP TABLE users;
 DROP TABLE health;
 DROP TABLE education;
 DROP TABLE receiver;
