@@ -4,6 +4,7 @@ module.exports = {
     PASSWORD: "ask",
     DB: "ngo_for_the_people",
     dialect: "mysql",
+    multipleStatements: true,
     pool: {
       max: 5,
       min: 0,

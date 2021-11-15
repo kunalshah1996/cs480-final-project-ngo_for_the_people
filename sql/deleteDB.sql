@@ -1,11 +1,11 @@
 DROP TABLE users;
-DROP TABLE employee;
-DROP TABLE donor;
-DROP TABLE donation;
-DROP TABLE cause;
-DROP TABLE fund;
-DROP TABLE item;
 DROP TABLE health;
 DROP TABLE education;
 DROP TABLE receiver;
 DROP TABLE campaign;
+DROP TABLE cause;
+DROP TABLE employee;
+DROP TABLE item;
+DROP TABLE fund;
+DROP TABLE donation;
+DROP TABLE donor;
