@@ -1,8 +1,18 @@
-
-import React, { Component } from "react";
+import React, { Component } from "react"
+import InitializeDataService from "../services/initialize.service";
 
 export default class Home extends Component {
  
+  Initializedb() {
+    InitializeDataService.start()
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
   componentDidMount() {
     if(!sessionStorage.getItem("login")) {
       window.location = "/login"
@@ -10,10 +20,18 @@ export default class Home extends Component {
   }
 
 
-  render() {
 
+  render() {
     return (
-        <h1>Welcome to NGO for the Poeple</h1>
+      <div>
+            <button
+              type="submit"
+              className="btn btn-success m-3" 
+              onClick={this.Initializedb}
+            >
+              Initialize db
+            </button>
+        </div>
     );
   }
 
