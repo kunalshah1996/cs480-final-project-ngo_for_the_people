@@ -1,12 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
     const Receiver = sequelize.define("receiver", {
-      receiver_id: {
+      cause_id: {
         type: Sequelize.INTEGER,
         primaryKey: true
-      },
-      receiver_cause_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
       },
       receiver_ssn: {
         type: Sequelize.INTEGER,

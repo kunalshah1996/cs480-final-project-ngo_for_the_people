@@ -1,0 +1,16 @@
+Timestamp,cause_id,cause_type,cause_status,approver_id
+10/18/2021 17:19:02,1,Receiver,active,212
+10/18/2021 17:19:14,2,Receiver,active,212
+10/18/2021 17:19:31,3,Receiver,complete,213
+10/18/2021 17:19:51,4,Receiver,active,214
+10/18/2021 17:20:04,5,Receiver,inactive,214
+10/18/2021 17:22:34,6,Education,active,215
+10/18/2021 17:22:47,7,Education,complete,212
+10/18/2021 17:22:58,8,Education,active,212
+10/18/2021 17:23:22,9,Education,inactive,211
+10/18/2021 17:23:46,10,Education,complete,214
+10/18/2021 17:24:01,11,Health,complete,214
+10/18/2021 17:24:25,12,Health,active,213
+10/18/2021 17:24:43,13,Health,complete,213
+10/18/2021 17:25:41,14,Health,complete,215
+10/18/2021 17:26:01,15,Health,complete,212

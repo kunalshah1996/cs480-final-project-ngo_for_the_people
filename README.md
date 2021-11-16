@@ -24,12 +24,12 @@ CRUD for employee entity :
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM-3](https://user-images.githubusercontent.com/62787126/139376352-51f0f3fe-86db-401f-ab3f-a050fef99c9e.jpeg)
 ![WhatsApp Image 2021-10-28 at 11 32 50 PM-4](https://user-images.githubusercontent.com/62787126/139376358-19831c16-1050-42db-b291-24d8d2794b3e.jpeg)
 
-CRUD for receiver entity :
-![Receiver3](https://user-images.githubusercontent.com/26734952/140722599-6726682d-9305-4807-a62f-576e92926431.PNG)
-![Receiver4](https://user-images.githubusercontent.com/26734952/140722601-5eaf30ed-ccd3-4bc5-808c-e6b8b94460c1.PNG)
-![Receiver1](https://user-images.githubusercontent.com/26734952/140722602-b9ffa258-bf72-474a-aa0d-3874ff347e9f.PNG)
-![receiver2](https://user-images.githubusercontent.com/26734952/140722605-2f73719f-f95c-416c-aff2-521a6913a85f.PNG)
 
+CRUD for receiver entity :
+![receiver3](https://user-images.githubusercontent.com/26734952/140874022-62172b93-0b70-4c04-b1c9-d270bdc8d79b.PNG)
+![receiver2](https://user-images.githubusercontent.com/26734952/140874023-384a6e26-158a-482f-97c0-8f0f38ca7f5c.PNG)
+![receiver1](https://user-images.githubusercontent.com/26734952/140874025-5707ac64-7cde-451a-89ae-de16854da566.PNG)
+![receiver4](https://user-images.githubusercontent.com/26734952/140874026-589344aa-0ca5-4e4b-912a-49ec82c9ed31.PNG)
 
 CRUD for item entity :
 ![item1](https://user-images.githubusercontent.com/26734952/140722577-fbbd432a-0a77-4b71-843b-01774bd2bbd1.PNG)
@@ -62,4 +62,24 @@ CRUD for Campaign Entity :
 <img width="954" alt="Screen Shot 2021-11-08 at 6 18 31 PM" src="https://user-images.githubusercontent.com/62541502/140838912-908ce678-6e01-4c0f-8ae4-773ce4652db4.png">
 <img width="928" alt="Screen Shot 2021-11-08 at 6 18 41 PM" src="https://user-images.githubusercontent.com/62541502/140838920-cce25ba8-a75f-496e-a3a8-5095dcd4a4b1.png">
 <img width="1021" alt="Screen Shot 2021-11-08 at 6 19 12 PM" src="https://user-images.githubusercontent.com/62541502/140838926-bd518647-c19e-40e7-b415-c38b864b6c49.png">
+
+
+CRUD for Donor Entity :
+<img width="1049" alt="Screen Shot 2021-11-08 at 7 47 30 PM" src="https://user-images.githubusercontent.com/62787126/140847087-359f9d68-41f2-4e38-bc2e-bb773f6fb962.png">
+<img width="1141" alt="Screen Shot 2021-11-08 at 7 48 31 PM" src="https://user-images.githubusercontent.com/62787126/140847150-1803592d-ce4b-4f14-833d-770785f9ebad.png">
+<img width="1058" alt="Screen Shot 2021-11-08 at 7 49 32 PM" src="https://user-images.githubusercontent.com/62787126/140847256-863cf70f-9ced-4b9b-85ef-5bc2de6e88b9.png">
+<img width="1074" alt="Screen Shot 2021-11-08 at 7 50 29 PM" src="https://user-images.githubusercontent.com/62787126/140847288-306fa9b4-0ba6-476d-b9c0-2fe14e89cfd6.png">
+
+CRUD for Donation Entity :
+<img width="1058" alt="Screen Shot 2021-11-08 at 7 55 44 PM" src="https://user-images.githubusercontent.com/62787126/140847723-de85a503-05af-427c-b6b6-b9385c67b77e.png">
+<img width="1052" alt="Screen Shot 2021-11-08 at 7 56 53 PM" src="https://user-images.githubusercontent.com/62787126/140847739-073a5208-8934-476f-94bf-6a28bc35717d.png">
+<img width="1043" alt="Screen Shot 2021-11-08 at 7 56 36 PM" src="https://user-images.githubusercontent.com/62787126/140847747-dbfdedf0-4b23-4213-805d-f5da95fbd883.png">
+<img width="1083" alt="Screen Shot 2021-11-08 at 7 58 38 PM" src="https://user-images.githubusercontent.com/62787126/140847764-f7f02713-0105-4a34-a0fd-c3186ecb540c.png">
+
+CRUD for Fund Entity:
+<img width="1087" alt="Screen Shot 2021-11-08 at 8 03 42 PM" src="https://user-images.githubusercontent.com/62787126/140848211-372e14fa-41b4-4c8d-976a-9fe834406805.png">
+<img width="1047" alt="Screen Shot 2021-11-08 at 8 00 55 PM" src="https://user-images.githubusercontent.com/62787126/140848221-894189de-d40b-4fc3-a6ea-c07ce3b3caeb.png">
+<img width="1065" alt="Screen Shot 2021-11-08 at 8 03 20 PM" src="https://user-images.githubusercontent.com/62787126/140848245-65cbce5c-a590-4097-bca2-132947ae82fb.png">
+<img width="1055" alt="Screen Shot 2021-11-08 at 8 04 14 PM" src="https://user-images.githubusercontent.com/62787126/140848262-5ca5ed58-25e8-4fee-b8d2-cf81c40870c4.png">
+
 

@@ -1,0 +1,6 @@
+Timestamp,employee_id,employee_name,employee_contact,employee_address,employee_designation,employee_department,employee_availability
+10/18/21 16:44,211,Chrisitna George,3127479876,"3122 Taylor Street, Chicagoy,IL",Administrative Manager,Administration,unavailable
+10/18/21 16:45,212,John Doe,5578369928,"3321 W Laflin St, Chicago,IL",Campaign Manager,Campaign,available
+10/18/21 16:46,213,Layla Paul,31283956552,1131 W Taylor Street,Executive Manager,Campaign,unavailable
+10/18/21 16:48,214,Neha Rodrigues,8976426161,"2786 South Street, NYC, NY",Director,Board of Directors,available
+10/18/21 16:49,215,Jane Young,238793472,1018 S Oakley Blvd,Consultant,Public Relations,unavailable
