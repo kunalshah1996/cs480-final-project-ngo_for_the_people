@@ -1,0 +1,125 @@
+//const { contains } = require("sequelize/types/lib/operators");
+const db = require("../models");
+const Campaign = db.campaign;
+const Op = db.Sequelize.Op;
+
+// Create and Save a new Campaign
+exports.create = (req, res) => {
+    if (!req.body.campaign__id) {
+        res.status(400).send({
+          message: "Content can not be empty!"
+        });
+        return;
+      }
+    
+      // Create an Campaign
+      const campaign = {
+        campaign__id: req.body.campaign__id,
+        campaign__name: req.body.campaign__name,
+        campaign__contact: req.body.campaign__contact,
+        campaign__address: req.body.campaign__address,
+        campaign__designation: req.body.campaign__designation,
+        campaign__department: req.body.campaign__department,
+        campaign__availability: req.body.campaign__availability
+      };
+    
+      // Save Campaign in the database
+      Campaign.create(campaign)
+        .then(data => {
+          res.send(data);
+        })
+        .catch(err => {
+          res.status(500).send({
+            message:
+              err.message || "Some error occurred while creating campaign."
+          });
+        });
+};
+
+// Retrieve all Employees from the database.
+exports.findAll = (req, res) => {
+    const campaign__id = req.query.campaign__id;
+    var condition = campaign__id ? { campaign__id: { [Op.like]: `%${campaign__id}%` } } : null;
+    console.log(`condition of findall`, condition)
+    Campaign.findAll({ where: condition })
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving campaign_s."
+        });
+      });
+  };
+
+// Find a single Campaign with an id
+exports.findOne = (req, res) => {
+    const id = req.params.id;
+  
+    Campaign.findByPk(id)
+      .then(data => {
+        if (data) {
+          res.send(data);
+        } else {
+          res.status(404).send({
+            message: `Cannot find Campaign with id=${id}.`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Error retrieving campaign with id=" + id
+        });
+      });
+  };
+
+// Update an Campaign by the id in the request
+exports.update = (req, res) => {
+    const id = req.params.id;
+  
+    Campaign.update(req.body, {
+      where: { campaign__id: id }
+    })
+      .then(num => {
+        if (num == 1) {
+          res.send({
+            message: "Campaign was updated successfully."
+          });
+        } else {
+          res.send({
+            message: `Cannot update Tutorial with id=${id}. Maybe Campaign was not found or req.body is empty!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Error updating Tutorial with id=" + id
+        });
+      });
+  };
+
+// Delete an Campaign with the specified id in the request
+exports.delete = (req, res) => {
+    const id = req.params.id;
+  
+    Campaign.destroy({
+      where: { campaign__id: id }
+    })
+      .then(num => {
+        if (num == 1) {
+          res.send({
+            message: "Campaign was deleted successfully!"
+          });
+        } else {
+          res.send({
+            message: `Cannot delete Campaign with id=${id}. Maybe Campaign was not found!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete Campaign with id=" + id
+        });
+      });
+  };
