@@ -20,7 +20,15 @@ exports.start = (req, res) => {
        });
     rl.on('line', function(chunk){
         myCon.query(chunk.toString('ascii'), function(err, sets, fields){
-         if(err) console.log(err);
+            if (sets) {
+                res.send({
+                  sets
+                });
+              } else {
+                res.send({
+                  message: `Cannot update Employee with. Maybe Employee was not found or req.body is empty!`
+                });
+              }
         });
     });
     rl.on('close', function(){
