@@ -14,7 +14,7 @@ WHERE  cause_status = 'active' ;
 
 
 #Display the budget for all the online campaigns :
-SELECT camapign_budget 
+SELECT campaign_budget 
 FROM campaign
 WHERE campaign_location = ‘Online’ ;
 
@@ -52,18 +52,6 @@ HAVING COUNT(donation_donor_id) > 50 ;
 #Remove the trailing spaces from the employee names:
 UPDATE employee 
 SET employee_name = TRIM(employee_name) ;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -112,9 +100,6 @@ Select * from free_employees;
 
 
 # Selecting all the donation items with their quantities that are available
-
-
-
 
 CREATE VIEW donation_quantity AS
 select donor_name,donor_id,donation_type from donor d inner join donation do on d.donor_id=do.donation_donor_id where donation_status='Received';
