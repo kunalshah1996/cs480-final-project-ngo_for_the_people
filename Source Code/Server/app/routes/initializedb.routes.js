@@ -3,7 +3,6 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-    // Retrieve all Employees
     router.get("/", initializedb.start);
   
     app.use('/api/initializedb', router);
