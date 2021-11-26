@@ -35,6 +35,14 @@ import DonationsList from "./components/donation-list.component";
 import Fund from "./components/fund.component";
 import AddFund from "./components/add-fund.component";
 import FundsList from "./components/fund-list.component";
+import Queries from "./components/queries.component";
+import Employees_education from "./components/employees_education.component";
+import Free_employees from "./components/free_employee.component";
+import Incomplete_donation from "./components/incomplete_donation.component";
+import Donation_quantity from "./components/donation_quantity.component";
+import Budget_city from "./components/budget_city.component";
+import Allocated_funds from "./components/allocated_funds.component"
+
 
 class App extends Component {
   render() {
@@ -46,11 +54,11 @@ class App extends Component {
           </Link>
           
           <div className="navbar-nav mr-auto">
-            <li className="nav-item">
+            <li className="nav-item">{ !sessionStorage.getItem("login") &&
             <Link to={"/login"} className="nav-link">
                 Login
           </Link>
-            </li>
+            }</li>
             <li className="nav-item">
               <Link to={"/employees"} className="nav-link">
                 Employees
@@ -101,6 +109,18 @@ class App extends Component {
                 Fund
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/queries"} className="nav-link">
+              Functions and Queries
+              </Link>
+            </li>
+            {/* <li className="nav-item">{ sessionStorage.getItem("login") &&
+            <Link to={"/login"} className="nav-link">
+                Logout
+          </Link>
+          
+            } 
+            </li> */}
             <li>
             </li>
           </div>
@@ -140,6 +160,13 @@ class App extends Component {
             <Route exact path="/funds" component={FundsList} />
             <Route exact path="/addfund" component={AddFund} />
             <Route path="/funds/:id" component={Fund} />
+            <Route exact path="/queries" component={Queries} />
+            <Route exact path="/employees_education" component={Employees_education} />
+            <Route exact path="/free_employees" component={Free_employees} />
+            <Route exact path="/incomplete_donation" component={Incomplete_donation} />
+            <Route exact path="/donation_quantity" component={Donation_quantity} />
+            <Route exact path="/budget_city" component={Budget_city} />
+            <Route exact path="/allocated_funds" component={Allocated_funds} />
           </Switch>
         </div>
       </div>
