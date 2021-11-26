@@ -39,6 +39,7 @@ require("./app/routes/health.routes")(app);
 require("./app/routes/donation.routes")(app);
 require("./app/routes/fund.routes")(app);
 require("./app/routes/initializedb.routes")(app);
+require("./app/routes/queries.routes")(app);
 
 
 // set port, listen for requests
