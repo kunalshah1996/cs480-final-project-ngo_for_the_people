@@ -116,3 +116,114 @@ exports.allocated_funds= (req, res) => {
      });
    });
 };
+
+
+exports.active_causes= (req, res) => {
+  myCon.connect(function(err) {
+     if (err) throw err;
+     myCon.query("SELECT cause_type, cause_id FROM cause WHERE  cause_status = 'active';", function (err, result, fields) {
+      if (result) {
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `Cannot retrieve causes!`
+          });
+        }
+     });
+   });
+};
+
+exports.budget_online= (req, res) => {
+  myCon.connect(function(err) {
+     if (err) throw err;
+     myCon.query("SELECT campaign_id, campaign_budget FROM campaign WHERE campaign_location = 'Online';", function (err, result, fields) {
+  
+      if (result) {
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `Cannot retrieve budget!`
+          });
+        }
+     });
+   });
+};
+
+
+exports.designation_pr= (req, res) => {
+  myCon.connect(function(err) {
+     if (err) throw err;
+     myCon.query("SELECT employee_id, employee_designation FROM employee WHERE employee_department = 'Public Relations';", function (err, result, fields) {
+      if (result) {
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `Cannot retrieve employees!`
+          });
+        }
+     });
+   });
+};
+
+
+exports.trim_ename = (req, res) => {
+  myCon.connect(function(err) {
+     if (err) throw err;
+     myCon.query("UPDATE employee SET employee_name = TRIM(employee_name);", function (err, result, fields) {
+      if (result) {
+        console.log(result.changedRows)
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `Cannot retrieve employee names!`
+          });
+        }
+     });
+   });
+};
+
+
+exports.count_donation = (req, res) => {
+  myCon.connect(function(err) {
+     if (err) throw err;
+     const countvalue =req.query.countvalue;
+     myCon.query("SELECT COUNT(donation_donor_id) as TOTAL_COUNT, donation_type FROM donation GROUP BY donation_type HAVING COUNT(donation_donor_id) > ?;",[countvalue],function (err, result, fields) {
+      if (result) {
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `No records satisfy given condition!`
+          });
+        }
+     });
+   });
+};
+
+exports.joining_period = (req, res) => {
+  myCon.connect(function(err) {
+     if (err) throw err;
+     const date1 =req.query.date1;
+     const date2 =req.query.date2;
+     myCon.query("SELECT employee_name, employee_id, employee_doj FROM employee WHERE employee_doj >= ? AND employee_doj < ?;",[date1,date2],function (err, result, fields) {
+      if (result) {
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `No records satisfy given condition!`
+          });
+        }
+     });
+   });
+};
