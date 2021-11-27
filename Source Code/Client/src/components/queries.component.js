@@ -13,10 +13,7 @@ export default class extends Component {
     this.donation_quantity = this.donation_quantity.bind(this);
     this.budget_city=this.budget_city.bind(this);
     this.allocated_funds=this.allocated_funds.bind(this);
-<<<<<<< HEAD
     this.active_causes = this.active_causes.bind(this);
-=======
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
 
     
   }
@@ -26,13 +23,9 @@ export default class extends Component {
       window.location = "/login"
     }
   }
-<<<<<<< HEAD
   active_causes(){
     window.location="/active_causes"
   }
-=======
-
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
   allocated_funds(){
     window.location="/allocated_funds"
   }
@@ -56,7 +49,6 @@ export default class extends Component {
   budget_city() {
     window.location="/budget_city"
   }
-<<<<<<< HEAD
   designation_pr(){
     window.location="/designation_pr"
   }  
@@ -72,8 +64,6 @@ export default class extends Component {
   joining_period(){
     window.location="/joining_period"
   }
-=======
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
 
   
   render() {
@@ -145,7 +135,6 @@ export default class extends Component {
       >
       Select
       </button>
-<<<<<<< HEAD
       <div>
           <h4>Find active causes</h4>
       </div>
@@ -217,9 +206,6 @@ export default class extends Component {
      
       
 
-=======
-      </div>
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
     );
     }
 }

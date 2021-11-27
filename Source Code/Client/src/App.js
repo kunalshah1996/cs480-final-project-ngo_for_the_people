@@ -42,16 +42,12 @@ import Incomplete_donation from "./components/incomplete_donation.component";
 import Donation_quantity from "./components/donation_quantity.component";
 import Budget_city from "./components/budget_city.component";
 import Allocated_funds from "./components/allocated_funds.component"
-<<<<<<< HEAD
 import Active_causes from "./components/active_causes.component"
 import Budget_online from "./components/budget_online.component.js"
 import Designation_pr from "./components/designation_pr.component.js";
 import Trim_ename from "./components/trim_ename.component.js";
 import Count_donation from "./components/count_donation.component.js"
 import Joining_period from "./components/joining_period.component.js"
-=======
-
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
 
 class App extends Component {
   render() {
@@ -176,7 +172,6 @@ class App extends Component {
             <Route exact path="/donation_quantity" component={Donation_quantity} />
             <Route exact path="/budget_city" component={Budget_city} />
             <Route exact path="/allocated_funds" component={Allocated_funds} />
-<<<<<<< HEAD
             <Route exact path="/active_causes" component={Active_causes} />
             <Route exact path="/budget_online" component={Budget_online} />
             <Route exact path="/designation_pr" component={Designation_pr} />
@@ -184,8 +179,6 @@ class App extends Component {
             <Route exact path="/count_donation" component={Count_donation} />
             <Route exact path="/joining_period" component={Joining_period} />
 
-=======
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
           </Switch>
         </div>
       </div>

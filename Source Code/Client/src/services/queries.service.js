@@ -22,7 +22,6 @@ class QueriesDataService {
   show_funds(){
     return http.get("/queries/allocated_funds")
   }
-<<<<<<< HEAD
   active_causes(){
     return http.get("/queries/active_causes")
   }
@@ -41,8 +40,6 @@ class QueriesDataService {
   joining_period(data){
     return http.get(`/queries/joining_period/?date1=${data.date1}&date2=${data.date2}`)
   }
-=======
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
 }
 
 export default new QueriesDataService();
