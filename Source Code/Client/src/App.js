@@ -35,6 +35,23 @@ import DonationsList from "./components/donation-list.component";
 import Fund from "./components/fund.component";
 import AddFund from "./components/add-fund.component";
 import FundsList from "./components/fund-list.component";
+import Queries from "./components/queries.component";
+import Employees_education from "./components/employees_education.component";
+import Free_employees from "./components/free_employee.component";
+import Incomplete_donation from "./components/incomplete_donation.component";
+import Donation_quantity from "./components/donation_quantity.component";
+import Budget_city from "./components/budget_city.component";
+import Allocated_funds from "./components/allocated_funds.component"
+<<<<<<< HEAD
+import Active_causes from "./components/active_causes.component"
+import Budget_online from "./components/budget_online.component.js"
+import Designation_pr from "./components/designation_pr.component.js";
+import Trim_ename from "./components/trim_ename.component.js";
+import Count_donation from "./components/count_donation.component.js"
+import Joining_period from "./components/joining_period.component.js"
+=======
+
+>>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
 
 class App extends Component {
   render() {
@@ -46,11 +63,11 @@ class App extends Component {
           </Link>
           
           <div className="navbar-nav mr-auto">
-            <li className="nav-item">
+            <li className="nav-item">{ !sessionStorage.getItem("login") &&
             <Link to={"/login"} className="nav-link">
                 Login
           </Link>
-            </li>
+            }</li>
             <li className="nav-item">
               <Link to={"/employees"} className="nav-link">
                 Employees
@@ -101,6 +118,18 @@ class App extends Component {
                 Fund
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/queries"} className="nav-link">
+              Functions and Queries
+              </Link>
+            </li>
+            {/* <li className="nav-item">{ sessionStorage.getItem("login") &&
+            <Link to={"/login"} className="nav-link">
+                Logout
+          </Link>
+          
+            } 
+            </li> */}
             <li>
             </li>
           </div>
@@ -140,6 +169,23 @@ class App extends Component {
             <Route exact path="/funds" component={FundsList} />
             <Route exact path="/addfund" component={AddFund} />
             <Route path="/funds/:id" component={Fund} />
+            <Route exact path="/queries" component={Queries} />
+            <Route exact path="/employees_education" component={Employees_education} />
+            <Route exact path="/free_employees" component={Free_employees} />
+            <Route exact path="/incomplete_donation" component={Incomplete_donation} />
+            <Route exact path="/donation_quantity" component={Donation_quantity} />
+            <Route exact path="/budget_city" component={Budget_city} />
+            <Route exact path="/allocated_funds" component={Allocated_funds} />
+<<<<<<< HEAD
+            <Route exact path="/active_causes" component={Active_causes} />
+            <Route exact path="/budget_online" component={Budget_online} />
+            <Route exact path="/designation_pr" component={Designation_pr} />
+            <Route exact path="/trim_ename" component={Trim_ename} />
+            <Route exact path="/count_donation" component={Count_donation} />
+            <Route exact path="/joining_period" component={Joining_period} />
+
+=======
+>>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
           </Switch>
         </div>
       </div>
