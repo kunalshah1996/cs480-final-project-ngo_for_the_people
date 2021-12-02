@@ -14,6 +14,13 @@ export default class extends Component {
     this.donation_quantity = this.donation_quantity.bind(this);
     this.budget_city=this.budget_city.bind(this);
     this.allocated_funds=this.allocated_funds.bind(this);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2a9f70ab4b679e7be90c08beb2159ec739fbf70d
+>>>>>>> 5a1b53fae6e3145d261e405365ed25aea42f8ab6
     this.active_causes = this.active_causes.bind(this);
 
     

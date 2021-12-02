@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import EmployeeDataService from "../services/employee.service";
-
+import '../employee.css';
+// require('react-dom');
+// window.React2 = require('react');
+// console.log(window.React1 === window.React2);
 export default class Employee extends Component {
   constructor(props) {
     super(props);

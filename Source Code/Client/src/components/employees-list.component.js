@@ -96,6 +96,7 @@ export default class extends Component {
     const { searchEmployee_id, employees, currentEmployee, currentIndex } = this.state;
 
     return (
+<<<<<<< HEAD
       <body id ="bg">
       <div className="list row" id ="first">
         <div className="col-md-8" id = "third">
@@ -105,17 +106,33 @@ export default class extends Component {
               className="form-control"
               placeholder="Search by the ID of employee"
               id = "fourth"
+=======
+      
+      <div className="list row" id = "first">
+        <div className="col-md-8">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id= "search_btn"
+              placeholder="Search by the ID of the employee"
+>>>>>>> 5a1b53fae6e3145d261e405365ed25aea42f8ab6
               value={searchEmployee_id}
               onChange={this.onChangeSearchEmployee_id}
             />
-            <div className="input-group-append">
+            <div className="input-group-append" id = "search">
+              
               <button
                 className="btn btn-outline-secondary"
                 type="button"
                 id = "search_btn"
                 onClick={this.searchEmployee_id}
               >
+<<<<<<< HEAD
                 SEARCH
+=======
+                SEARCH 
+>>>>>>> 5a1b53fae6e3145d261e405365ed25aea42f8ab6
               </button>
             </div>
             <div className="input-group-append">
@@ -131,7 +148,11 @@ export default class extends Component {
           </div>
           
         </div>
+<<<<<<< HEAD
         <div className="col-md-6" id ="employee1">
+=======
+        <div className="col-md-6" id = "employee1" >
+>>>>>>> 5a1b53fae6e3145d261e405365ed25aea42f8ab6
           <h4>List of Employees</h4>
 
           <ul className="list-group">
@@ -160,7 +181,7 @@ export default class extends Component {
         <div className="col-md-6">
           {currentEmployee ? (
             <div>
-              <h4>Employee</h4>
+              <h4>Details of the employee:</h4>
               <div>
                 <label>
                   <strong>Id:</strong>
@@ -214,7 +235,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on an Employee</p>
+              <p>Please click on an Employee!</p>
             </div>
           )}
         </div>

@@ -153,7 +153,7 @@ export default class extends Component {
                 <label>
                   <strong>Date of joining</strong>
                 </label>{" "}
-                {currentEmployee.employee_doj}
+                {currentEmployee.employee_doj.slice(0,10)}
               </div>
               <div>
               </div>

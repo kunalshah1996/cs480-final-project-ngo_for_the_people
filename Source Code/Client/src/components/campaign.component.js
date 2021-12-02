@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../campaign.css';
 import CampaignDataService from "../services/campaign.service";
 import '../campaign.css';
 
@@ -134,15 +135,33 @@ export default class Campaign extends Component {
 
   render() {
     const { currentCampaign } = this.state;
+    const CampaignStyle = {
+      backgroundColor: 'red',
+      borderRadius: '50%',
+      width:'3em',
+      height:'2.25em',
+      textAlign:'center',
+      paddingTop: '0.75em',
+      display:'inline-block',
+      marginRight: '0.5em',
+      marginTop: '1em',
+      color:'white',
+      fontWeight: 'bold',
+      fontSize: '1.5em'
+    }
 
     return (
+<<<<<<< HEAD
       <body>
       <div>
+=======
+      <div style={CampaignStyle}>
+>>>>>>> 5a1b53fae6e3145d261e405365ed25aea42f8ab6
         {currentCampaign ? (
           <div className="edit-form">
             <h4>Campaign</h4>
             <form>
-              <div className="form-group">
+              <div className="form-group" >
                 <label htmlFor="campaign_id">ID</label>
                 <input
                   type="text"
