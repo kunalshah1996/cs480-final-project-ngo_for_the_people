@@ -46,6 +46,7 @@ import Active_causes from "./components/active_causes.component"
 import Budget_online from "./components/budget_online.component.js"
 import Designation_pr from "./components/designation_pr.component.js";
 import Trim_ename from "./components/trim_ename.component.js";
+<<<<<<< HEAD
 import Count_donation from "./components/count_donation.component.js";
 import Joining_period from "./components/joining_period.component.js";
 import ngo_image from "./logongo.jpg";
@@ -73,6 +74,10 @@ import 'bootstrap/js/dist/dropdown';
 
 
 
+=======
+import Count_donation from "./components/count_donation.component.js"
+import Joining_period from "./components/joining_period.component.js"
+>>>>>>> 2a9f70ab4b679e7be90c08beb2159ec739fbf70d
 
 class App extends Component {
 
