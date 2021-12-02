@@ -1,0 +1,48 @@
+#complex{
+    background-color: rgb(240, 229, 240);
+    margin-left: 50px;
+    margin-right : 50px;
+    margin-bottom: 30px;
+    top : 10 px
+}
+#add_btn{
+    margin-left: 10px;
+    background-color: rgb(160, 160, 153);
+    color : black;
+}
+#query1{
+    margin-left: 10px;
+}
+#aggregate{
+    background-color: rgb(240, 229, 240);
+    margin-left: 50px;
+    margin-right : 50px;
+    margin-bottom: 30px;
+    top : 10 px
+}
+
+#simple{
+    background-color: rgb(240, 229, 240);
+    margin-left: 50px;
+    margin-right : 50px;
+    margin-bottom: 30px;
+    top : 10 px
+}
+
+
+#bg1 {
+    
+        background-color:  gray;
+        /* width : max-content; */
+        height :max-content; 
+        margin : 0px;
+        padding : 0px;
+        box-sizing: border-box;
+        position: relative;
+        top : 10px;
+        left : 0;
+        bottom : 0;
+        right : 0;
+        overflow: 0;
+    
+}

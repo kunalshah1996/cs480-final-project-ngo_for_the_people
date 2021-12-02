@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EmployeeDataService from "../services/employee.service";
+import '../employee.css';
 
 export default class AddTutorial extends Component {
   constructor(props) {

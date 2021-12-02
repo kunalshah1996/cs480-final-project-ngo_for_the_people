@@ -62,26 +62,7 @@
 #fourth{
     margin-left: 10px;
 }
-#fifth{
-    margin-top: 10px;
-    margin-left: 450px;
-     
-    
-    max-width: 500px; 
-    /* position: fixed;
-    top : 0;
-    left : 0;
-    bottom : 0;
-    right : 0;
-    overflow: 0; */
-    margin-left: 475px;
-    background-color:#282c34;
-
-}
-#fontc{
-    color : white;
-}
-#fund1{
+#education1{
     align-items : center;
     margin-left: 75px;
     margin-bottom: 30px;

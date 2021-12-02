@@ -96,23 +96,26 @@ export default class extends Component {
     const { searchEmployee_id, employees, currentEmployee, currentIndex } = this.state;
 
     return (
-      <div className="list row">
+      
+      <div className="list row" id = "first">
         <div className="col-md-8">
           <div className="input-group mb-3">
             <input
               type="text"
               className="form-control"
-              placeholder="Search by employee_id"
+              id= "search_btn"
+              placeholder="Search by the ID of the employee"
               value={searchEmployee_id}
               onChange={this.onChangeSearchEmployee_id}
             />
-            <div className="input-group-append">
+            <div className="input-group-append" id = "search">
+              
               <button
                 className="btn btn-outline-secondary"
                 type="button"
                 onClick={this.searchEmployee_id}
               >
-                Search
+                SEARCH 
               </button>
             </div>
             <div className="input-group-append">
@@ -122,14 +125,14 @@ export default class extends Component {
                 type="button"
                 onClick={this.addEmployee}
               >
-              Add
+              ADD
               </button>
             </div>
           </div>
           
         </div>
-        <div className="col-md-6">
-          <h4>Employees List</h4>
+        <div className="col-md-6" id = "employee1" >
+          <h4>List of Employees</h4>
 
           <ul className="list-group">
             {employees &&
@@ -157,7 +160,7 @@ export default class extends Component {
         <div className="col-md-6">
           {currentEmployee ? (
             <div>
-              <h4>Employee</h4>
+              <h4>Details of the employee:</h4>
               <div>
                 <label>
                   <strong>Id:</strong>
@@ -211,7 +214,7 @@ export default class extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on an Employee</p>
+              <p>Please click on an Employee!</p>
             </div>
           )}
         </div>
