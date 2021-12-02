@@ -151,12 +151,9 @@ export default class Campaign extends Component {
     }
 
     return (
-<<<<<<< HEAD
+
       <body>
-      <div>
-=======
       <div style={CampaignStyle}>
->>>>>>> 5a1b53fae6e3145d261e405365ed25aea42f8ab6
         {currentCampaign ? (
           <div className="edit-form">
             <h4>Campaign</h4>

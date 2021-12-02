@@ -18,7 +18,7 @@ export default class extends Component {
       campaigns: [],
       currentCampaign: null,
       currentIndex: -1,
-      searchCampaign: ""
+      searchCampaign_id: ""
     };
   }
 
@@ -79,6 +79,7 @@ export default class extends Component {
   searchCampaign_id() {
     CampaignDataService.findById(this.state.searchCampaign_id)
       .then(response => {
+        console.log(response);
         this.setState({
           campaigns: response.data
         });
