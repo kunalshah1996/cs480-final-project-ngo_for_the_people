@@ -42,38 +42,117 @@ import Incomplete_donation from "./components/incomplete_donation.component";
 import Donation_quantity from "./components/donation_quantity.component";
 import Budget_city from "./components/budget_city.component";
 import Allocated_funds from "./components/allocated_funds.component"
-<<<<<<< HEAD
 import Active_causes from "./components/active_causes.component"
 import Budget_online from "./components/budget_online.component.js"
 import Designation_pr from "./components/designation_pr.component.js";
 import Trim_ename from "./components/trim_ename.component.js";
-import Count_donation from "./components/count_donation.component.js"
-import Joining_period from "./components/joining_period.component.js"
-=======
+import Count_donation from "./components/count_donation.component.js";
+import Joining_period from "./components/joining_period.component.js";
+import ngo_image from "./logongo.jpg";
+import Contact from "./Contact";
+import About from "./About";
+import Users from "./components/display_users.component";
+import Register from "./components/register-user.component";
 
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
+
+import {
+  Button,
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  Progress,
+} from 'reactstrap';
+import 'bootstrap';
+
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import 'bootstrap/dist/css/bootstrap.css'; 
+import 'bootstrap/js/dist/dropdown';
+
+
+
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.logout = this.logout.bind(this);
+  }
+
+  logout() {
+    sessionStorage.clear();
+    window.location.href='/login'
+   }
+  
   render() {
     return (
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/"} className="navbar-brand">
+      
+      <div id = "main">
+   
+        <nav className="navbar navbar-expand navbar-dark bg-dark" id  = "logo" >
+          <div style={{marginLeft:10 }}>
+           <a><img  src={ngo_image} style={{width:30}}/></a>
+          </div>
+          <Link to={"/"} className="navbar-brand" style={{marginLeft:10 }}>
                 NGO FOR THE PEOPLE
           </Link>
           
+          
           <div className="navbar-nav mr-auto">
+          {/* <div id = "crud"  >
+            <UncontrolledDropdown>
+        <DropdownToggle caret>
+          CRUD Entities
+        </DropdownToggle>
+        <DropdownMenu>
+        <DropdownItem tag ={Link} to={"/campaigns"}>Campaigns</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/causes"}>Cause</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/donations"}>Donation</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/donors"}>Donor</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/Funds"}>Fund</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/educations"}>Education</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/employees"}>Employees</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/healths"}>Health</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/items"}>Items</DropdownItem>
+                  <DropdownItem tag = {Link} to={"/receivers"}>Receivers</DropdownItem>
+        </DropdownMenu>
+      </UncontrolledDropdown>
+      </div> */}
             <li className="nav-item">{ !sessionStorage.getItem("login") &&
             <Link to={"/login"} className="nav-link">
                 Login
-          </Link>
+            </Link>
+            
             }</li>
+            <div>{sessionStorage.getItem("login") &&
+            <div>
+              <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <li className="nav-item">
+            <Link to={"/contact"} className="nav-link">
+                Contact us
+            </Link>
+            
+            </li>
+            <li className="nav-item">
+            <Link to={"/about"} className="nav-link">
+                About us
+            </Link>
+            
+            </li>
+            <li className="nav-item">
+            <Link to={"/users"} className="nav-link">
+                Users
+            </Link>
+            
+            </li>
             <li className="nav-item">
               <Link to={"/employees"} className="nav-link">
                 Employees
               </Link>
             </li>
-            <li className="nav-item">
+             <li className="nav-item">
               <Link to={"/campaigns"} className="nav-link">
                 Campaigns
               </Link>
@@ -88,6 +167,8 @@ class App extends Component {
                 Items
               </Link>
             </li>
+
+
             <li className="nav-item">
               <Link to={"/donors"} className="nav-link">
                 Donor
@@ -123,17 +204,19 @@ class App extends Component {
               Functions and Queries
               </Link>
             </li>
-            {/* <li className="nav-item">{ sessionStorage.getItem("login") &&
-            <Link to={"/login"} className="nav-link">
+            <li className="nav-item">
+            <Link className="nav-link" onClick={this.logout}>
                 Logout
           </Link>
           
-            } 
-            </li> */}
-            <li>
-            </li>
-          </div>
+            </li> 
+            </nav></div>
+            }    </div>
+            
+            </div>
         </nav>
+
+
 
         <div className="container mt-3">
           <Switch>
@@ -176,16 +259,19 @@ class App extends Component {
             <Route exact path="/donation_quantity" component={Donation_quantity} />
             <Route exact path="/budget_city" component={Budget_city} />
             <Route exact path="/allocated_funds" component={Allocated_funds} />
-<<<<<<< HEAD
             <Route exact path="/active_causes" component={Active_causes} />
             <Route exact path="/budget_online" component={Budget_online} />
             <Route exact path="/designation_pr" component={Designation_pr} />
             <Route exact path="/trim_ename" component={Trim_ename} />
             <Route exact path="/count_donation" component={Count_donation} />
             <Route exact path="/joining_period" component={Joining_period} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/users" component={Users} />
+            <Route exact path="/register_user" component={Register} />
 
-=======
->>>>>>> 01b1c954ce929cda83ec33b02af6bad505f8937e
+
+
           </Switch>
         </div>
       </div>

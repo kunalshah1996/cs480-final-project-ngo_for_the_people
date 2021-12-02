@@ -160,10 +160,11 @@ export default class Employee extends Component {
     const { currentEmployee } = this.state;
 
     return (
+      <body id ="bg">
       <div>
         {currentEmployee ? (
-          <div className="edit-form">
-            <h4>Employee</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id ="fontc">Employee</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="employee_id">ID</label>
@@ -242,6 +243,7 @@ export default class Employee extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

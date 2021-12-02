@@ -8,7 +8,6 @@ DROP TABLE item;
 DROP TABLE fund;
 DROP TABLE donation;
 DROP TABLE donor;
-create index users_index on users(username);
 create table employee(employee_id int , employee_name VARCHAR(40) NOT NULL, employee_contact int NOT NULL, employee_address VARCHAR(80), employee_designation VARCHAR(40), employee_department VARCHAR(40), employee_availability VARCHAR(40), employee_doj DATE, PRIMARY KEY(employee_id));
 create index employee_index on employee(employee_name);
 INSERT INTO employee (`employee_id`,`employee_name`,`employee_contact`,`employee_address`,`employee_designation`,`employee_department`,`employee_availability`,`employee_doj`) VALUES (211,'Chrisitna George',235467890,'3122 Taylor Street, Chicago,IL','Administrative Manager','Administration','unavailable','2017-02-27');

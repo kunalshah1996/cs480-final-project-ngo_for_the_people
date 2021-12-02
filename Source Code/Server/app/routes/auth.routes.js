@@ -5,6 +5,7 @@ module.exports = app => {
 
   router.post("/register", authController.register);
   router.post("/login", authController.login);
+  router.get("/display_all", authController.findAll);
 
   app.use('/api/users', router);
 };

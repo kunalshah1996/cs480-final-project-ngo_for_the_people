@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DonationsDataService from "../services/donor.service";
-
+import '../donation.css';
 export default class Donation extends Component {
   constructor(props) {
     super(props);
@@ -115,10 +115,11 @@ export default class Donation extends Component {
     const { currentDonation } = this.state;
 
     return (
+      <body id = "bg">
       <div>
         {currentDonation ? (
-          <div className="edit-form">
-            <h4>Donation ID</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id = "fontc">Donation ID</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="donation_id">Donation ID : </label>
@@ -188,6 +189,7 @@ export default class Donation extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

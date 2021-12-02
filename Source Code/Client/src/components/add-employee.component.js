@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EmployeeDataService from "../services/employee.service";
+import '../employee.css';
 
 export default class AddTutorial extends Component {
   constructor(props) {
@@ -122,7 +123,8 @@ export default class AddTutorial extends Component {
 
   render() {
     return (
-        <div className="submit-form">
+      <body id = "bg">
+        <div className="submit-form" id ="second"> 
           {this.state.submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
@@ -132,7 +134,7 @@ export default class AddTutorial extends Component {
             </div>
           ) : (
             <div>
-              <div className="form-group">
+              <div className="form-group" id = "form">
                 <label htmlFor="title">Employee ID</label>
                 <input
                   type="text"
@@ -223,12 +225,13 @@ export default class AddTutorial extends Component {
                 />
               </div>
   
-              <button onClick={this.saveEmployee} className="mt-3 btn btn-success">
+              <button onClick={this.saveEmployee} className="mt-3 btn btn-success" id = "button">
                 Submit
               </button>
             </div>
           )}
         </div>
+        </body>
           
       );
   }

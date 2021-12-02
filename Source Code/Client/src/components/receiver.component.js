@@ -159,10 +159,12 @@ export default class Receiver extends Component {
     const { currentReceiver } = this.state;
 
     return (
+      <body id ="bg">
       <div>
+      
         {currentReceiver ? (
-          <div className="edit-form">
-            <h4>Receiver</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id = "fontc">Receiver</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="cause_id">Cause ID</label>
@@ -264,6 +266,7 @@ export default class Receiver extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

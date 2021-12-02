@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CampaignDataService from "../services/campaign.service";
+import '../campaign.css';
 
 export default class Campaign extends Component {
   constructor(props) {
@@ -135,6 +136,7 @@ export default class Campaign extends Component {
     const { currentCampaign } = this.state;
 
     return (
+      <body>
       <div>
         {currentCampaign ? (
           <div className="edit-form">
@@ -223,10 +225,11 @@ export default class Campaign extends Component {
         ) : (
           <div>
             <br />
-            <p>Please click on a Campaign</p>
+            <p>Please click on a Campaign!</p>
           </div>
         )}
       </div>
+      </body>
     );
   }
 

@@ -148,10 +148,11 @@ export default class Education extends Component {
     const { currentEducation } = this.state;
 
     return (
+      <body id = "bg">
       <div>
         {currentEducation ? (
-          <div className="edit-form">
-            <h4>Education</h4>
+          <div className="edit-form" id ="fifth">
+            <h4 id = "fontc">Education</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="cause_id">ID</label>
@@ -240,6 +241,7 @@ export default class Education extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

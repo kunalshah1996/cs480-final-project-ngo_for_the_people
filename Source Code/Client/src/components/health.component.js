@@ -148,10 +148,11 @@ export default class Health extends Component {
     const { currentHealth } = this.state;
 
     return (
+      <body id = "bg">
       <div>
         {currentHealth ? (
-          <div className="edit-form">
-            <h4>Health</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id ="fontc">Health</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="cause_id">ID</label>
@@ -240,6 +241,7 @@ export default class Health extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

@@ -96,13 +96,15 @@ export default class extends Component {
     const { searchEmployee_id, employees, currentEmployee, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
+      <body id ="bg">
+      <div className="list row" id ="first">
+        <div className="col-md-8" id = "third">
+          <div className="input-group mb-3" id = "search">
             <input
               type="text"
               className="form-control"
-              placeholder="Search by employee_id"
+              placeholder="Search by the ID of employee"
+              id = "fourth"
               value={searchEmployee_id}
               onChange={this.onChangeSearchEmployee_id}
             />
@@ -110,9 +112,10 @@ export default class extends Component {
               <button
                 className="btn btn-outline-secondary"
                 type="button"
+                id = "search_btn"
                 onClick={this.searchEmployee_id}
               >
-                Search
+                SEARCH
               </button>
             </div>
             <div className="input-group-append">
@@ -122,14 +125,14 @@ export default class extends Component {
                 type="button"
                 onClick={this.addEmployee}
               >
-              Add
+              ADD
               </button>
             </div>
           </div>
           
         </div>
-        <div className="col-md-6">
-          <h4>Employees List</h4>
+        <div className="col-md-6" id ="employee1">
+          <h4>List of Employees</h4>
 
           <ul className="list-group">
             {employees &&
@@ -216,6 +219,7 @@ export default class extends Component {
           )}
         </div>
       </div>
+      </body>
     );
     }
 }

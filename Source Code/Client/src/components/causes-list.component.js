@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CauseDataService from "../services/cause.service";
 import { Link } from "react-router-dom";
-
+import "../cause.css"
 // export default EmployeesList;
 
 export default class extends Component {
@@ -96,13 +96,15 @@ export default class extends Component {
     const { searchCause_id, causes, currentCause, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
+      <body id = "bg">
+      <div className="list row" id = "first">
+        <div className="col-md-8" id = "third">
+          <div className="input-group mb-3" id = "search">
             <input
               type="text"
               className="form-control"
               placeholder="Search by cause_id"
+              id= "fourth"
               value={searchCause_id}
               onChange={this.onChangeSearchCause_id}
             />
@@ -110,6 +112,7 @@ export default class extends Component {
               <button
                 className="btn btn-outline-secondary"
                 type="button"
+                id = "search_btn"
                 onClick={this.searchCause_id}
               >
                 Search
@@ -128,8 +131,8 @@ export default class extends Component {
           </div>
           
         </div>
-        <div className="col-md-6">
-          <h4>Causes List</h4>
+        <div className="col-md-6" id = "cause1">
+          <h4> List of Causes</h4>
 
           <ul className="list-group">
             {causes &&
@@ -199,6 +202,7 @@ export default class extends Component {
           )}
         </div>
       </div>
+      </body>
     );
     }
 }

@@ -123,10 +123,11 @@ export default class Cause extends Component {
     const { currentCause } = this.state;
 
     return (
+      <body id ="bg">
       <div>
         {currentCause ? (
-          <div className="edit-form">
-            <h4>Cause</h4>
+          <div className="edit-form" id ="fifth">
+            <h4 id ="fontc">Cause</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="cause_id">ID</label>
@@ -197,6 +198,7 @@ export default class Cause extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 
