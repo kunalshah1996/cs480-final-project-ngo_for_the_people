@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import DonationsDataService from "../services/donor.service";
-
+import DonationsDataService from "../services/donation.service";
+import '../donation.css';
 export default class Donation extends Component {
   constructor(props) {
     super(props);
@@ -75,10 +75,10 @@ export default class Donation extends Component {
         this.setState({
           currentDonation: response.data
         });
-        console.log(response.data);
+        console.log(this.state.currentDonation)
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -113,12 +113,13 @@ export default class Donation extends Component {
 
   render() {
     const { currentDonation } = this.state;
-
+    console.log("Current donation",currentDonation)
     return (
+      <body id = "bg">
       <div>
         {currentDonation ? (
-          <div className="edit-form">
-            <h4>Donation ID</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id = "fontc">Donation ID</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="donation_id">Donation ID : </label>
@@ -188,6 +189,7 @@ export default class Donation extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

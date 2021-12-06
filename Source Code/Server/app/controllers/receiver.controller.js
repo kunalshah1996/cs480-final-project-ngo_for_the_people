@@ -37,7 +37,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Receiver from the database.
 exports.findAll = (req, res) => {
-    const cause_id = req.query.cause_id;
+    const cause_id = req.query.receiver_id;
+    console.log("findall",req.query)
     var condition = cause_id ? { cause_id: { [Op.like]: `%${cause_id}%` } } : null;
     console.log(`condition`, condition)
     Receiver.findAll({ where: condition })
@@ -55,7 +56,7 @@ exports.findAll = (req, res) => {
 // Find a single receiver with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-  
+    console.log(id)
     Receiver.findByPk(id)
       .then(data => {
         if (data) {

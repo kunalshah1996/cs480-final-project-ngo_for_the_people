@@ -35,7 +35,7 @@ export default class extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -53,11 +53,11 @@ export default class extends Component {
     return (
         <div className="list row">
         <div className="col-md-6">
-        <div>{employees.length == 0 &&
+        <div>{employees.length==0 &&
           <h4>No free employees</h4>
             }
           </div>
-          <div>{employees.length > 0 &&
+          <div>{employees.length>0 &&
           <h4>Employees List</h4>
             }
           </div>

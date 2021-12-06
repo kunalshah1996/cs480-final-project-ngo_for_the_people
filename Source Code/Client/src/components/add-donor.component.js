@@ -75,7 +75,7 @@ export default class AddDonor extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -91,7 +91,8 @@ export default class AddDonor extends Component {
 
   render() {
     return (
-        <div className="submit-form">
+      <body id = "bg">
+        <div className="submit-form" id = "second">
           {this.state.submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
@@ -101,7 +102,7 @@ export default class AddDonor extends Component {
             </div>
           ) : (
             <div>
-              <div className="form-group">
+              <div className="form-group" id = "form">
                 <label htmlFor="title">Donor ID</label>
                 <input
                   type="text"
@@ -153,12 +154,13 @@ export default class AddDonor extends Component {
               </div>
 
   
-              <button onClick={this.saveDonor} className="mt-3 btn btn-success">
+              <button onClick={this.saveDonor} className="mt-3 btn btn-success" id = "button">
                 Submit
               </button>
             </div>
           )}
         </div>
+        </body>
           
       );
   }

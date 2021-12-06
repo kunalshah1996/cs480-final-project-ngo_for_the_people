@@ -26,7 +26,7 @@ export default class extends Component {
         // console.log(response.data.result)
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

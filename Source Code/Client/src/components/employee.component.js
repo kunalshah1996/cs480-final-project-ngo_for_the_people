@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import EmployeeDataService from "../services/employee.service";
-
+import '../employee.css';
+// require('react-dom');
+// window.React2 = require('react');
+// console.log(window.React1 === window.React2);
 export default class Employee extends Component {
   constructor(props) {
     super(props);
@@ -123,7 +126,7 @@ export default class Employee extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -140,7 +143,7 @@ export default class Employee extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -152,7 +155,7 @@ export default class Employee extends Component {
         this.props.history.push('/employees')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -160,10 +163,11 @@ export default class Employee extends Component {
     const { currentEmployee } = this.state;
 
     return (
+      <body id ="bg">
       <div>
         {currentEmployee ? (
-          <div className="edit-form">
-            <h4>Employee</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id ="fontc">Employee</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="employee_id">ID</label>
@@ -242,6 +246,7 @@ export default class Employee extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

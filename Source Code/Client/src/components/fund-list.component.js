@@ -45,7 +45,7 @@ export default class extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -71,7 +71,7 @@ export default class extends Component {
         this.refreshList();
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -84,7 +84,7 @@ export default class extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
   addFund() {
@@ -95,13 +95,15 @@ export default class extends Component {
     const { searchFund_Donation_id, funds, currentFund, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
+      <body id = "bg">
+      <div className="list row" id = "first">
+        <div className="col-md-8" id = "third">
+          <div className="input-group mb-3" id = "search">
             <input
               type="text"
               className="form-control"
-              placeholder="Search by fund_donation_id"
+              placeholder="Search by ID of the Fund_Donation "
+              id = "fourth"
               value={searchFund_Donation_id}
               onChange={this.onChangeSearchFund_Donation_id}
             />
@@ -109,6 +111,7 @@ export default class extends Component {
               <button
                 className="btn btn-outline-secondary"
                 type="button"
+                id = "search_btn"
                 onClick={this.searchFund_Donation_id}
               >
                 Search
@@ -127,8 +130,8 @@ export default class extends Component {
           </div>
           
         </div>
-        <div className="col-md-6">
-          <h4>Fund List</h4>
+        <div className="col-md-6" id = "fund1">
+          <h4>List of Funds</h4>
 
           <ul className="list-group">
             {funds &&
@@ -198,6 +201,7 @@ export default class extends Component {
           )}
         </div>
       </div>
+      </body>
     );
     }
 }

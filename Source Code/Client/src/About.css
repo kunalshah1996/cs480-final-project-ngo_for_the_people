@@ -1,0 +1,37 @@
+#about{
+    width: fit-content; 
+    /* To adjust the height as well */ 
+    height: fit-content;
+    
+  }
+
+#bgimage{ 
+width: 1400px;
+height: fit-content;
+margin-left: -50px;
+margin-right: -px ;
+
+}
+
+#bckimg{
+  opacity: 0.4;
+}
+
+#text-about{
+
+  color: black;
+}
+
+.text-block {
+  position: absolute;
+  /* top : -10px; */
+  bottom: 200px;
+  right: 20px;
+  left : 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

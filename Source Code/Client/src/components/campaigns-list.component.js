@@ -18,7 +18,7 @@ export default class extends Component {
       campaigns: [],
       currentCampaign: null,
       currentIndex: -1,
-      searchCampaign: ""
+      searchCampaign_id: ""
     };
   }
 
@@ -31,7 +31,6 @@ export default class extends Component {
 
   onChangeSearchCampaign_id(e) {
     const searchCampaign_id = e.target.value;
-
     this.setState({
       searchCampaign_id: searchCampaign_id
     });
@@ -77,6 +76,7 @@ export default class extends Component {
   }
 
   searchCampaign_id() {
+    console.log("on button click")
     CampaignDataService.findById(this.state.searchCampaign_id)
       .then(response => {
         this.setState({
@@ -85,7 +85,7 @@ export default class extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
   addCampaign() {
@@ -96,23 +96,26 @@ export default class extends Component {
     const { searchCampaign_id, campaigns, currentCampaign, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
+      <body id = "bg">
+      <div className="list row" id = "first">
+        <div className="col-md-8" id = "third" >
+          <div className="input-group mb-3" id = "search">
             <input
               type="text"
               className="form-control"
-              placeholder="Search by campaign_id"
+              placeholder="Search by the ID of the campaign"
+              id = "fourth"
               value={searchCampaign_id}
               onChange={this.onChangeSearchCampaign_id}
             />
-            <div className="input-group-append">
+            <div className="input-group-append" >
               <button
                 className="btn btn-outline-secondary"
                 type="button"
+                id = "search_btn"
                 onClick={this.searchCampaign_id}
               >
-                Search
+                SEARCH
               </button>
             </div>
             <div className="input-group-append">
@@ -122,14 +125,14 @@ export default class extends Component {
                 type="button"
                 onClick={this.addCampaign}
               >
-              Add
+              ADD
               </button>
             </div>
           </div>
           
         </div>
-        <div className="col-md-6">
-          <h4>Campaigns List</h4>
+        <div className="col-md-6" id = "campaign1">
+          <h4>List of campaigns</h4>
 
           <ul className="list-group">
             {campaigns &&
@@ -147,12 +150,6 @@ export default class extends Component {
               ))}
           </ul>
 
-          {/* <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllEmployees}
-          >
-            Remove All
-          </button> */}
         </div>
         <div className="col-md-6">
           {currentCampaign ? (
@@ -210,6 +207,7 @@ export default class extends Component {
           )}
         </div>
       </div>
+      </body>
     );
     }
 }

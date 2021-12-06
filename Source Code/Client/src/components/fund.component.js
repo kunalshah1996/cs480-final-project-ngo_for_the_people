@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FundsDataService from "../services/donor.service";
+import FundsDataService from "../services/fund.service";
 
 export default class Fund extends Component {
   constructor(props) {
@@ -78,7 +78,7 @@ export default class Fund extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -95,7 +95,7 @@ export default class Fund extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -107,7 +107,7 @@ export default class Fund extends Component {
         this.props.history.push('/funds')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -115,10 +115,11 @@ export default class Fund extends Component {
     const { currentFund } = this.state;
 
     return (
+      <body id = "bg">
       <div>
         {currentFund ? (
-          <div className="edit-form">
-            <h4>Fund ID</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id = "fontc">Fund ID</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="fund_donation_id">Fund ID : </label>
@@ -188,6 +189,7 @@ export default class Fund extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -21,11 +22,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(240, 232, 232);
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ececec;
 }
 
 @keyframes App-logo-spin {
@@ -50,4 +51,11 @@
 .edit-form {
   max-width: 300px;
   margin: auto;
+}
+.main{
+  background-color: black;
+}
+
+.crud{
+  align-items: right;
 }

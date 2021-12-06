@@ -53,11 +53,13 @@ exports.findAll = (req, res) => {
 // Find a single cause with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-  
+    console.log(id);
+    console.log("IN find one")
     Cause.findByPk(id)
       .then(data => {
         if (data) {
           res.send(data);
+          console.log("in find pk",data)
         } else {
           res.status(404).send({
             message: `Cannot find cause with id=${id}.`
@@ -85,13 +87,13 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Tutorial with id=${id}. Maybe the cause was not found or req.body is empty!`
+            message: `Cannot update Cause with id=${id}. Maybe the cause was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Tutorial with id=" + id
+          message: "Error updating Cause with id=" + id
         });
       });
   };

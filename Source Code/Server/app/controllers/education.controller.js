@@ -40,6 +40,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     const cause_id = req.query.cause_id;
+    console.log('in findall',req.query.cause_id)
     var condition = cause_id ? { cause_id: { [Op.like]: `%${cause_id}%` } } : null;
     console.log(`condition`, condition)
     Education.findAll({ where: condition })
@@ -89,13 +90,13 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Tutorial with id=${id}. Maybe Cause was not found or req.body is empty!`
+            message: `Cannot update Education with id=${id}. Maybe Cause was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Tutorial with id=" + id
+          message: "Error updating Education with id=" + id
         });
       });
   };

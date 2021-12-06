@@ -26,6 +26,7 @@ class ReceiverDataService {
   }
 
   findById(id) {
+    console.log("in ds")
     return http.get(`/receivers?receiver_id=${id}`);
   }
 }

@@ -26,6 +26,7 @@ class CampaignDataService {
   }
 
   findById(id) {
+    console.log("in ds")
     return http.get(`/campaigns?campaign_id=${id}`);
   }
 }

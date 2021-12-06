@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import QueriesDataService from "../services/queries.service";
 import { Link } from "react-router-dom";
-//import '../employee.css';
+import '../employee.css';
+import '../queries.css'
 // export default EmployeesList;
 
 export default class extends Component {
@@ -68,42 +69,34 @@ export default class extends Component {
   
   render() {
     return (
+      <body id = "bg1">
       <div>
+        <div id = 'complex'>
+          <h3> Complex Queries : </h3>
         <div>
-          <h4>Employees in ascending order of their names which are employed for active Educational cause</h4>
+          <h4 id='query1'>Employees handling active Educational Causes</h4>
           </div>
       <button
           className="btn btn-outline-secondary"
           id="add_btn"
           type="button"
           onClick={this.employees_education}
-      >
-      Select
+        >
+        Select
       </button>
       <div>
-          <h4>Selecting the employees who are not handling any campaigns.</h4>
-          </div>
-      <button
-          className="btn btn-outline-secondary"
-          id="add_btn"
-          type="button"
-          onClick={this.free_employees}
-      >
-      Select
-      </button>
-      <div>
-          <h4>Retrieve the donor ID and name whose donation has not been received yet.</h4>
+          <h4 id = "query1"> Donors whose donation has not been received yet </h4>
       </div>
       <button
           className="btn btn-outline-secondary"
           id="add_btn"
           type="button"
           onClick={this.incomplete_donation}
-      >
-      Select
+        >
+        Select
       </button>
       <div>
-          <h4>Selecting all the donation items with their quantities that are available</h4>
+        <h4 id = 'query1'>Available donation items and their quantities</h4>
       </div>
       <button
           className="btn btn-outline-secondary"
@@ -114,7 +107,25 @@ export default class extends Component {
       Select
       </button>
       <div>
-          <h4>Find budget of city</h4>
+          <h4 id = 'query1'>Employees who are not handling any campaigns</h4>
+          </div>
+      <button
+          className="btn btn-outline-secondary"
+          id="add_btn"
+          type="button"
+          onClick={this.free_employees}
+      >
+      Select
+      </button>
+      
+      </div>
+
+      
+      <div id = 'aggregate'>
+        <h3> Aggregate Queries : </h3>
+
+      <div>
+          <h4 id ='query1'>Budget of city</h4>
       </div>
       <button
           className="btn btn-outline-secondary"
@@ -125,7 +136,7 @@ export default class extends Component {
       Select
       </button>
       <div>
-          <h4>Find total allocated funds</h4>
+          <h4 id ='query1'>Total allocated funds</h4>
       </div>
       <button
           className="btn btn-outline-secondary"
@@ -136,40 +147,7 @@ export default class extends Component {
       Select
       </button>
       <div>
-          <h4>Find active causes</h4>
-      </div>
-      <button
-          className="btn btn-outline-secondary"
-          id="add_btn"
-          type="button"
-          onClick={this.active_causes}
-      >
-      Select
-      </button>
-      <div>
-          <h4>Find budget of online causes</h4>
-      </div>
-      <button
-          className="btn btn-outline-secondary"
-          id="add_btn"
-          type="button"
-          onClick={this.budget_online}
-      >
-      Select
-      </button>
-      <div>
-          <h4>Find employee designations in Public Relations Department</h4>
-      </div>
-      <button
-          className="btn btn-outline-secondary"
-          id="add_btn"
-          type="button"
-          onClick={this.designation_pr}
-      >
-      Select
-      </button>
-      <div>
-          <h4>Remove the trailing spaces from the employee names</h4>
+          <h4 id='query1'>Remove the trailing spaces from the Employee name</h4>
       </div>
       <button
           className="btn btn-outline-secondary"
@@ -180,7 +158,7 @@ export default class extends Component {
       Select
       </button>
       <div>
-          <h4>Display the count of each donation type greater than input value</h4>
+          <h4 id='query1'>Count of each donation type greater than the input value</h4>
       </div>
       <button
           className="btn btn-outline-secondary"
@@ -190,8 +168,48 @@ export default class extends Component {
       >
       Select
       </button>
+
+      </div>
+
+      <div id ='simple'>
+        <h3> Simple Queries :</h3>
       <div>
-          <h4> Select employees who joined the organization between two user-defined dates</h4>
+          <h4 id ='query1'>Active causes</h4>
+      </div>
+      <button
+          className="btn btn-outline-secondary"
+          id="add_btn"
+          type="button"
+          onClick={this.active_causes}
+      >
+      Select
+      </button>
+      <div>
+          <h4 id='query1'> Budget of online causes</h4>
+      </div>
+      <button
+          className="btn btn-outline-secondary"
+          id="add_btn"
+          type="button"
+          onClick={this.budget_online}
+      >
+      Select
+      </button>
+      <div>
+          <h4 id = 'query1'> Employee designations in Public Relations Department</h4>
+      </div>
+      <button
+          className="btn btn-outline-secondary"
+          id="add_btn"
+          type="button"
+          onClick={this.designation_pr}
+      >
+      Select
+      </button>
+      
+      
+      <div>
+          <h4 id = 'query1'> Employees who joined the organization between two user-defined dates</h4>
       </div>
       <button
           className="btn btn-outline-secondary"
@@ -202,6 +220,8 @@ export default class extends Component {
       Select
       </button>
       </div>
+      </div>
+      </body>
       
      
       

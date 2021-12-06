@@ -29,19 +29,6 @@ export default class Cause extends Component {
     this.getCause(this.props.match.params.id);
   }
 
-//   onChangeEmployee_id(e) {
-//     const employee_id = e.target.value;
-
-//     this.setState(function(prevState) {
-//       return {
-//         currentEmployee: {
-//           ...prevState.currentEmployee,
-//           employee_id: employee_id
-//         }
-//       };
-//     });
-//   }
-
   onChangeCause_type(e) {
     const cause_type = e.target.value;
     
@@ -78,6 +65,7 @@ export default class Cause extends Component {
   
 
   getCause(id) {
+    console.log("get cause",id)
     CauseDataService.get(id)
       .then(response => {
         this.setState({
@@ -86,7 +74,7 @@ export default class Cause extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -103,7 +91,7 @@ export default class Cause extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -115,7 +103,7 @@ export default class Cause extends Component {
         this.props.history.push('/causes')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -123,10 +111,11 @@ export default class Cause extends Component {
     const { currentCause } = this.state;
 
     return (
+      <body id ="bg">
       <div>
         {currentCause ? (
-          <div className="edit-form">
-            <h4>Cause</h4>
+          <div className="edit-form" id ="fifth">
+            <h4 id ="fontc">Cause</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="cause_id">ID</label>
@@ -197,6 +186,7 @@ export default class Cause extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

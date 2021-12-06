@@ -38,8 +38,9 @@ exports.create = (req, res) => {
 
 // Retrieve all Employees from the database.
 exports.findAll = (req, res) => {
-    const campaign__id = req.query.campaign__id;
-    var condition = campaign__id ? { campaign__id: { [Op.like]: `%${campaign__id}%` } } : null;
+    const campaign_id = req.query.campaign_id;
+    console.log(campaign_id);
+    var condition = campaign_id ? { campaign_id: { [Op.like]: `%${campaign_id}%` } } : null;
     console.log(`condition of findall`, condition)
     Campaign.findAll({ where: condition })
       .then(data => {
@@ -56,7 +57,6 @@ exports.findAll = (req, res) => {
 // Find a single Campaign with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-  
     Campaign.findByPk(id)
       .then(data => {
         if (data) {
@@ -88,13 +88,13 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Tutorial with id=${id}. Maybe Campaign was not found or req.body is empty!`
+            message: `Cannot update Campaign with id=${id}. Maybe Campaign was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Tutorial with id=" + id
+          message: "Error updating Campaign with id=" + id
         });
       });
   };

@@ -36,7 +36,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Funds from the database.
 exports.findAll = (req, res) => {
-    const fund_donation_id = req.query.fund_donation_id;
+    const fund_donation_id = req.query.fund_id;
     var condition = fund_donation_id ? { fund_donation_id: { [Op.like]: `%${fund_donation_id}%` } } : null;
     console.log(`condition`, condition)
     Fund.findAll({ where: condition })

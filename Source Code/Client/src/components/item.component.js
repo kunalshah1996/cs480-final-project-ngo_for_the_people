@@ -84,7 +84,7 @@ export default class Item extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -101,7 +101,7 @@ export default class Item extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -113,7 +113,7 @@ export default class Item extends Component {
         this.props.history.push('/items')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -121,10 +121,11 @@ export default class Item extends Component {
     const { currentItem } = this.state;
 
     return (
+      <body id = "bg">
       <div>
         {currentItem ? (
-          <div className="edit-form">
-            <h4>Item</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id = "fontc">Item</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="donation_id">Donation ID</label>
@@ -192,6 +193,7 @@ export default class Item extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

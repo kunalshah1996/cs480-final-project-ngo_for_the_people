@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import HealthDataService from "../services/health.service";
 import { Link } from "react-router-dom";
-
+import '../health.css';
 // export default EmployeesList;
 
 export default class extends Component {
@@ -46,7 +46,7 @@ export default class extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -72,7 +72,7 @@ export default class extends Component {
         this.refreshList();
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -80,12 +80,12 @@ export default class extends Component {
     HealthDataService.findById(this.state.searchCause_id)
       .then(response => {
         this.setState({
-          employees: response.data
+          healths: response.data
         });
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
   addHealth() {
@@ -96,13 +96,15 @@ export default class extends Component {
     const { searchCause_id, healths, currentHealth, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
+      <body id ="bg">
+      <div className="list row" id = "first">
+        <div className="col-md-8" id = "third">
+          <div className="input-group mb-3" id = "search">
             <input
               type="text"
               className="form-control"
-              placeholder="Search by cause_id"
+              placeholder="Search by ID of the Cause"
+              id = "fourth"
               value={searchCause_id}
               onChange={this.onChangeSearchCause_id}
             />
@@ -110,6 +112,7 @@ export default class extends Component {
               <button
                 className="btn btn-outline-secondary"
                 type="button"
+                id = "search_btn"
                 onClick={this.searchCause_id}
               >
                 Search
@@ -128,8 +131,8 @@ export default class extends Component {
           </div>
           
         </div>
-        <div className="col-md-6">
-          <h4>Health Causes List</h4>
+        <div className="col-md-6" id = "health1">
+          <h4>List of Health Causes </h4>
 
           <ul className="list-group">
             {healths &&
@@ -190,7 +193,7 @@ export default class extends Component {
               </div>
               <div>
                 <label>
-                  <strong>contact (point of contact)</strong>
+                  <strong>Contact (point of contact)</strong>
                 </label>{" "}
                 {currentHealth.poc_contact}
               </div>
@@ -211,6 +214,7 @@ export default class extends Component {
           )}
         </div>
       </div>
+      </body>
     );
     }
 }

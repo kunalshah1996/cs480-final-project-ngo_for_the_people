@@ -43,7 +43,7 @@ export default class CountDonation extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -68,7 +68,15 @@ export default class CountDonation extends Component {
               <button onClick={this.showDonation} className="mt-3 btn btn-success">
                 Submit
               </button>
-              <div>{submitted &&
+              <div>{!donation_count &&
+                <div>
+                    <label>
+                  <strong>No donation found greater than mentioned value </strong>
+                </label>{" "}
+                </div>
+
+}</div>
+              <div>{(submitted && donation_count) &&
             <div>
           <div className="col-md-6">
                 <label>
@@ -83,8 +91,8 @@ export default class CountDonation extends Component {
                  {donation_count.donation_type}
                  
               </div>
-            </div>
-            
+           
+           </div>
             }</div>
           </div>
             

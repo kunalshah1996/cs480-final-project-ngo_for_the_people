@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DonationDataService from "../services/donation.service";
-
+import '../donation.css';
 export default class AddDonation extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +70,7 @@ export default class AddDonation extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -86,7 +86,8 @@ export default class AddDonation extends Component {
 
   render() {
     return (
-        <div className="submit-form">
+      <body id = "bg">
+        <div className="submit-form" id = "second">
           {this.state.submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
@@ -96,7 +97,7 @@ export default class AddDonation extends Component {
             </div>
           ) : (
             <div>
-              <div className="form-group">
+              <div className="form-group" id = "form">
                 <label htmlFor="title">Donation ID : </label>
                 <input
                   type="text"
@@ -148,12 +149,13 @@ export default class AddDonation extends Component {
               </div>
 
   
-              <button onClick={this.saveDonation} className="mt-3 btn btn-success">
+              <button onClick={this.saveDonation} className="mt-3 btn btn-success" id = "button">
                 Submit
               </button>
             </div>
           )}
         </div>
+        </body>
           
       );
   }

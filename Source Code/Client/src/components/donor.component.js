@@ -77,7 +77,7 @@ export default class Donor extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -114,10 +114,11 @@ export default class Donor extends Component {
     const { currentDonor } = this.state;
 
     return (
+      <body id = "bg">
       <div>
         {currentDonor ? (
-          <div className="edit-form">
-            <h4>Donor</h4>
+          <div className="edit-form" id = "fifth">
+            <h4 id = "fontc">Donor</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="donor_id">ID</label>
@@ -187,6 +188,7 @@ export default class Donor extends Component {
           </div>
         )}
       </div>
+      </body>
     );
   }
 

@@ -46,16 +46,17 @@ export default class Login extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(`Err: ${e.message}`);
+        alert(`Err: ${e.message}`);
         sessionStorage.setItem("login", false)
       });
   }
 
   render() {
     return (
-      <div className="main">
-        <h1 className="login">LOGIN</h1>
-        <div className="submit-form">
+      <body id = "bg">
+      <div className="main" id = "loginf">
+        <h1 className="login" id = "fontl">LOGIN</h1>
+        <div className="submit-form" id = "forml1"> 
           {this.state.submitted ? (
             <div>
               <h4>You logged in successfully!</h4>
@@ -65,7 +66,7 @@ export default class Login extends Component {
             </div>
           ) : (
             <div>
-              <div className="form-group" >
+              <div className="form-group" id = "form1" >
                 <label htmlFor="email">Email</label>
                 <input
                   type="text"
@@ -79,7 +80,7 @@ export default class Login extends Component {
                 />
               </div>
   
-              <div className="form-group">
+              <div className="form-group" id = "form1">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
@@ -92,13 +93,14 @@ export default class Login extends Component {
                 />
               </div>
   
-              <button onClick={this.login} className="mt-3 btn btn-success">
+              <button onClick={this.login} className="mt-3 btn btn-success" id = "button">
                 Login
               </button>
             </div>
           )}
         </div>
         </div>
+        </body>
       );
   }
 }

@@ -28,7 +28,7 @@ export default class extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

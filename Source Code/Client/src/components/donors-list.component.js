@@ -45,7 +45,7 @@ export default class extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -95,13 +95,15 @@ export default class extends Component {
     const { searchDonor_id, donors, currentDonor, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
+      <body id ="bg">
+      <div className="list row" id = "first">
+        <div className="col-md-8" id = "third">
+          <div className="input-group mb-3" id= "search">
             <input
               type="text"
               className="form-control"
-              placeholder="Search by donor_id"
+              placeholder="Search by ID of the Donor"
+              id = "fourth"
               value={searchDonor_id}
               onChange={this.onChangeSearchDonor_id}
             />
@@ -109,6 +111,7 @@ export default class extends Component {
               <button
                 className="btn btn-outline-secondary"
                 type="button"
+                id= "search_btn"
                 onClick={this.searchDonor_id}
               >
                 Search
@@ -127,7 +130,7 @@ export default class extends Component {
           </div>
           
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6"id = "donor1">
           <h4>Donors List</h4>
 
           <ul className="list-group">
@@ -153,7 +156,7 @@ export default class extends Component {
             Remove All
           </button> */}
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6" >
           {currentDonor ? (
             <div>
               <h4>Donor</h4>
@@ -198,6 +201,7 @@ export default class extends Component {
           )}
         </div>
       </div>
+      </body>
     );
     }
 }

@@ -56,7 +56,7 @@ exports.free_employees= (req, res) => {
             });
           } else {
             res.send({
-              message: `Cannot update Employee with. Maybe Employee was not found or req.body is empty!`
+              message: `Cannot retrieve Employees.`
             });
           }
        });
@@ -73,7 +73,7 @@ exports.donation_quantity= (req, res) => {
             });
           } else {
             res.send({
-              message: `Cannot update Employee with. Maybe Employee was not found or req.body is empty!`
+              message: `Cannot retrieve the data`
             });
           }
        });
@@ -93,7 +93,7 @@ exports.budget_city = (req, res) => {
          });
        } else {
          res.send({
-           message: `Cannot update Employee with. Maybe Employee was not found or req.body is empty!`
+           message: `Cannot retrieve data`
          });
        }
      });
@@ -110,7 +110,7 @@ exports.allocated_funds= (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Employee with. Maybe Employee was not found or req.body is empty!`
+            message: `Cannot retrieve data`
           });
         }
      });

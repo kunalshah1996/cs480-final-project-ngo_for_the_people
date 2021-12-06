@@ -26,6 +26,7 @@ class EducationDataService {
   }
 
   findById(id) {
+    console.log("In ds")
     return http.get(`/educations?cause_id=${id}`);
   }
 }

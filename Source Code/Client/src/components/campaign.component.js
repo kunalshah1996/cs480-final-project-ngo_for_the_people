@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import '../campaign.css';
 import CampaignDataService from "../services/campaign.service";
+import '../campaign.css';
 
 export default class Campaign extends Component {
   constructor(props) {
@@ -98,7 +100,7 @@ export default class Campaign extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -115,7 +117,7 @@ export default class Campaign extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -127,20 +129,36 @@ export default class Campaign extends Component {
         this.props.history.push('/campaigns')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
   render() {
     const { currentCampaign } = this.state;
+    const CampaignStyle = {
+      backgroundColor: 'red',
+      borderRadius: '50%',
+      width:'40em',
+      height:'2.25em',
+      textAlign:'center',
+      paddingTop: '0.75em',
+      display:'inline-block',
+      marginRight: '0.5em',
+      marginTop: '1em',
+      color:'white',
+      fontWeight: 'bold',
+      fontSize: '1.5em'
+    }
 
     return (
-      <div>
+
+      <body>
+      <div style={CampaignStyle}>
         {currentCampaign ? (
           <div className="edit-form">
             <h4>Campaign</h4>
             <form>
-              <div className="form-group">
+              <div className="form-group" >
                 <label htmlFor="campaign_id">ID</label>
                 <input
                   type="text"
@@ -223,10 +241,11 @@ export default class Campaign extends Component {
         ) : (
           <div>
             <br />
-            <p>Please click on a Campaign</p>
+            <p>Please click on a Campaign!</p>
           </div>
         )}
       </div>
+      </body>
     );
   }
 
