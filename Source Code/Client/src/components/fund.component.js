@@ -78,7 +78,7 @@ export default class Fund extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -95,7 +95,7 @@ export default class Fund extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -107,7 +107,7 @@ export default class Fund extends Component {
         this.props.history.push('/funds')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

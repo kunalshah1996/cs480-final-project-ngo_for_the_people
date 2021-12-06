@@ -75,7 +75,7 @@ export default class AddDonor extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

@@ -102,6 +102,7 @@ export default class AddCampaign extends Component {
         console.log(response.data);
       })
       .catch(e => {
+        alert(e);
         console.log(e);
       });
   }

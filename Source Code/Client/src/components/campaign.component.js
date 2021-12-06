@@ -100,7 +100,7 @@ export default class Campaign extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -117,7 +117,7 @@ export default class Campaign extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -129,7 +129,7 @@ export default class Campaign extends Component {
         this.props.history.push('/campaigns')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -138,7 +138,7 @@ export default class Campaign extends Component {
     const CampaignStyle = {
       backgroundColor: 'red',
       borderRadius: '50%',
-      width:'3em',
+      width:'40em',
       height:'2.25em',
       textAlign:'center',
       paddingTop: '0.75em',

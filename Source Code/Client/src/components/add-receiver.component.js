@@ -105,7 +105,7 @@ export default class AddTutorial extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

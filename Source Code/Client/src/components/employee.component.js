@@ -126,7 +126,7 @@ export default class Employee extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -143,7 +143,7 @@ export default class Employee extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -155,7 +155,7 @@ export default class Employee extends Component {
         this.props.history.push('/employees')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

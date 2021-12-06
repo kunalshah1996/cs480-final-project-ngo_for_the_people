@@ -85,13 +85,13 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Tutorial with id=${id}. Maybe the cause was not found or req.body is empty!`
+            message: `Cannot update Cause with id=${id}. Maybe the cause was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Tutorial with id=" + id
+          message: "Error updating Cause with id=" + id
         });
       });
   };

@@ -84,7 +84,7 @@ export default class Item extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -101,7 +101,7 @@ export default class Item extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -113,7 +113,7 @@ export default class Item extends Component {
         this.props.history.push('/items')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

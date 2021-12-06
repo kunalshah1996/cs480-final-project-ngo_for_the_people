@@ -44,7 +44,7 @@ export default class BudgetCity extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

@@ -122,7 +122,7 @@ export default class Receiver extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -139,7 +139,7 @@ export default class Receiver extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -151,7 +151,7 @@ export default class Receiver extends Component {
         this.props.history.push('/receivers')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

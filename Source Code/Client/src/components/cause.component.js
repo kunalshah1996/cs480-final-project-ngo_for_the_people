@@ -29,19 +29,6 @@ export default class Cause extends Component {
     this.getCause(this.props.match.params.id);
   }
 
-//   onChangeEmployee_id(e) {
-//     const employee_id = e.target.value;
-
-//     this.setState(function(prevState) {
-//       return {
-//         currentEmployee: {
-//           ...prevState.currentEmployee,
-//           employee_id: employee_id
-//         }
-//       };
-//     });
-//   }
-
   onChangeCause_type(e) {
     const cause_type = e.target.value;
     
@@ -86,7 +73,7 @@ export default class Cause extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -103,7 +90,7 @@ export default class Cause extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -115,7 +102,7 @@ export default class Cause extends Component {
         this.props.history.push('/causes')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

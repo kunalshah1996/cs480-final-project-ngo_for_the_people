@@ -47,7 +47,7 @@ export default class extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -73,7 +73,7 @@ export default class extends Component {
         this.refreshList();
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -81,12 +81,11 @@ export default class extends Component {
     EducationDataService.findById(this.state.searchCause_id)
       .then(response => {
         this.setState({
-          employees: response.data
+          educations: response.data
         });
-        console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
   addEducation() {

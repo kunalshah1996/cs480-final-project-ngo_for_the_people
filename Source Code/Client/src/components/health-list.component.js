@@ -46,7 +46,7 @@ export default class extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -72,7 +72,7 @@ export default class extends Component {
         this.refreshList();
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -80,12 +80,12 @@ export default class extends Component {
     HealthDataService.findById(this.state.searchCause_id)
       .then(response => {
         this.setState({
-          employees: response.data
+          healths: response.data
         });
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
   addHealth() {

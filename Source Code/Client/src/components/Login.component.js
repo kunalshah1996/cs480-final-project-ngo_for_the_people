@@ -46,7 +46,7 @@ export default class Login extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(`Err: ${e.message}`);
+        alert(`Err: ${e.message}`);
         sessionStorage.setItem("login", false)
       });
   }

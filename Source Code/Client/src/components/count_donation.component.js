@@ -43,7 +43,7 @@ export default class CountDonation extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 

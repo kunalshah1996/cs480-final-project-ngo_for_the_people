@@ -31,7 +31,6 @@ export default class extends Component {
 
   onChangeSearchCampaign_id(e) {
     const searchCampaign_id = e.target.value;
-
     this.setState({
       searchCampaign_id: searchCampaign_id
     });
@@ -77,16 +76,16 @@ export default class extends Component {
   }
 
   searchCampaign_id() {
+    console.log("on button click")
     CampaignDataService.findById(this.state.searchCampaign_id)
       .then(response => {
-        console.log(response);
         this.setState({
           campaigns: response.data
         });
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
   addCampaign() {
@@ -151,12 +150,6 @@ export default class extends Component {
               ))}
           </ul>
 
-          {/* <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllEmployees}
-          >
-            Remove All
-          </button> */}
         </div>
         <div className="col-md-6">
           {currentCampaign ? (

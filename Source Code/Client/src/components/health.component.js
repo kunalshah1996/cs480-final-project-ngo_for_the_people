@@ -111,7 +111,7 @@ export default class Health extends Component {
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -128,7 +128,7 @@ export default class Health extends Component {
         });
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
@@ -140,7 +140,7 @@ export default class Health extends Component {
         this.props.history.push('/healths')
       })
       .catch(e => {
-        console.log(e);
+        alert(e);
       });
   }
 
