@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FundsDataService from "../services/donor.service";
+import FundsDataService from "../services/fund.service";
 
 export default class Fund extends Component {
   constructor(props) {

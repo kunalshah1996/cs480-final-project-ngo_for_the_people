@@ -6,7 +6,8 @@ class CauseDataService {
   }
 
   get(id) {
-    return http.get(`/causes${id}`);
+    console.log("in ds")
+    return http.get(`/causes/${id}`);
   }
 
   create(data) {

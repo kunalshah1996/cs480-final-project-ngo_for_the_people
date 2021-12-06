@@ -65,6 +65,7 @@ export default class Cause extends Component {
   
 
   getCause(id) {
+    console.log("get cause",id)
     CauseDataService.get(id)
       .then(response => {
         this.setState({

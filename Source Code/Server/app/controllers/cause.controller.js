@@ -53,11 +53,13 @@ exports.findAll = (req, res) => {
 // Find a single cause with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-  
+    console.log(id);
+    console.log("IN find one")
     Cause.findByPk(id)
       .then(data => {
         if (data) {
           res.send(data);
+          console.log("in find pk",data)
         } else {
           res.status(404).send({
             message: `Cannot find cause with id=${id}.`

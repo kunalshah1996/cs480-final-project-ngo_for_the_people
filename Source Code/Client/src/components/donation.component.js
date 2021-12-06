@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DonationsDataService from "../services/donor.service";
+import DonationsDataService from "../services/donation.service";
 import '../donation.css';
 export default class Donation extends Component {
   constructor(props) {
@@ -75,7 +75,7 @@ export default class Donation extends Component {
         this.setState({
           currentDonation: response.data
         });
-        console.log(response.data);
+        console.log(this.state.currentDonation)
       })
       .catch(e => {
         alert(e);
@@ -113,7 +113,7 @@ export default class Donation extends Component {
 
   render() {
     const { currentDonation } = this.state;
-
+    console.log("Current donation",currentDonation)
     return (
       <body id = "bg">
       <div>
