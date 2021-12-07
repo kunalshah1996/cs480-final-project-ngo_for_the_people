@@ -141,6 +141,8 @@ export default class Employee extends Component {
         this.setState({
           message: "The Employee was updated successfully!"
         });
+        alert("Updated successfully");
+        window.location.href = '/employees'
       })
       .catch(e => {
         alert(e);
@@ -153,6 +155,8 @@ export default class Employee extends Component {
       .then(response => {
         console.log(response.data);
         this.props.history.push('/employees')
+        alert("Deleted successfully");
+        window.location.href = '/employees'
       })
       .catch(e => {
         alert(e);

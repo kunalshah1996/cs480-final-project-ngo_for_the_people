@@ -93,6 +93,8 @@ export default class Donation extends Component {
         this.setState({
           message: "The Donation was updated successfully!"
         });
+        alert("Updated successfully");
+        window.location.href = '/donations'
       })
       .catch(e => {
         console.log(e);
@@ -105,6 +107,8 @@ export default class Donation extends Component {
       .then(response => {
         console.log(response.data);
         this.props.history.push('/donations')
+        alert("Deleted successfully");
+        window.location.href = '/donations'
       })
       .catch(e => {
         console.log(e);

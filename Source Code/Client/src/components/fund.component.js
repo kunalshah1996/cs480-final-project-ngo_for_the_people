@@ -93,6 +93,8 @@ export default class Fund extends Component {
         this.setState({
           message: "The Fund was updated successfully!"
         });
+        alert("Updated successfull");
+        window.location.href = '/funds'
       })
       .catch(e => {
         alert(e);
@@ -105,6 +107,9 @@ export default class Fund extends Component {
       .then(response => {
         console.log(response.data);
         this.props.history.push('/funds')
+        alert("Deleted successfully")
+        alert("Updated successfully");
+        window.location.href = '/funds'
       })
       .catch(e => {
         alert(e);

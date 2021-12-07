@@ -116,6 +116,7 @@ export default class Campaign extends Component {
           message: "The Campaign was updated successfully!"
         });
         alert("Updated successfully")
+        window.location.href = '/campaigns'
       })
       .catch(e => {
         alert(e);
@@ -128,6 +129,9 @@ export default class Campaign extends Component {
       .then(response => {
         console.log(response.data);
         this.props.history.push('/campaigns')
+        alert("Deleted successfully");
+        alert("Updated successfully");
+        window.location.href = '/campaigns'
       })
       .catch(e => {
         alert(e);

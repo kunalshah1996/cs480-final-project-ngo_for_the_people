@@ -126,6 +126,8 @@ export default class Education extends Component {
         this.setState({
           message: "The cause was updated successfully!"
         });
+        alert("Updated successfully");
+        window.location.href = '/educations'
       })
       .catch(e => {
         console.log(e);
@@ -138,6 +140,8 @@ export default class Education extends Component {
       .then(response => {
         console.log(response.data);
         this.props.history.push('/educations')
+        alert("Deleted successfully");
+        window.location.href = '/educations'
       })
       .catch(e => {
         console.log(e);
