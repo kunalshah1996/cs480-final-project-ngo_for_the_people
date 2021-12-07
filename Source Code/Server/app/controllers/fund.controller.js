@@ -5,13 +5,16 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Fund
 exports.create = (req, res) => {
-    if (!req.body.fund_id) {
+  console.log("in controller")
+      console.log(req.body)
+    if (!req.body.fund_donation_id) {
         res.status(400).send({
           message: "Content can not be empty!"
         });
         return;
       }
-    
+      
+
       // Create an Fund
       const fund = {
         fund_donation_id: req.body.fund_donation_id,

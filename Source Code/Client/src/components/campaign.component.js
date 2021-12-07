@@ -130,7 +130,6 @@ export default class Campaign extends Component {
         console.log(response.data);
         this.props.history.push('/campaigns')
         alert("Deleted successfully");
-        alert("Updated successfully");
         window.location.href = '/campaigns'
       })
       .catch(e => {
@@ -141,8 +140,6 @@ export default class Campaign extends Component {
   render() {
     const { currentCampaign } = this.state;
     const CampaignStyle = {
-      backgroundColor: 'red',
-      borderRadius: '50%',
       width:'40em',
       height:'2.25em',
       textAlign:'center',
@@ -150,7 +147,6 @@ export default class Campaign extends Component {
       display:'inline-block',
       marginRight: '0.5em',
       marginTop: '1em',
-      color:'white',
       fontWeight: 'bold',
       fontSize: '1.5em'
     }
