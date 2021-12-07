@@ -19,10 +19,6 @@ module.exports = (sequelize, Sequelize) => {
       },
       campaign_employee_id: {
         type: Sequelize.INTEGER,
-      //   references: {
-      //     model: 'employee', 
-      //     key: 'employee_id', 
-      //  }
       },
       campaign_budget: {
         type: Sequelize.INTEGER,
@@ -35,4 +31,3 @@ module.exports = (sequelize, Sequelize) => {
     })
     return Campaign;
   };
-  //Employee.hasMany(Campaign);

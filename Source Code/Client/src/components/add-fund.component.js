@@ -67,7 +67,7 @@ export default class AddFund extends Component {
           fund_status: response.data.fund_status,
           submitted: true
         });
-        console.log(response.data);
+        alert("Submitted successfully")
       })
       .catch(e => {
         alert(e);

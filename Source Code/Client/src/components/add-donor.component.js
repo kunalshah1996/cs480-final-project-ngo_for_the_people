@@ -72,7 +72,7 @@ export default class AddDonor extends Component {
           donor_contact: response.data.donor_contact,
           submitted: true
         });
-        console.log(response.data);
+        alert("submitted successfully")
       })
       .catch(e => {
         alert(e);

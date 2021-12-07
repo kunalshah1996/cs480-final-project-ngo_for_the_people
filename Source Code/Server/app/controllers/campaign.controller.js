@@ -77,9 +77,9 @@ exports.findOne = (req, res) => {
 // Update an Campaign by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
-  
+    console.log(req.body)
     Campaign.update(req.body, {
-      where: { campaign__id: id }
+      where: { campaign_id: id }
     })
       .then(num => {
         if (num == 1) {

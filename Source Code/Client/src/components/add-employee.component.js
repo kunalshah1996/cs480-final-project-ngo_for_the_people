@@ -100,7 +100,7 @@ export default class AddTutorial extends Component {
           employee_availability: response.data.employee_availability,
           submitted: true
         });
-        console.log(response.data);
+        alert("Submitted successfully")
       })
       .catch(e => {
         alert(e);
@@ -122,6 +122,7 @@ export default class AddTutorial extends Component {
   }
 
   render() {
+
     return (
       <body id = "bg">
         <div className="submit-form" id ="second"> 

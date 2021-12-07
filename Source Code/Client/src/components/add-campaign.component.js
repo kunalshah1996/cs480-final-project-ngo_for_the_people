@@ -99,7 +99,7 @@ export default class AddCampaign extends Component {
           //campaign_availability: response.data.campaign_availability,
           submitted: true
         });
-        console.log(response.data);
+        alert("submitted successfully")
       })
       .catch(e => {
         alert(e);

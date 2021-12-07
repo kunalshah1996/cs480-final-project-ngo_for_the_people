@@ -115,6 +115,7 @@ export default class Campaign extends Component {
         this.setState({
           message: "The Campaign was updated successfully!"
         });
+        alert("Updated successfully")
       })
       .catch(e => {
         alert(e);
