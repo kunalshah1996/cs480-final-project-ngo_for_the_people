@@ -195,7 +195,7 @@ exports.count_donation = (req, res) => {
   myCon.connect(function(err) {
      if (err) throw err;
      const countvalue =req.query.countvalue;
-     myCon.query("SELECT COUNT(donation_donor_id) as TOTAL_COUNT, donation_type FROM donation GROUP BY donation_type HAVING COUNT(donation_donor_id) > ?;",[countvalue],function (err, result, fields) {
+     myCon.query("SELECT SUM(i.item_quantity) as TOTAL_COUNT, d.donation_type FROM donation d inner join item i on d.donation_id=i.donation_id where d.donation_type!='Fund' GROUP BY donation_type having TOTAL_COUNT>?;",[countvalue],function (err, result, fields) {
       if (result) {
           res.send({
             result
