@@ -13,7 +13,7 @@ class QueriesDataService {
     return http.get("/queries/free_employees");
   }
 
-  donation_quantity() {
+  show_donations() {
     return http.get("/queries/donation_quantity");
   }
   budget_city(data){
