@@ -64,20 +64,20 @@ exports.free_employees= (req, res) => {
 };
 
 exports.donation_quantity= (req, res) => {
-    myCon.connect(function(err) {
-       if (err) throw err;
-       myCon.query("Select * from donation_quantity", function (err, result, fields) {
-        if (result) {
-            res.send({
-              result
-            });
-          } else {
-            res.send({
-              message: `Cannot retrieve the data`
-            });
-          }
-       });
+  myCon.connect(function(err) {
+     if (err) throw err;
+     myCon.query("select count(*) as TOTAL_DONATIONS_AVAILABLE from donor d inner join donation do on d.donor_id=do.donation_donor_id where donation_status ='Received';", function (err, result, fields) {
+      if (result) {
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `Cannot retrieve data`
+          });
+        }
      });
+   });
 };
 
 exports.budget_city = (req, res) => {
