@@ -99,10 +99,7 @@ Select * from free_employees;
 
 
 
-# Selecting all the donation items with their quantities that are available
+# Counting all the donation items with their quantities that are available
 
-CREATE VIEW donation_quantity AS
-select donor_name,donor_id,donation_type from donor d inner join donation do on d.donor_id=do.donation_donor_id where donation_status='Received';
-
-
-Select * from donation_quantity;
+select COUNT(*) as TOTAL_DONATIONS_AVAILABLE 
+from donor d inner join donation do on d.donor_id=do.donation_donor_id where donation_status ='Received';
