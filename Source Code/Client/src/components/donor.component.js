@@ -92,6 +92,8 @@ export default class Donor extends Component {
         this.setState({
           message: "The Donor was updated successfully!"
         });
+        alert("Updated successfully");
+        window.location.href = '/donors'
       })
       .catch(e => {
         console.log(e);
@@ -104,6 +106,8 @@ export default class Donor extends Component {
       .then(response => {
         console.log(response.data);
         this.props.history.push('/donors')
+        alert("Deleted successfully");
+        window.location.href = '/donors'
       })
       .catch(e => {
         console.log(e);

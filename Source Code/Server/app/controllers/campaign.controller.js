@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Campaign
 exports.create = (req, res) => {
-    if (!req.body.campaign__id) {
+    if (!req.body.campaign_id) {
         res.status(400).send({
           message: "Content can not be empty!"
         });
@@ -13,15 +13,16 @@ exports.create = (req, res) => {
       }
     
       // Create an Campaign
+      console.log(req.body)
       const campaign = {
-        campaign__id: req.body.campaign__id,
-        campaign__name: req.body.campaign__name,
-        campaign__contact: req.body.campaign__contact,
-        campaign__address: req.body.campaign__address,
-        campaign__designation: req.body.campaign__designation,
-        campaign__department: req.body.campaign__department,
-        campaign__availability: req.body.campaign__availability
+        campaign_id: req.body.campaign_id,
+        campaign_name: req.body.campaign_name,
+        campaign_details: req.body.campaign_details,
+        campaign_location: req.body.campaign_location,
+        campaign_employee_id: req.body.campaign_employee_id,
+        campaign_budget: req.body.campaign_budget,
       };
+      console.log(campaign)
     
       // Save Campaign in the database
       Campaign.create(campaign)
@@ -77,9 +78,9 @@ exports.findOne = (req, res) => {
 // Update an Campaign by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
-  
+    console.log(req.body)
     Campaign.update(req.body, {
-      where: { campaign__id: id }
+      where: { campaign_id: id }
     })
       .then(num => {
         if (num == 1) {
@@ -104,7 +105,7 @@ exports.delete = (req, res) => {
     const id = req.params.id;
   
     Campaign.destroy({
-      where: { campaign__id: id }
+      where: { campaign_id: id }
     })
       .then(num => {
         if (num == 1) {

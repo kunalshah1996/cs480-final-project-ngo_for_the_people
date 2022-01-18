@@ -10,10 +10,12 @@ class CampaignDataService {
   }
 
   create(data) {
+    console.log("in ds")
     return http.post("/campaigns", data);
   }
 
   update(id, data) {
+    
     return http.put(`/campaigns/${id}`, data);
   }
 

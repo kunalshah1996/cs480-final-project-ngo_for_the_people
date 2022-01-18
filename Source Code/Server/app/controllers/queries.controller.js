@@ -64,20 +64,20 @@ exports.free_employees= (req, res) => {
 };
 
 exports.donation_quantity= (req, res) => {
-    myCon.connect(function(err) {
-       if (err) throw err;
-       myCon.query("Select * from donation_quantity", function (err, result, fields) {
-        if (result) {
-            res.send({
-              result
-            });
-          } else {
-            res.send({
-              message: `Cannot retrieve the data`
-            });
-          }
-       });
+  myCon.connect(function(err) {
+     if (err) throw err;
+     myCon.query("select count(*) as TOTAL_DONATIONS_AVAILABLE from donor d inner join donation do on d.donor_id=do.donation_donor_id where donation_status ='Received';", function (err, result, fields) {
+      if (result) {
+          res.send({
+            result
+          });
+        } else {
+          res.send({
+            message: `Cannot retrieve data`
+          });
+        }
      });
+   });
 };
 
 exports.budget_city = (req, res) => {
@@ -195,7 +195,7 @@ exports.count_donation = (req, res) => {
   myCon.connect(function(err) {
      if (err) throw err;
      const countvalue =req.query.countvalue;
-     myCon.query("SELECT COUNT(donation_donor_id) as TOTAL_COUNT, donation_type FROM donation GROUP BY donation_type HAVING COUNT(donation_donor_id) > ?;",[countvalue],function (err, result, fields) {
+     myCon.query("SELECT SUM(i.item_quantity) as TOTAL_COUNT, d.donation_type FROM donation d inner join item i on d.donation_id=i.donation_id where d.donation_type!='Fund' GROUP BY donation_type having TOTAL_COUNT>?;",[countvalue],function (err, result, fields) {
       if (result) {
           res.send({
             result

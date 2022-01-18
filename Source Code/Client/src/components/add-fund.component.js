@@ -52,22 +52,21 @@ export default class AddFund extends Component {
   
   saveFund() {
     var data = {
-      fund_donation_id: this.state.fund_donation__id,
+      fund_donation_id: this.state.fund_donation_id,
       fund_donor_id: this.state.fund_donor_id,
       fund_amount: this.state.fund_amount,
       fund_status: this.state.fund_status
     };
-
     FundDataService.create(data)
       .then(response => {
         this.setState({
-          fund_donation_id: response.data.fund_donation__id,
+          fund_donation_id: response.data.fund_donation_id,
           fund_donor_id: response.data.fund_donor_id,
           fund_amount: response.data.fund_amount,
           fund_status: response.data.fund_status,
           submitted: true
         });
-        console.log(response.data);
+        alert("Submitted successfully")
       })
       .catch(e => {
         alert(e);

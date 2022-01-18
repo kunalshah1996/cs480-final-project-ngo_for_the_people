@@ -67,7 +67,7 @@ export default class AddDonation extends Component {
           donation_status: response.data.donation_status,
           submitted: true
         });
-        console.log(response.data);
+        alert("Submitted successfully")
       })
       .catch(e => {
         alert(e);
